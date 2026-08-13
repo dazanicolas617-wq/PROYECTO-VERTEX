@@ -1,152 +1,110 @@
 import { useState } from "react";
-
 import "./MotoCarousel.css";
 
 import Moto1 from "../assets/Moto1.jpg";
 import Moto2 from "../assets/Moto2.jpg";
 import Moto3 from "../assets/Moto3.jpg";
-import Moto4 from "../assets/Moto4.jpg";
 
+function MotosSlider() {
+  const [diapositivaActual, setDiapositivaActual] = useState(0);
 
-const motos = [
-  {
-    image: Moto1,
-    name: "Harley Davidson",
-    description: "Pure Power - Pure Presence - Pure Style"
-  },
+  const motos = [
+    {
+      imagen: Moto1,
+      alt: "Harley Davidson",
+      marca: "HARLEY DAVIDSON",
+    },
+    {
+      imagen: Moto2,
+      alt: "Royal Enfield Classic 350",
+      marca: "ROYAL ENFIELD CLASSIC 350",
+    },
+    {
+      imagen: Moto3,
+      alt: "Royal Enfield Meteor 650",
+      marca: "ROYAL ENFIELD METEOR 650",
+    },
+  ];
 
-  {
-    image: Moto2,
-    name: "Motos Vertex",
-    description: "Potencia - Diseño - Libertad"
-  },
-
-  {
-    image: Moto3,
-    name: "Vertex Adventure",
-    description: "Explora nuevos caminos"
-  },
-
-  {
-    image: Moto4,
-    name: "Vertex Classic",
-    description: "Estilo que nunca pasa de moda"
-  }
-];
-
-
-function MotoCarousel() {
-
-  const [current, setCurrent] = useState(0);
-
-
-  const previous = () => {
-
-    setCurrent(
-      current === 0
-        ? motos.length - 1
-        : current - 1
-    );
-
+  const mostrarDiapositivaAnterior = () => {
+    setDiapositivaActual((diapositivaActual - 1 + motos.length) % motos.length);
   };
 
-
-  const next = () => {
-
-    setCurrent(
-      current === motos.length - 1
-        ? 0
-        : current + 1
-    );
-
+  const mostrarDiapositivaSiguiente = () => {
+    setDiapositivaActual((diapositivaActual + 1) % motos.length);
   };
-
-
-  const moto = motos[current];
-
 
   return (
+    <>
+      <div className="contenedor_titulo">
+        <div className="titulo">
+          <span className="linea_titulo"></span>
 
-    <section
-      className="moto-carousel"
-      id="motos"
-    >
+          <h2>Motos Vertex Colombia</h2>
 
-      {/* TITULO */}
-
-      <div className="section-title">
-
-        <span></span>
-
-        <h2>
-          Motos Vertex Colombia
-        </h2>
-
-        <span></span>
-
-      </div>
-
-
-      {/* CARRUSEL */}
-
-      <div
-        className="moto-slide"
-        style={{
-          backgroundImage: `
-            linear-gradient(
-              rgba(0,0,0,0.35),
-              rgba(0,0,0,0.75)
-            ),
-            url(${moto.image})
-          `
-        }}
-      >
-
-        {/* FLECHA IZQUIERDA */}
-
-        <button
-          className="carousel-arrow left"
-          onClick={previous}
-        >
-          ‹
-        </button>
-
-
-        {/* INFORMACIÓN */}
-
-        <div className="moto-info">
-
-          <h2>
-            {moto.name}
-          </h2>
-
-          <p>
-            {moto.description}
-          </p>
-
-          <button className="explore-button">
-            EXPLORA
-          </button>
-
+          <span className="linea_titulo"></span>
         </div>
-
-
-        {/* FLECHA DERECHA */}
-
-        <button
-          className="carousel-arrow right"
-          onClick={next}
-        >
-          ›
-        </button>
-
       </div>
 
+      {/* SECCIÓN SHOWCASE DE MOTOS */}
+      <div className="seccion_motos_deslizador">
+        {motos.map((moto, indice) => (
+          <div
+            className={`diapositiva_moto ${
+              indice === diapositivaActual ? "activa" : ""
+            }`}
+            key={moto.marca}
+          >
+            <img
+              src={moto.imagen}
+              alt={moto.alt}
+              className="fondo_diapositiva"
+            />
 
-    </section>
+            <div className="capa_diapositiva"></div>
 
+            <div className="contenido_diapositiva">
+              <div className="marca_diapositiva">
+                <h2 className="marca_moto">{moto.marca}</h2>
+
+                <p className="eslogan_diapositiva">
+                  PURE POWER - PURE PRESENCE - PURE STYLE
+                </p>
+              </div>
+
+              <a href="/motos" className="boton_explorar">
+                Explora
+              </a>
+
+              <p className="aviso_diapositiva">
+                *Algunas características y accesorios mostrados en la imagen
+                pueden no hacer parte del equipamiento estándar de la
+                motocicleta.
+              </p>
+            </div>
+          </div>
+        ))}
+
+        {/* Flecha anterior */}
+        <button
+          className="flecha_deslizador flecha_izquierda"
+          aria-label="Anterior"
+          onClick={mostrarDiapositivaAnterior}
+        >
+          <span>‹</span>
+        </button>
+
+        {/* Flecha siguiente */}
+        <button
+          className="flecha_deslizador flecha_derecha"
+          aria-label="Siguiente"
+          onClick={mostrarDiapositivaSiguiente}
+        >
+          <span>›</span>
+        </button>
+      </div>
+    </>
   );
 }
 
-
-export default MotoCarousel;
+export default MotosSlider;
