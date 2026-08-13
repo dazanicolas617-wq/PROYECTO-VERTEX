@@ -6,7 +6,7 @@ function QuickActions() {
       <div className="quick-links-grid">
         <a href="/agendar-prueba" className="quick-link-card">
           <div className="quick-link-icon" aria-hidden="true">
-            🛵
+            
           </div>
 
           <h3>Agendar prueba</h3>
