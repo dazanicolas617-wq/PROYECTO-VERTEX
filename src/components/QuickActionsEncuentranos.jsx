@@ -1,13 +1,13 @@
 import "./QuickActions.css";
 
-function QuickActions() {
+function QuickActionsEncuentranos() {
   return (
     <a href="/" className="quick-link-card">
       <div className="quick-link-icon" aria-hidden="true">
-        🛵
+        📍
       </div>
 
-      <h3>Agendar prueba</h3>
+      <h3>Encuéntranos</h3>
 
       <span className="quick-link-arrow" aria-hidden="true">
         →
@@ -16,4 +16,4 @@ function QuickActions() {
   );
 }
 
-export default QuickActions;
+export default QuickActionsEncuentranos;

@@ -62,26 +62,6 @@ function AgendarPrueba() {
 
         </div>
       </section>
-
-      {/* ENCUÉNTRANOS */}
-      <section className="location-section">
-        <div className="location-card">
-
-          <div className="location-icon">
-            <span>⌖</span>
-          </div>
-
-          <div className="location-text">
-            <p>Encuéntranos</p>
-          </div>
-
-          <div className="location-arrow">
-            ›
-          </div>
-
-        </div>
-      </section>
-
     </main>
   );
 }
