@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// COMPONENTES
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import MotoCarousel from "./components/MotoCarousel";
@@ -8,6 +9,7 @@ import QuickActions from "./components/QuickActions";
 import QuickActionsEncuentranos from "./components/QuickActionsEncuentranos";
 import Footer from "./components/Footer";
 
+// PÁGINAS
 import Motos from "./pages/Motos";
 import AgendarPrueba from "./pages/AgendarPrueba";
 import Login from "./pages/Login";
@@ -16,6 +18,10 @@ import Registro from "./pages/Registro";
 import "./App.css";
 
 
+/* =====================================================
+   PÁGINA PRINCIPAL
+===================================================== */
+
 function Home() {
   return (
     <>
@@ -23,31 +29,54 @@ function Home() {
 
       <main>
 
-        {/* HERO */}
+        {/* =========================
+            HERO
+        ========================= */}
+
         <Hero />
 
-        {/* CARRUSEL DE MOTOS */}
+
+        {/* =========================
+            CARRUSEL DE MOTOS
+        ========================= */}
+
         <MotoCarousel />
 
-        {/* NOTICIAS */}
+
+        {/* =========================
+            NOTICIAS
+        ========================= */}
+
         <NewsCarousel />
 
-        {/* ENLACES RÁPIDOS */}
+
+        {/* =========================
+            ENLACES RÁPIDOS
+        ========================= */}
+
         <section className="quick-links quick-links--double">
+
           <div className="quick-links-grid">
+
             <QuickActions />
+
             <QuickActionsEncuentranos />
+
           </div>
+
         </section>
 
       </main>
 
-      {/* FOOTER */}
       <Footer />
     </>
   );
 }
 
+
+/* =====================================================
+   APP
+===================================================== */
 
 function App() {
   return (
@@ -57,9 +86,9 @@ function App() {
 
         <Routes>
 
-          {/* =========================
-              PÁGINA PRINCIPAL
-          ========================= */}
+          {/* =================================================
+              INICIO
+          ================================================= */}
 
           <Route
             path="/"
@@ -67,9 +96,9 @@ function App() {
           />
 
 
-          {/* =========================
-              PÁGINA DE MOTOS
-          ========================= */}
+          {/* =================================================
+              MOTOS
+          ================================================= */}
 
           <Route
             path="/motos"
@@ -77,14 +106,9 @@ function App() {
               <>
                 <Navbar />
 
-                <Motos />
-
-                <section className="quick-links quick-links--double">
-                  <div className="quick-links-grid">
-                    <QuickActions />
-                    <QuickActionsEncuentranos />
-                  </div>
-                </section>
+                <main>
+                  <Motos />
+                </main>
 
                 <Footer />
               </>
@@ -92,9 +116,9 @@ function App() {
           />
 
 
-          {/* =========================
-              PÁGINA AGENDAR PRUEBA
-          ========================= */}
+          {/* =================================================
+              AGENDAR PRUEBA
+          ================================================= */}
 
           <Route
             path="/agendar-prueba"
@@ -102,9 +126,9 @@ function App() {
               <>
                 <Navbar />
 
-                <AgendarPrueba />
-
-                <QuickActionsEncuentranos />
+                <main>
+                  <AgendarPrueba />
+                </main>
 
                 <Footer />
               </>
@@ -112,9 +136,9 @@ function App() {
           />
 
 
-          {/* =========================
-              PÁGINA INICIAR SESIÓN
-          ========================= */}
+          {/* =================================================
+              INICIAR SESIÓN
+          ================================================= */}
 
           <Route
             path="/login"
@@ -130,9 +154,9 @@ function App() {
           />
 
 
-          {/* =========================
-              PÁGINA CREAR CUENTA
-          ========================= */}
+          {/* =================================================
+              CREAR CUENTA
+          ================================================= */}
 
           <Route
             path="/registro"
@@ -141,6 +165,40 @@ function App() {
                 <Navbar />
 
                 <Registro />
+
+                <Footer />
+              </>
+            }
+          />
+
+
+          {/* =================================================
+              PÁGINA NO ENCONTRADA
+          ================================================= */}
+
+          <Route
+            path="*"
+            element={
+              <>
+                <Navbar />
+
+                <main
+                  style={{
+                    minHeight: "70vh",
+                    background: "#000",
+                    color: "#fff",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    flexDirection: "column",
+                  }}
+                >
+                  <h1>404</h1>
+
+                  <p>
+                    Página no encontrada
+                  </p>
+                </main>
 
                 <Footer />
               </>

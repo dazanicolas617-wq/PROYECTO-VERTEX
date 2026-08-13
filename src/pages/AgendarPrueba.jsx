@@ -1,4 +1,5 @@
 import "./AgendarPrueba.css";
+import { Link } from "react-router-dom";
 
 function AgendarPrueba() {
   return (
@@ -51,14 +52,13 @@ function AgendarPrueba() {
             cuenta.
           </p>
 
-          <button className="login-button">
+          <Link to="/login">
             INICIAR SESIÓN
-          </button>
+          </Link>
 
-          <div className="create-account">
-            ¿No tienes una cuenta?
-            <a href="#"> Crear una cuenta</a>
-          </div>
+          <Link to="/registro">
+            CREAR CUENTA
+          </Link>
 
         </div>
       </section>
