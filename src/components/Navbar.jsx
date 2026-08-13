@@ -38,8 +38,8 @@ function Navbar() {
           </a>
 
           <Link to="/agendar-prueba">
-  Agendar prueba
-</Link>
+            Agendar prueba
+          </Link>
 
         </nav>
 
