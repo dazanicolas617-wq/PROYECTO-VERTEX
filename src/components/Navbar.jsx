@@ -9,33 +9,56 @@ function Navbar() {
 
       <div className="navbar-container">
 
-        {/* LOGO */}
-        <div className="navbar-logo">
+        {/* ==================================================
+            LOGO
+        ================================================== */}
+
+        <Link
+          to="/"
+          className="navbar-logo"
+        >
           <img
             src={logo}
             alt="Vertex Moto"
           />
-        </div>
+        </Link>
 
 
-        {/* NAVEGACIÓN */}
+        {/* ==================================================
+            NAVEGACIÓN
+        ================================================== */}
+
         <nav className="navbar-links">
+
+          {/* INICIO */}
 
           <Link to="/">
             Inicio
           </Link>
 
+
+          {/* MOTOS */}
+
           <Link to="/motos">
             Motos
           </Link>
+
+
+          {/* ENCUÉNTRANOS */}
 
           <a href="#encuentranos">
             Encuéntranos
           </a>
 
-          <a href="#noticias">
+
+          {/* BLOG */}
+
+          <Link to="/blog">
             Blog
-          </a>
+          </Link>
+
+
+          {/* AGENDAR PRUEBA */}
 
           <Link to="/agendar-prueba">
             Agendar prueba
@@ -44,10 +67,16 @@ function Navbar() {
         </nav>
 
 
-        {/* BOTÓN */}
-        <button className="navbar-login">
+        {/* ==================================================
+            INICIAR SESIÓN
+        ================================================== */}
+
+        <Link
+          to="/inicio-sesion"
+          className="navbar-login"
+        >
           Iniciar sesión
-        </button>
+        </Link>
 
       </div>
 
