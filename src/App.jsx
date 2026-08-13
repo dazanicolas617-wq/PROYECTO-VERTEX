@@ -12,6 +12,9 @@ import Footer from "./components/Footer";
 // PÁGINAS
 import Motos from "./pages/Motos";
 import AgendarPrueba from "./pages/AgendarPrueba";
+
+import Blog from "./pages/Blog";
+
 import Login from "./pages/Login";
 import Registro from "./pages/Registro";
 
@@ -172,6 +175,16 @@ function App() {
           />
 
 
+          {/* =========================
+              PÁGINA BLOG
+          ========================= */}
+
+          <Route
+            path="/blog"
+            element={<Blog />}
+          />
+
+
           {/* =================================================
               PÁGINA NO ENCONTRADA
           ================================================= */}
@@ -203,6 +216,7 @@ function App() {
                 <Footer />
               </>
             }
+
           />
 
         </Routes>
