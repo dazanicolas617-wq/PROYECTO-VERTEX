@@ -5,9 +5,11 @@ import Hero from "./components/Hero";
 import MotoCarousel from "./components/MotoCarousel";
 import NewsCarousel from "./components/NewsCarousel";
 import QuickActions from "./components/QuickActions";
+import QuickActionsEncuentranos from "./components/QuickActionsEncuentranos";
 import Footer from "./components/Footer";
 
 import Motos from "./pages/Motos";
+import AgendarPrueba from "./pages/AgendarPrueba";
 
 import "./App.css";
 
@@ -29,7 +31,12 @@ function Home() {
         <NewsCarousel />
 
         {/* ENLACES RÁPIDOS */}
-        <QuickActions />
+        <section className="quick-links">
+          <div className="quick-links-grid">
+            <QuickActions />
+            <QuickActionsEncuentranos />
+          </div>
+        </section>
 
       </main>
 
@@ -69,6 +76,28 @@ function App() {
                 <Navbar />
 
                 <Motos />
+
+                <QuickActions />
+
+                <Footer />
+              </>
+            }
+          />
+
+
+          {/* =========================
+              PÁGINA AGENDAR PRUEBA
+          ========================= */}
+
+          <Route
+            path="/agendar-prueba"
+            element={
+              <>
+                <Navbar />
+
+                <AgendarPrueba />
+
+                <QuickActions />
 
                 <Footer />
               </>
