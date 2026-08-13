@@ -34,7 +34,7 @@ const motos = [
     id: 1,
     nombre: "Meteor 350",
     imagen: Moto1,
-    precio: "$17.790.000 COP",
+    precio: "$18.990.000 COP",
     categoria: "Cruiser",
     cilindrada: "349 cc",
     descripcion:
@@ -45,7 +45,7 @@ const motos = [
     id: 2,
     nombre: "HNTR 350",
     imagen: Moto2,
-    precio: "$14.990.000 COP",
+    precio: "$17.990.000 COP",
     categoria: "Roadster",
     cilindrada: "349 cc",
     descripcion:
@@ -56,7 +56,7 @@ const motos = [
     id: 3,
     nombre: "Classic 350",
     imagen: Moto3,
-    precio: "$14.990.000 COP",
+    precio: "$18.990.000 COP",
     categoria: "Clásica",
     cilindrada: "349 cc",
     descripcion:
@@ -67,7 +67,7 @@ const motos = [
     id: 4,
     nombre: "Super Meteor 650",
     imagen: Moto4,
-    precio: "$31.990.000 COP",
+    precio: "$32.990.000 COP",
     categoria: "Cruiser",
     cilindrada: "648 cc",
     descripcion:
@@ -78,7 +78,7 @@ const motos = [
     id: 5,
     nombre: "Interceptor 650",
     imagen: Moto5,
-    precio: "$29.990.000 COP",
+    precio: "$31.990.000 COP",
     categoria: "Roadster",
     cilindrada: "648 cc",
     descripcion:
@@ -89,7 +89,7 @@ const motos = [
     id: 6,
     nombre: "Shotgun 650",
     imagen: Moto6,
-    precio: "$31.990.000 COP",
+    precio: "$32.990.000 COP",
     categoria: "Custom",
     cilindrada: "648 cc",
     descripcion:
@@ -100,7 +100,7 @@ const motos = [
     id: 7,
     nombre: "GRR 450",
     imagen: Moto7,
-    precio: "$27.990.000 COP",
+    precio: "$23.990.000 COP",
     categoria: "Adventure",
     cilindrada: "452 cc",
     descripcion:
@@ -109,55 +109,55 @@ const motos = [
 
   {
     id: 8,
-    nombre: "GRR 650",
+    nombre: "New Himalayan 450",
     imagen: Moto8,
-    precio: "$31.990.000 COP",
+    precio: "$25.990.000 COP",
     categoria: "Adventure",
-    cilindrada: "648 cc",
+    cilindrada: "452 cc",
     descripcion:
       "Una motocicleta preparada para afrontar diferentes caminos combinando capacidad, tecnología y comodidad."
   },
 
   {
     id: 9,
-    nombre: "GRR 800",
+    nombre: "Bear 650",
     imagen: Moto9,
-    precio: "$35.990.000 COP",
-    categoria: "Adventure",
-    cilindrada: "798 cc",
+    precio: "$29.990.000 COP",
+    categoria: "Scrambler",
+    cilindrada: "648 cc",
     descripcion:
       "Una motocicleta preparada para afrontar diferentes caminos combinando capacidad, tecnología y comodidad."
   },
 
   {
     id: 10,
-    nombre: "GRR 1000",
+    nombre: "Scram 411",
     imagen: Moto10,
-    precio: "$39.990.000 COP",
-    categoria: "Adventure",
-    cilindrada: "998 cc",
+    precio: "$21.990.000 COP",
+    categoria: "Scrambler",
+    cilindrada: "411 cc",
     descripcion:
       "Una motocicleta preparada para afrontar diferentes caminos combinando capacidad, tecnología y comodidad."
   },
 
   {
     id: 11,
-    nombre: "GRR 1200",
+    nombre: "Himalayan 411",
     imagen: Moto11,
-    precio: "$43.990.000 COP",
+    precio: "$22.990.000 COP",
     categoria: "Adventure",
-    cilindrada: "1198 cc",
+    cilindrada: "411 cc",
     descripcion:
       "Una motocicleta preparada para afrontar diferentes caminos combinando capacidad, tecnología y comodidad."
   },
   
   {
     id: 12,
-    nombre: "GRR 1500",
+    nombre: "KTM Adventure 390",
     imagen: Moto12,
-    precio: "$47.990.000 COP",
+    precio: "$26.990.000 COP",
     categoria: "Adventure",
-    cilindrada: "1498 cc",
+    cilindrada: "373 cc",
     descripcion:
       "Una motocicleta preparada para afrontar diferentes caminos combinando capacidad, tecnología y comodidad."
   }
