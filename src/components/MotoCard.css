@@ -12,6 +12,10 @@
   border-color: #2f5cff;
 }
 
+.moto-card:active {
+  transform: scale(0.97);
+}
+
 
 /* =========================
    IMAGEN
