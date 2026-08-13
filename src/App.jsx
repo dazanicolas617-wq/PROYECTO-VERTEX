@@ -10,7 +10,11 @@ import Footer from "./components/Footer";
 
 import Motos from "./pages/Motos";
 import AgendarPrueba from "./pages/AgendarPrueba";
+
 import Blog from "./pages/Blog";
+
+import Login from "./pages/Login";
+import Registro from "./pages/Registro";
 
 import "./App.css";
 
@@ -32,7 +36,7 @@ function Home() {
         <NewsCarousel />
 
         {/* ENLACES RÁPIDOS */}
-        <section className="quick-links">
+        <section className="quick-links quick-links--double">
           <div className="quick-links-grid">
             <QuickActions />
             <QuickActionsEncuentranos />
@@ -78,7 +82,12 @@ function App() {
 
                 <Motos />
 
-                <QuickActions />
+                <section className="quick-links quick-links--double">
+                  <div className="quick-links-grid">
+                    <QuickActions />
+                    <QuickActionsEncuentranos />
+                  </div>
+                </section>
 
                 <Footer />
               </>
@@ -98,7 +107,43 @@ function App() {
 
                 <AgendarPrueba />
 
-                <QuickActions />
+                <QuickActionsEncuentranos />
+
+                <Footer />
+              </>
+            }
+          />
+
+
+          {/* =========================
+              PÁGINA INICIAR SESIÓN
+          ========================= */}
+
+          <Route
+            path="/login"
+            element={
+              <>
+                <Navbar />
+
+                <Login />
+
+                <Footer />
+              </>
+            }
+          />
+
+
+          {/* =========================
+              PÁGINA CREAR CUENTA
+          ========================= */}
+
+          <Route
+            path="/registro"
+            element={
+              <>
+                <Navbar />
+
+                <Registro />
 
                 <Footer />
               </>
