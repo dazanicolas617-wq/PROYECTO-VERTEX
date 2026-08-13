@@ -71,10 +71,7 @@ function Navbar() {
             INICIAR SESIÓN
         ================================================== */}
 
-        <Link
-          to="/inicio-sesion"
-          className="navbar-login"
-        >
+        <Link to="/login" className="navbar-login">
           Iniciar sesión
         </Link>
 
