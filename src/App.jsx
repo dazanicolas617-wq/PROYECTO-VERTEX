@@ -8,6 +8,7 @@ import QuickActions from "./components/QuickActions";
 import Footer from "./components/Footer";
 
 import Motos from "./pages/Motos";
+import AgendarPrueba from "./pages/AgendarPrueba";
 
 import "./App.css";
 
@@ -69,6 +70,24 @@ function App() {
                 <Navbar />
 
                 <Motos />
+
+                <Footer />
+              </>
+            }
+          />
+
+
+          {/* =========================
+              PÁGINA AGENDAR PRUEBA
+          ========================= */}
+
+          <Route
+            path="/agendar-prueba"
+            element={
+              <>
+                <Navbar />
+
+                <AgendarPrueba />
 
                 <Footer />
               </>
