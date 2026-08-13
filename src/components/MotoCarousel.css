@@ -7,7 +7,6 @@
 
   background: #000;
 
-  padding-bottom: 70px;
 }
 
 
@@ -18,7 +17,7 @@
 .section-title {
   width: 100%;
 
-  min-height: 115px;
+  height: 120px;
 
   background: #000;
 
@@ -194,44 +193,6 @@
 .carousel-arrow.right {
   right: 45px;
 }
-
-
-/* =========================================
-   DOTS
-========================================= */
-
-.carousel-dots {
-  display: flex;
-
-  justify-content: center;
-
-  gap: 10px;
-
-  padding-top: 25px;
-}
-
-.dot {
-  width: 10px;
-
-  height: 10px;
-
-  border-radius: 50%;
-
-  border: none;
-
-  background: #555;
-
-  cursor: pointer;
-}
-
-.dot.active {
-  background: #315efb;
-
-  width: 30px;
-
-  border-radius: 10px;
-}
-
 
 /* =========================================
    MÓVIL

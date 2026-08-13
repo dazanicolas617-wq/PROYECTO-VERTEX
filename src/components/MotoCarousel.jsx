@@ -143,26 +143,6 @@ function MotoCarousel() {
       </div>
 
 
-      {/* INDICADORES */}
-
-      <div className="carousel-dots">
-
-        {motos.map((_, index) => (
-
-          <button
-            key={index}
-            className={
-              index === current
-                ? "dot active"
-                : "dot"
-            }
-            onClick={() => setCurrent(index)}
-          />
-
-        ))}
-
-      </div>
-
     </section>
 
   );
