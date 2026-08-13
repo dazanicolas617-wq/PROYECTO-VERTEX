@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -210,7 +210,7 @@ const articulos = [
     alt: "Nuevas motocicletas Vertex Moto",
     titulo:
       "Vertex Moto presenta sus nuevas motocicletas para la temporada 2026",
-    fecha: "Enero 20, 2025",
+    fecha: "Enero 20, 2026",
     descripcion:
       "Vertex Moto continúa innovando con una nueva generación de motocicletas diseñadas para ofrecer mayor rendimiento, tecnología y comodidad. Descubre las novedades que marcarán esta nueva temporada para todos los amantes de las dos ruedas.",
 
@@ -265,16 +265,16 @@ const articulos = [
     categoria: "Comunidad",
     imagen: art3,
     alt: "Guía de rutas Reunion 2025",
-    titulo: "Guía de rutas para llegar a la Reunion 2025 en Santander",
+    titulo: "Guía de rutas para llegar a la Reunión 2025 en Santander",
     fecha: "Agosto 6, 2025",
     descripcion:
-      "El camino es tan importante como el destino. La Reunion este 2025 está a la vuelta de la esquina y la emoción ya se siente en el aire. Nuestra comunidad de royalteros se prepara para un viaje inolvidable.",
+      "El camino es tan importante como el destino. La Reunión de 2025 está a la vuelta de la esquina y la emoción ya se siente en el aire. Nuestra comunidad de moteros se prepara para un viaje inolvidable.",
 
     contenido: [
       {
         tipo: "p",
         texto:
-          "LA Reunion 2025 en Santander está cada vez más cerca y queremos que disfrutes del viaje desde el primer kilómetro. Si vas a acudir en moto, hemos preparado esta guía para ayudarte a organizar tu ruta y llegar al encuentro disfrutando del camino.",
+          "La Reunión 2025 en Santander está cada vez más cerca y queremos que disfrutes del viaje desde el primer kilómetro. Si vas a acudir en moto, hemos preparado esta guía para ayudarte a organizar tu ruta y llegar al encuentro disfrutando del camino.",
       },
       {
         tipo: "h3",
@@ -283,7 +283,7 @@ const articulos = [
       {
         tipo: "p",
         texto:
-          "Santander será el punto de encuentro para todos los moteros que participen en el REUnion 2025. La ciudad ofrece un entorno perfecto para disfrutar de la carretera, el paisaje y de unos días rodeados de otros apasionados por las motocicletas.",
+          "Santander será el punto de encuentro para todos los moteros que participen en la Reunión 2025. La ciudad ofrece un entorno perfecto para disfrutar de la carretera, el paisaje y de unos días rodeados de otros apasionados por las motocicletas.",
       },
       {
         tipo: "h3",
@@ -320,7 +320,7 @@ const articulos = [
       {
         tipo: "p",
         texto:
-          "No tengas prisa por llegar. Una de las mejores partes de cualquier reunión motera es precisamente el camino. Aprovecha las paradas para descansar, tomar algo y compartir la experiencia con otros moteros que también se dirigen al REUnion.",
+          "No tengas prisa por llegar. Una de las mejores partes de cualquier reunión motera es precisamente el camino. Aprovecha las paradas para descansar, tomar algo y compartir la experiencia con otros moteros que también se dirigen a la Reunión.",
       },
       {
         tipo: "h3",
@@ -334,7 +334,7 @@ const articulos = [
       {
         tipo: "p",
         texto:
-          "Una vez llegues a Santander, solo quedará disfrutar del REUnion 2025, conocer a otros miembros de la comunidad y compartir la pasión por las dos ruedas.",
+          "Una vez llegues a Santander, solo quedará disfrutar de la Reunión 2025, conocer a otros miembros de la comunidad y compartir la pasión por las dos ruedas.",
       },
       {
         tipo: "h3",
@@ -419,17 +419,30 @@ function Blog() {
   const [articuloSeleccionado, setArticuloSeleccionado] = useState(null);
 
   // ==========================================================
+  // CATEGORÍAS
+  // ==========================================================
+
+  const categorias = useMemo(() => {
+    return [...new Set(articulos.map((articulo) => articulo.categoria))];
+  }, []);
+
+  // ==========================================================
+  // NORMALIZAR TEXTO
+  // ==========================================================
+
+  const normalizarTexto = (texto = "") =>
+    texto
+      .toString()
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim();
+
+  // ==========================================================
   // FILTRO DE ARTÍCULOS
   // ==========================================================
 
   const articulosFiltrados = useMemo(() => {
-    const normalizarTexto = (texto) =>
-      texto
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .trim();
-
     const textoBuscado = normalizarTexto(busqueda);
     const categoriaSeleccionada = normalizarTexto(categoria);
 
@@ -445,35 +458,54 @@ function Blog() {
         categoriaArticulo === categoriaSeleccionada;
 
       const coincideBusqueda =
-        textoBuscado === "" || textoArticulo.includes(textoBuscado);
+        textoBuscado === "" ||
+        textoArticulo.includes(textoBuscado);
 
       return coincideCategoria && coincideBusqueda;
     });
   }, [categoria, busqueda]);
 
   // ==========================================================
-  // MODAL
+  // ABRIR / CERRAR MODAL
   // ==========================================================
 
   const abrirModal = (articulo) => {
     setArticuloSeleccionado(articulo);
-    document.body.classList.add("modal-abierto");
   };
 
   const cerrarModal = () => {
     setArticuloSeleccionado(null);
-    document.body.classList.remove("modal-abierto");
   };
 
   // ==========================================================
-  // ESC PARA CERRAR
+  // CONTROL DEL MODAL
   // ==========================================================
 
-  const manejarTecla = (event) => {
-    if (event.key === "Escape") {
-      cerrarModal();
+  useEffect(() => {
+    if (!articuloSeleccionado) {
+      document.body.classList.remove("modal-abierto");
+      return;
     }
-  };
+
+    document.body.classList.add("modal-abierto");
+
+    const manejarTecla = (event) => {
+      if (event.key === "Escape") {
+        cerrarModal();
+      }
+    };
+
+    document.addEventListener("keydown", manejarTecla);
+
+    return () => {
+      document.removeEventListener("keydown", manejarTecla);
+      document.body.classList.remove("modal-abierto");
+    };
+  }, [articuloSeleccionado]);
+
+  // ==========================================================
+  // RENDER
+  // ==========================================================
 
   return (
     <>
@@ -512,6 +544,7 @@ function Blog() {
 
         <section className="bloque_intro_blog">
           <div className="bloque_filtros">
+
             {/* CATEGORÍAS */}
 
             <aside className="panel_categorias">
@@ -529,9 +562,15 @@ function Blog() {
                 onChange={(event) => setCategoria(event.target.value)}
               >
                 <option value="">Todas las categorías</option>
-                <option value="Vertex Moto">Vertex Moto</option>
-                <option value="Comunidad">Comunidad</option>
-                <option value="Guías">Guías</option>
+
+                {categorias.map((categoriaItem) => (
+                  <option
+                    key={categoriaItem}
+                    value={categoriaItem}
+                  >
+                    {categoriaItem}
+                  </option>
+                ))}
               </select>
             </aside>
 
@@ -541,7 +580,14 @@ function Blog() {
               className="buscador_blog"
               onSubmit={(event) => event.preventDefault()}
             >
-              <label className="buscador_label">
+              <label
+                className="buscador_label"
+                htmlFor="busqueda"
+              >
+                <span className="sr-only">
+                  Buscar artículos
+                </span>
+
                 <input
                   type="search"
                   id="busqueda"
@@ -549,11 +595,16 @@ function Blog() {
                   placeholder="Buscar artículos..."
                   aria-label="Buscar artículos"
                   value={busqueda}
-                  onChange={(event) => setBusqueda(event.target.value)}
+                  onChange={(event) =>
+                    setBusqueda(event.target.value)
+                  }
                 />
               </label>
 
-              <button type="submit" className="boton_buscador">
+              <button
+                type="submit"
+                className="boton_buscador"
+              >
                 BUSCAR
               </button>
             </form>
@@ -567,9 +618,15 @@ function Blog() {
         <section className="contenido_blog">
           {articulosFiltrados.length > 0 ? (
             articulosFiltrados.map((articulo) => (
-              <article className="blog-card" key={articulo.id}>
+              <article
+                className="blog-card"
+                key={articulo.id}
+              >
                 <div className="blog-card__imagen">
-                  <img src={articulo.imagen} alt={articulo.alt} />
+                  <img
+                    src={articulo.imagen}
+                    alt={articulo.alt}
+                  />
                 </div>
 
                 <div className="blog-card__body">
@@ -602,9 +659,10 @@ function Blog() {
           ) : (
             <div className="blog-sin-resultados">
               <h2>No encontramos artículos</h2>
+
               <p>
-                Intenta cambiar la categoría o utilizar otro término de
-                búsqueda.
+                Intenta cambiar la categoría o utilizar otro
+                término de búsqueda.
               </p>
             </div>
           )}
@@ -621,12 +679,16 @@ function Blog() {
           role="dialog"
           aria-modal="true"
           aria-labelledby="modalTitulo"
-          onKeyDown={manejarTecla}
         >
+          {/* OVERLAY */}
+
           <div
             className="blog-modal__overlay"
             onClick={cerrarModal}
-          ></div>
+            aria-hidden="true"
+          />
+
+          {/* CONTENIDO */}
 
           <div className="blog-modal__contenido">
             <button
@@ -669,12 +731,16 @@ function Blog() {
                   (bloque, index) => {
                     if (bloque.tipo === "h3") {
                       return (
-                        <h3 key={index}>{bloque.texto}</h3>
+                        <h3 key={index}>
+                          {bloque.texto}
+                        </h3>
                       );
                     }
 
                     return (
-                      <p key={index}>{bloque.texto}</p>
+                      <p key={index}>
+                        {bloque.texto}
+                      </p>
                     );
                   }
                 )}
