@@ -23,11 +23,11 @@ function AgendarPrueba() {
         </div>
 
         <div className="hero-image">
-          <img
-            src="/moto-prueba.jpg"
-            alt="Motocicleta para prueba de manejo"
-          />
-        </div>
+           <img
+              src="/moto-prueba.jpg"
+              alt="Motocicleta para prueba de manejo"
+              />
+            </div>
       </section>
 
       <div className="separator"></div>
