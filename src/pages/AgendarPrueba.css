@@ -11,19 +11,19 @@
 ========================= */
 
 .agendar-hero {
-  max-width: 1150px;
+  max-width: 980px;
   margin: 0 auto;
-  padding: 65px 40px 55px;
+  padding: 60px 32px 50px;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 70px;
+  gap: 48px;
 }
 
 .hero-text h1 {
   margin: 0;
-  font-size: 52px;
+  font-size: 46px;
   line-height: 1.05;
   font-weight: 900;
   letter-spacing: -1px;
@@ -57,7 +57,7 @@
 ========================= */
 
 .separator {
-  max-width: 1150px;
+  max-width: 980px;
   height: 1px;
   margin: 0 auto;
   background: #17191f;
@@ -75,8 +75,8 @@
 }
 
 .login-card {
-  width: 510px;
-  padding: 50px 55px;
+  width: min(100%, 480px);
+  padding: 42px 40px;
 
   text-align: center;
 
@@ -97,7 +97,7 @@
 .login-card h2 {
   margin: 22px 0;
 
-  font-size: 29px;
+  font-size: 26px;
   line-height: 1.2;
   font-weight: 800;
 }
@@ -214,16 +214,16 @@
 
   .agendar-hero {
     grid-template-columns: 1fr;
-    gap: 35px;
-    padding: 50px 25px;
+    gap: 30px;
+    padding: 45px 22px;
   }
 
   .hero-text h1 {
-    font-size: 43px;
+    font-size: 38px;
   }
 
   .hero-image {
-    height: 280px;
+    height: 250px;
   }
 
 }
@@ -231,11 +231,11 @@
 @media (max-width: 550px) {
 
   .agendar-hero {
-    padding: 40px 20px;
+    padding: 35px 18px;
   }
 
   .hero-text h1 {
-    font-size: 38px;
+    font-size: 32px;
   }
 
   .hero-text p {
@@ -243,7 +243,7 @@
   }
 
   .hero-image {
-    height: 220px;
+    height: 210px;
   }
 
   .login-section {

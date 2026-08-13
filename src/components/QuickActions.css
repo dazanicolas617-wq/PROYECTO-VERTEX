@@ -10,8 +10,16 @@
   margin: 0 auto;
   padding: 0 70px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 36px;
+}
+
+.quick-links--double .quick-links-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+.quick-links--single .quick-links-grid {
+  max-width: 1000px;
+  grid-template-columns: 1fr;
 }
 
 .quick-link-card {
@@ -79,8 +87,11 @@
 @media (max-width: 900px) {
 
   .quick-links-grid {
-    grid-template-columns: 1fr;
     padding: 0 40px;
+  }
+
+  .quick-links--double .quick-links-grid {
+    grid-template-columns: 1fr;
   }
 
 }

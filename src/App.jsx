@@ -31,7 +31,7 @@ function Home() {
         <NewsCarousel />
 
         {/* ENLACES RÁPIDOS */}
-        <section className="quick-links">
+        <section className="quick-links quick-links--double">
           <div className="quick-links-grid">
             <QuickActions />
             <QuickActionsEncuentranos />
@@ -77,7 +77,12 @@ function App() {
 
                 <Motos />
 
-                <QuickActions />
+                <section className="quick-links quick-links--double">
+                  <div className="quick-links-grid">
+                    <QuickActions />
+                    <QuickActionsEncuentranos />
+                  </div>
+                </section>
 
                 <Footer />
               </>
@@ -97,7 +102,7 @@ function App() {
 
                 <AgendarPrueba />
 
-                <QuickActions />
+                <QuickActionsEncuentranos />
 
                 <Footer />
               </>
