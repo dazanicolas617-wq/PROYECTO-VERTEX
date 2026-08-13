@@ -1,0 +1,266 @@
+.agendar-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #000207;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.agendar-hero {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 65px 40px 55px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.hero-text h1 {
+  margin: 0;
+  font-size: 52px;
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.hero-text p {
+  max-width: 450px;
+  margin-top: 25px;
+
+  color: #a5a5ad;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.hero-image {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================
+   SEPARADOR
+========================= */
+
+.separator {
+  max-width: 1150px;
+  height: 1px;
+  margin: 0 auto;
+  background: #17191f;
+}
+
+/* =========================
+   LOGIN CARD
+========================= */
+
+.login-section {
+  display: flex;
+  justify-content: center;
+
+  padding: 50px 20px 100px;
+}
+
+.login-card {
+  width: 510px;
+  padding: 50px 55px;
+
+  text-align: center;
+
+  background: #121216;
+  border: 1px solid #292a30;
+  border-radius: 18px;
+
+  box-sizing: border-box;
+}
+
+.card-label {
+  color: #3164ff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.login-card h2 {
+  margin: 22px 0;
+
+  font-size: 29px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.login-card p {
+  margin: 0 auto 25px;
+
+  max-width: 390px;
+
+  color: #a1a1aa;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.login-button {
+  width: 100%;
+  height: 50px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: linear-gradient(
+    90deg,
+    #2e5cff,
+    #4b70ff
+  );
+
+  color: white;
+  font-size: 13px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 25px rgba(42, 88, 255, 0.3);
+
+  transition: 0.3s ease;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(42, 88, 255, 0.45);
+}
+
+.create-account {
+  margin-top: 28px;
+
+  color: #888890;
+  font-size: 13px;
+}
+
+.create-account a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* =========================
+   LOCATION
+========================= */
+
+.location-section {
+  display: flex;
+  justify-content: center;
+
+  padding: 0 20px 70px;
+}
+
+.location-card {
+  width: 315px;
+  height: 88px;
+
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+
+  background: #1c1c1d;
+
+  border-radius: 5px;
+
+  box-sizing: border-box;
+}
+
+.location-icon {
+  width: 40px;
+
+  color: #999;
+  font-size: 30px;
+}
+
+.location-text {
+  flex: 1;
+}
+
+.location-text p {
+  margin: 0;
+
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.location-arrow {
+  color: white;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+
+  .agendar-hero {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 50px 25px;
+  }
+
+  .hero-text h1 {
+    font-size: 43px;
+  }
+
+  .hero-image {
+    height: 280px;
+  }
+
+}
+
+@media (max-width: 550px) {
+
+  .agendar-hero {
+    padding: 40px 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 38px;
+  }
+
+  .hero-text p {
+    font-size: 15px;
+  }
+
+  .hero-image {
+    height: 220px;
+  }
+
+  .login-section {
+    padding: 35px 15px 70px;
+  }
+
+  .login-card {
+    width: 100%;
+    padding: 40px 25px;
+  }
+
+  .login-card h2 {
+    font-size: 24px;
+  }
+
+  .location-card {
+    width: 100%;
+    max-width: 315px;
+  }
+}
