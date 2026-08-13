@@ -1,0 +1,215 @@
+.moto-card {
+  width: 100%;
+  background: #111111;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #242424;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.moto-card:hover {
+  transform: translateY(-6px);
+  border-color: #2f5cff;
+}
+
+
+/* =========================
+   IMAGEN
+========================= */
+
+.moto-card-image {
+  position: relative;
+  width: 100%;
+  height: 330px;
+  overflow: hidden;
+  background: #181818;
+}
+
+.moto-card-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+.moto-card:hover .moto-card-image img {
+  transform: scale(1.04);
+}
+
+
+/* =========================
+   DEGRADADO
+========================= */
+
+.moto-card-image::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 45%;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0)
+  );
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   NOMBRE
+========================= */
+
+.moto-card-overlay {
+  position: absolute;
+
+  left: 20px;
+  right: 20px;
+  bottom: 18px;
+
+  z-index: 2;
+}
+
+.moto-card-overlay h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 22px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================
+   INFORMACIÓN
+========================= */
+
+.moto-card-info {
+  padding: 20px;
+  background: #111111;
+}
+
+
+/* =========================
+   PRECIO
+========================= */
+
+.moto-price {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  margin-bottom: 18px;
+}
+
+.moto-price span {
+  color: #8f8f8f;
+
+  font-size: 13px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+.moto-price strong {
+  color: #ffffff;
+
+  font-size: 24px;
+  font-weight: 800;
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+.moto-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+
+/* BOTÓN VER MÁS */
+
+.btn-ver-mas,
+.btn-cotizacion {
+  flex: 1;
+
+  min-height: 45px;
+
+  border-radius: 6px;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+
+/* VER MÁS */
+
+.btn-ver-mas {
+  background: #ffffff;
+  color: #000000;
+
+  border: 1px solid #ffffff;
+}
+
+.btn-ver-mas:hover {
+  background: #dcdcdc;
+}
+
+
+/* COTIZACIÓN */
+
+.btn-cotizacion {
+  background: #2f5cff;
+  color: #ffffff;
+
+  border: 1px solid #2f5cff;
+}
+
+.btn-cotizacion:hover {
+  background: #2149e6;
+  border-color: #2149e6;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+  .moto-card-image {
+    height: 260px;
+  }
+
+  .moto-card-overlay h3 {
+    font-size: 18px;
+  }
+
+  .moto-price strong {
+    font-size: 21px;
+  }
+
+  .moto-buttons {
+    flex-direction: column;
+  }
+
+}

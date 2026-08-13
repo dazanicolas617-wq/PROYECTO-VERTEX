@@ -1,0 +1,284 @@
+/* =========================================
+   CARRUSEL
+========================================= */
+
+.moto-carousel {
+  width: 100%;
+
+  background: #000;
+
+  padding-bottom: 70px;
+}
+
+
+/* =========================================
+   TITULO
+========================================= */
+
+.section-title {
+  width: 100%;
+
+  min-height: 115px;
+
+  background: #000;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 35px;
+}
+
+.section-title h2 {
+  color: #fff;
+
+  font-size: 42px;
+
+  font-weight: 700;
+
+  margin: 0;
+}
+
+.section-title span {
+  width: 70px;
+
+  height: 3px;
+
+  background: #fff;
+
+  border-radius: 5px;
+}
+
+
+/* =========================================
+   SLIDE
+========================================= */
+
+.moto-slide {
+  width: 100%;
+
+  min-height: 750px;
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   INFORMACIÓN
+========================================= */
+
+.moto-info {
+  width: 90%;
+
+  max-width: 1200px;
+}
+
+.moto-info h2 {
+  color: #fff;
+
+  font-size: clamp(50px, 6vw, 90px);
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 20px;
+}
+
+.moto-info p {
+  color: #fff;
+
+  font-size: 24px;
+
+  letter-spacing: 8px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 60px;
+}
+
+
+/* =========================================
+   BOTÓN
+========================================= */
+
+.explore-button {
+  border: none;
+
+  background: #fff;
+
+  color: #000;
+
+  padding: 20px 70px;
+
+  font-size: 20px;
+
+  font-weight: 800;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.explore-button:hover {
+  background: #315efb;
+
+  color: #fff;
+
+  transform: translateY(-3px);
+}
+
+
+/* =========================================
+   FLECHAS
+========================================= */
+
+.carousel-arrow {
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 80px;
+
+  height: 80px;
+
+  border-radius: 50%;
+
+  border: 2px solid rgba(255,255,255,0.35);
+
+  background: rgba(0,0,0,0.25);
+
+  color: #fff;
+
+  font-size: 60px;
+
+  line-height: 60px;
+
+  cursor: pointer;
+
+  z-index: 5;
+
+  transition: 0.3s ease;
+}
+
+.carousel-arrow:hover {
+  background: rgba(49,94,251,0.8);
+
+  border-color: #315efb;
+}
+
+.carousel-arrow.left {
+  left: 45px;
+}
+
+.carousel-arrow.right {
+  right: 45px;
+}
+
+
+/* =========================================
+   DOTS
+========================================= */
+
+.carousel-dots {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  padding-top: 25px;
+}
+
+.dot {
+  width: 10px;
+
+  height: 10px;
+
+  border-radius: 50%;
+
+  border: none;
+
+  background: #555;
+
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #315efb;
+
+  width: 30px;
+
+  border-radius: 10px;
+}
+
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media (max-width: 768px) {
+
+  .section-title {
+    gap: 15px;
+  }
+
+  .section-title h2 {
+    font-size: 25px;
+  }
+
+  .section-title span {
+    width: 35px;
+  }
+
+  .moto-slide {
+    min-height: 600px;
+  }
+
+  .moto-info h2 {
+    font-size: 45px;
+  }
+
+  .moto-info p {
+    font-size: 14px;
+
+    letter-spacing: 3px;
+  }
+
+  .carousel-arrow {
+    width: 55px;
+
+    height: 55px;
+
+    font-size: 42px;
+  }
+
+  .carousel-arrow.left {
+    left: 15px;
+  }
+
+  .carousel-arrow.right {
+    right: 15px;
+  }
+
+}

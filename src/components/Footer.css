@@ -1,0 +1,210 @@
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+  width: 100%;
+
+  background: #000;
+
+  color: #fff;
+
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+
+/* =========================================
+   COLUMNAS
+========================================= */
+
+.footer-container {
+  width: 100%;
+
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding: 70px 50px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 70px;
+
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+
+.footer-column {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 22px;
+}
+
+
+.footer-column h3 {
+  margin: 0 0 15px;
+
+  color: #315efb;
+
+  font-size: 18px;
+
+  letter-spacing: 2px;
+
+  font-weight: 700;
+}
+
+
+.footer-column a {
+  color: #aaa;
+
+  text-decoration: none;
+
+  font-size: 18px;
+
+  transition: color 0.3s ease;
+}
+
+
+.footer-column a:hover {
+  color: #fff;
+}
+
+
+/* =========================================
+   REDES
+========================================= */
+
+.footer-social {
+  text-align: center;
+
+  padding: 50px 20px 35px;
+}
+
+
+.footer-social p {
+  margin: 0 0 30px;
+
+  color: #aaa;
+
+  font-size: 20px;
+}
+
+
+.social-icons {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  flex-wrap: wrap;
+}
+
+
+.social-icons a {
+  width: 65px;
+
+  height: 65px;
+
+  border-radius: 50%;
+
+  background: #1c1c1c;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  transition: 0.3s ease;
+}
+
+
+.social-icons a:hover {
+  background: #315efb;
+
+  transform: translateY(-4px);
+}
+
+
+/* =========================================
+   PARTE INFERIOR
+========================================= */
+
+.footer-bottom {
+  text-align: center;
+
+  padding: 25px 20px 45px;
+}
+
+
+.footer-bottom > div {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 50px;
+
+  margin-bottom: 35px;
+}
+
+
+.footer-bottom a {
+  color: #aaa;
+
+  text-decoration: none;
+
+  font-size: 17px;
+}
+
+
+.footer-bottom p {
+  margin: 0;
+
+  color: #555;
+
+  font-size: 16px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 45px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .footer-container {
+    grid-template-columns: 1fr;
+
+    padding: 50px 30px;
+  }
+
+  .footer-bottom > div {
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+}

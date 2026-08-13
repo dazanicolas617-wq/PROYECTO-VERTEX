@@ -1,0 +1,138 @@
+/* =========================
+   PÁGINA MOTOS
+========================= */
+
+.motos-page {
+  min-height: 100vh;
+
+  background: #000000;
+
+  color: #ffffff;
+
+  padding-bottom: 80px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.motos-header {
+  padding: 80px 6% 55px;
+
+  text-align: center;
+}
+
+.section-title {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 25px;
+}
+
+.section-title span {
+  width: 65px;
+  height: 3px;
+
+  background: #ffffff;
+
+  border-radius: 10px;
+}
+
+.section-title h1 {
+  margin: 0;
+
+  font-size: clamp(32px, 4vw, 55px);
+
+  font-weight: 800;
+}
+
+.motos-header p {
+  margin-top: 18px;
+
+  color: #9a9a9a;
+
+  font-size: 18px;
+}
+
+
+/* =========================
+   CATEGORÍA
+========================= */
+
+.moto-category {
+  padding: 30px 5% 70px;
+}
+
+.moto-category h2 {
+  margin: 0 0 45px;
+
+  text-align: center;
+
+  color: #2f5cff;
+
+  font-size: clamp(28px, 3vw, 42px);
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   GRID
+========================= */
+
+.motos-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+  .motos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .motos-header {
+    padding: 55px 20px 35px;
+  }
+
+  .section-title {
+    gap: 12px;
+  }
+
+  .section-title span {
+    width: 35px;
+  }
+
+  .moto-category {
+    padding: 25px 18px 50px;
+  }
+
+  .motos-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
