@@ -17,11 +17,11 @@ import Moto4 from "../assets/motos/Moto4.jpg";
 import Moto5 from "../assets/motos/Moto5.jpg";
 import Moto6 from "../assets/motos/Moto6.jpg";
 import Moto7 from "../assets/motos/Moto7.jpg";
-//import Moto8 from "../assets/motos/Moto8.jpg";
-//import Moto9 from "../assets/motos/Moto9.jpg";
-//import Moto10 from "../assets/motos/Moto10.jpg";
-//import Moto11 from "../assets/motos/Moto11.jpg";
-//import Moto12 from "../assets/motos/Moto12.jpg";
+import Moto8 from "../assets/motos/Moto8.jpg";
+import Moto9 from "../assets/motos/Moto9.jpg";
+import Moto10 from "../assets/motos/Moto10.jpg";
+import Moto11 from "../assets/motos/Moto11.jpg";
+import Moto12 from "../assets/motos/Moto12.jpg";
 
 
 /* =========================
@@ -106,6 +106,61 @@ const motos = [
     descripcion:
       "Una motocicleta preparada para afrontar diferentes caminos combinando capacidad, tecnología y comodidad."
   },
+
+  {
+    id: 8,
+    nombre: "GRR 650",
+    imagen: Moto8,
+    precio: "$31.990.000 COP",
+    categoria: "Adventure",
+    cilindrada: "648 cc",
+    descripcion:
+      "Una motocicleta preparada para afrontar diferentes caminos combinando capacidad, tecnología y comodidad."
+  },
+
+  {
+    id: 9,
+    nombre: "GRR 800",
+    imagen: Moto9,
+    precio: "$35.990.000 COP",
+    categoria: "Adventure",
+    cilindrada: "798 cc",
+    descripcion:
+      "Una motocicleta preparada para afrontar diferentes caminos combinando capacidad, tecnología y comodidad."
+  },
+
+  {
+    id: 10,
+    nombre: "GRR 1000",
+    imagen: Moto10,
+    precio: "$39.990.000 COP",
+    categoria: "Adventure",
+    cilindrada: "998 cc",
+    descripcion:
+      "Una motocicleta preparada para afrontar diferentes caminos combinando capacidad, tecnología y comodidad."
+  },
+
+  {
+    id: 11,
+    nombre: "GRR 1200",
+    imagen: Moto11,
+    precio: "$43.990.000 COP",
+    categoria: "Adventure",
+    cilindrada: "1198 cc",
+    descripcion:
+      "Una motocicleta preparada para afrontar diferentes caminos combinando capacidad, tecnología y comodidad."
+  },
+  
+  {
+    id: 12,
+    nombre: "GRR 1500",
+    imagen: Moto12,
+    precio: "$47.990.000 COP",
+    categoria: "Adventure",
+    cilindrada: "1498 cc",
+    descripcion:
+      "Una motocicleta preparada para afrontar diferentes caminos combinando capacidad, tecnología y comodidad."
+  }
 
 
 ];
