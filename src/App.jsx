@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 
 import Motos from "./pages/Motos";
 import AgendarPrueba from "./pages/AgendarPrueba";
+import Blog from "./pages/Blog";
 
 import "./App.css";
 
@@ -102,6 +103,16 @@ function App() {
                 <Footer />
               </>
             }
+          />
+
+
+          {/* =========================
+              PÁGINA BLOG
+          ========================= */}
+
+          <Route
+            path="/blog"
+            element={<Blog />}
           />
 
         </Routes>

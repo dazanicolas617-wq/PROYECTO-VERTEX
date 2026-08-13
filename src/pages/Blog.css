@@ -1,0 +1,788 @@
+/* ============================================================
+   VERTEX MOTORS — BLOG
+   ============================================================ */
+
+:root {
+  --color-fondo: #000000;
+  --color-texto: #ffffff;
+  --color-boton: #2d5bff;
+  --color-boton-hover: #4a73ff;
+  --color-card: #141414;
+  --color-borde: #333333;
+  --color-secundario: #a3a3a3;
+}
+
+
+/* ============================================================
+   GENERAL
+   ============================================================ */
+
+.pagina_blog {
+  width: 100%;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  min-height: 100vh;
+}
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.blog_hero {
+  width: 100%;
+  height: 420px;
+
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #d3d3d3;
+}
+
+
+/* Imagen */
+
+.blog_hero__imagen {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  background-color: #bababa;
+}
+
+
+.blog_hero__imagen img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  display: block;
+
+  filter: brightness(65%);
+}
+
+
+/* Overlay */
+
+.blog_hero__imagen::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.45) 100%
+    );
+}
+
+
+/* ============================================================
+   TEXTO DEL HERO
+   ============================================================ */
+
+.intro_texto {
+  max-width: 920px;
+
+  margin: 0 auto;
+
+  padding: 0 4%;
+
+  text-align: center;
+
+  position: relative;
+
+  z-index: 2;
+
+  text-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.7);
+}
+
+
+.intro_texto h1 {
+  margin-bottom: 16px;
+
+  color: #ffffff;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+
+  line-height: 1.1;
+
+  font-weight: 800;
+
+  letter-spacing: -0.01em;
+}
+
+
+.intro_subtitulo {
+  display: block;
+
+  margin-bottom: 16px;
+
+  color: var(--color-boton-hover);
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 1.15rem;
+
+  font-weight: 700;
+}
+
+
+.intro_descripcion {
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  color: #f0f0f0;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 1.05rem;
+
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   FILTROS
+   ============================================================ */
+
+.bloque_intro_blog {
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 45px 4% 20px;
+
+  background-color: #000000;
+}
+
+
+.bloque_filtros {
+  width: 100%;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+
+/* ============================================================
+   CATEGORÍAS
+   ============================================================ */
+
+.panel_categorias {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+
+.categoria_label {
+  display: block;
+
+  margin-bottom: 2px;
+
+  color: #ffffff;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+}
+
+
+.select_categoria {
+  width: 220px;
+
+  height: 45px;
+
+  padding: 0 40px 0 15px;
+
+  background-color: #141414;
+
+  border: 1px solid #333333;
+
+  border-radius: 6px;
+
+  color: #ffffff;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 0.9rem;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  outline: none;
+
+  appearance: none;
+
+  -webkit-appearance: none;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232d5bff' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+
+  background-position: right 14px center;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.select_categoria option {
+  background-color: #141414;
+  color: #ffffff;
+}
+
+
+.select_categoria:hover {
+  border-color: var(--color-boton-hover);
+}
+
+
+.select_categoria:focus {
+  border-color: var(--color-boton);
+
+  box-shadow:
+    0 0 0 2px rgba(45, 91, 255, 0.15);
+}
+
+
+/* ============================================================
+   BUSCADOR
+   ============================================================ */
+
+.buscador_blog {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin: 0;
+}
+
+
+.buscador_label {
+  display: block;
+}
+
+
+.buscador_label input {
+  width: 300px;
+
+  height: 45px;
+
+  padding: 0 15px;
+
+  background-color: #141414;
+
+  border: 1px solid #333333;
+
+  border-radius: 6px;
+
+  color: #ffffff;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 0.9rem;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.buscador_label input::placeholder {
+  color: #777777;
+}
+
+
+.buscador_label input:focus {
+  border-color: var(--color-boton);
+
+  box-shadow:
+    0 0 0 2px rgba(45, 91, 255, 0.15);
+}
+
+
+/* ============================================================
+   BOTÓN BUSCAR
+   ============================================================ */
+
+.boton_buscador {
+  height: 45px;
+
+  padding: 0 22px;
+
+  background-color: var(--color-boton);
+
+  border: none;
+
+  border-radius: 6px;
+
+  color: #ffffff;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 0.85rem;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.boton_buscador:hover {
+  background-color: #ffffff;
+
+  color: #000000;
+
+  transform: translateY(-2px);
+}
+
+
+.boton_buscador:active {
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   CONTENIDO DEL BLOG
+   ============================================================ */
+
+.contenido_blog {
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 48px 4%;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 28px;
+}
+
+
+/* ============================================================
+   TARJETAS
+   ============================================================ */
+
+.blog-card {
+  background-color: var(--color-card);
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  display: flex;
+
+  flex-direction: column;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.blog-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 16px 40px rgba(45, 91, 255, 0.25);
+}
+
+
+/* ============================================================
+   IMAGEN DE TARJETA
+   ============================================================ */
+
+.blog-card__imagen {
+  width: 100%;
+
+  height: 220px;
+
+  overflow: hidden;
+
+  flex-shrink: 0;
+}
+
+
+.blog-card__imagen img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition:
+    transform 0.4s ease;
+}
+
+
+.blog-card:hover .blog-card__imagen img {
+  transform: scale(1.06);
+}
+
+
+/* ============================================================
+   CUERPO
+   ============================================================ */
+
+.blog-card__body {
+  padding: 22px 24px 24px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  flex: 1;
+}
+
+
+/* Categoría */
+
+.blog-card__tag {
+  margin: 0;
+
+  color: var(--color-boton);
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+
+/* Título */
+
+.blog-card__titulo {
+  margin: 0;
+
+  color: var(--color-texto);
+
+  font-size: 1.1rem;
+
+  line-height: 1.35;
+
+  font-weight: 700;
+}
+
+
+/* Fecha */
+
+.blog-card__fecha {
+  margin: 0;
+
+  color: #888888;
+
+  font-size: 0.8rem;
+
+  font-weight: 600;
+}
+
+
+/* Descripción */
+
+.blog-card__descripcion {
+  margin: 0;
+
+  color: #bbbbbb;
+
+  font-size: 0.88rem;
+
+  line-height: 1.7;
+
+  overflow: hidden;
+
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
+
+  -webkit-line-clamp: 4;
+}
+
+
+/* Ver más */
+
+.blog-card__link {
+  display: inline-block;
+
+  align-self: flex-start;
+
+  margin-top: auto;
+
+  padding-top: 8px;
+
+  padding-bottom: 1px;
+
+  color: #ffffff;
+
+  font-size: 0.82rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+
+  text-decoration: none;
+
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.4);
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.blog-card__link:hover {
+  color: var(--color-boton);
+
+  border-color: var(--color-boton);
+}
+
+
+/* ============================================================
+   SIN RESULTADOS
+   ============================================================ */
+
+.blog_sin_resultados {
+  grid-column: 1 / -1;
+
+  padding: 70px 20px;
+
+  text-align: center;
+
+  background-color: #141414;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 12px;
+}
+
+
+.blog_sin_resultados h2 {
+  margin-bottom: 10px;
+
+  color: #ffffff;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 1.5rem;
+}
+
+
+.blog_sin_resultados p {
+  margin: 0;
+
+  color: #888888;
+
+  font-family: "Montserrat", sans-serif;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1100px) {
+
+  .contenido_blog {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* ============================================================
+   TABLETS
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  .blog_hero {
+    height: 360px;
+  }
+
+
+  .intro_texto {
+    padding: 0 6%;
+  }
+
+
+  .intro_texto h1 {
+    font-size: 2rem;
+  }
+
+
+  .intro_subtitulo {
+    font-size: 1rem;
+  }
+
+
+  .intro_descripcion {
+    font-size: 0.9rem;
+  }
+
+
+  .bloque_intro_blog {
+    padding: 35px 5% 20px;
+  }
+
+
+  .bloque_filtros {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 30px;
+  }
+
+
+  .panel_categorias {
+    width: 100%;
+  }
+
+
+  .select_categoria {
+    width: 100%;
+  }
+
+
+  .buscador_blog {
+    width: 100%;
+  }
+
+
+  .buscador_label {
+    flex: 1;
+  }
+
+
+  .buscador_label input {
+    width: 100%;
+  }
+
+
+  .contenido_blog {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    padding: 35px 5%;
+  }
+
+}
+
+
+/* ============================================================
+   CELULARES
+   ============================================================ */
+
+@media (max-width: 500px) {
+
+  .blog_hero {
+    height: 330px;
+  }
+
+
+  .intro_texto h1 {
+    font-size: 1.8rem;
+  }
+
+
+  .intro_subtitulo {
+    font-size: 0.9rem;
+  }
+
+
+  .intro_descripcion {
+    font-size: 0.85rem;
+  }
+
+
+  .buscador_blog {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  .buscador_label {
+    width: 100%;
+  }
+
+
+  .buscador_label input {
+    width: 100%;
+  }
+
+
+  .boton_buscador {
+    width: 100%;
+  }
+
+
+  .blog-card__imagen {
+    height: 200px;
+  }
+
+}
