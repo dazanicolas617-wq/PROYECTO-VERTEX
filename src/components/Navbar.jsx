@@ -37,9 +37,9 @@ function Navbar() {
             Blog
           </a>
 
-          <a href="#agendar">
-            Agendar prueba
-          </a>
+          <Link to="/agendar-prueba">
+  Agendar prueba
+</Link>
 
         </nav>
 
