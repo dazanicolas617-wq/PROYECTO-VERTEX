@@ -10,6 +10,8 @@ import Footer from "./components/Footer";
 
 import Motos from "./pages/Motos";
 import AgendarPrueba from "./pages/AgendarPrueba";
+import Login from "./pages/Login";
+import Registro from "./pages/Registro";
 
 import "./App.css";
 
@@ -103,6 +105,42 @@ function App() {
                 <AgendarPrueba />
 
                 <QuickActionsEncuentranos />
+
+                <Footer />
+              </>
+            }
+          />
+
+
+          {/* =========================
+              PÁGINA INICIAR SESIÓN
+          ========================= */}
+
+          <Route
+            path="/login"
+            element={
+              <>
+                <Navbar />
+
+                <Login />
+
+                <Footer />
+              </>
+            }
+          />
+
+
+          {/* =========================
+              PÁGINA CREAR CUENTA
+          ========================= */}
+
+          <Route
+            path="/registro"
+            element={
+              <>
+                <Navbar />
+
+                <Registro />
 
                 <Footer />
               </>
