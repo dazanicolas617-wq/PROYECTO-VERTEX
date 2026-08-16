@@ -294,25 +294,26 @@
    FLECHAS DEL DESLIZADOR
    ══════════════════════════════════════════════════════════ */
 
-.flecha_deslizador {
+.flecha-deslizador {
   position: absolute;
 
   top: 50%;
 
   transform: translateY(-50%);
 
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 58px;
 
-  background-color: rgba(0, 0, 0, 0.5);
+  height: 58px;
+
+  background-color: rgba(0, 0, 0, 0.55);
 
   color: #ffffff;
 
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.35);
 
   border-radius: 50%;
 
-  font-size: 2.5rem;
+  font-size: 48px;
 
   display: flex;
 
@@ -325,21 +326,24 @@
 
   transition:
     background-color 0.3s ease,
-    border-color 0.3s ease;
+    border-color 0.3s ease,
+    transform 0.3s ease;
 }
 
-.flecha_deslizador:hover {
-  background-color: rgba(45, 91, 255, 0.8);
+.flecha-deslizador:hover {
+  background-color: rgba(255, 255, 255, 0.12);
 
-  border-color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.85);
+
+  transform: translateY(-50%) scale(1.08);
 }
 
-.flecha_izquierda {
-  left: 2rem;
+.flecha-izquierda {
+  left: 28px;
 }
 
-.flecha_derecha {
-  right: 2rem;
+.flecha-derecha {
+  right: 28px;
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -380,18 +384,18 @@
     font-size: 1.5rem;
   }
 
-  .flecha_deslizador {
-    width: 2.5rem;
-    height: 2.5rem;
+  .flecha-deslizador {
+    width: 44px;
+    height: 44px;
 
-    font-size: 1.8rem;
+    font-size: 36px;
   }
 
-  .flecha_izquierda {
-    left: 1rem;
+  .flecha-izquierda {
+    left: 16px;
   }
 
-  .flecha_derecha {
-    right: 1rem;
+  .flecha-derecha {
+    right: 16px;
   }
 }

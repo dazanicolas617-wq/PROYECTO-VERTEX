@@ -87,7 +87,7 @@ function MotosSlider() {
 
         {/* Flecha anterior */}
         <button
-          className="flecha_deslizador flecha_izquierda"
+          className="flecha-deslizador flecha-izquierda"
           aria-label="Anterior"
           onClick={mostrarDiapositivaAnterior}
         >
@@ -96,7 +96,7 @@ function MotosSlider() {
 
         {/* Flecha siguiente */}
         <button
-          className="flecha_deslizador flecha_derecha"
+          className="flecha-deslizador flecha-derecha"
           aria-label="Siguiente"
           onClick={mostrarDiapositivaSiguiente}
         >
