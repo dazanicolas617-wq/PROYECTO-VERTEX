@@ -92,151 +92,151 @@ function Encuentranos() {
 
   return (
     <main>
-        {/* ==================================================
+      {/* ==================================================
             HERO SECTION
         =================================================== */}
-        <section className="hero">
-          <img
-            src="/imagen_encuentranos.jpg"
-            alt="Motocicleta Vertex"
-            className="hero-img"
-          />
-          <div className="capa-oscura"></div>
+      <section className="hero">
+        <img
+          src="/imagen_encuentranos.jpg"
+          alt="Motocicleta Vertex"
+          className="hero-img"
+        />
+        <div className="capa-oscura"></div>
 
-          <div className="hero-contenido">
-            <span>VERTEX COLOMBIA</span>
-            <h1>Puntos de Venta y Talleres Autorizados</h1>
-            <p>
-              Encuentra el concesionario oficial más cercano y vive la
-              experiencia Vertex.
-            </p>
-            <a href="#concesionarios" className="hero-btn">
-              Encontrar Agencia
-            </a>
-          </div>
-        </section>
+        <div className="hero-contenido">
+          <span>VERTEX COLOMBIA</span>
+          <h1>Puntos de Venta y Talleres Autorizados</h1>
+          <p>
+            Encuentra el concesionario oficial más cercano y vive la experiencia
+            Vertex.
+          </p>
+          <a href="#concesionarios" className="hero-btn">
+            Encontrar Agencia
+          </a>
+        </div>
+      </section>
 
-        {/* ==================================================
+      {/* ==================================================
             CONCESIONARIOS GRID
         =================================================== */}
-        <section className="concesionario" id="concesionarios">
-          <div className="container">
-            {concesionarios.map((item) => (
-              <div key={item.id} className="tarjeta-conces">
-                <img src={item.imagen} alt={item.ciudad} />
+      <section className="concesionario" id="concesionarios">
+        <div className="container">
+          {concesionarios.map((item) => (
+            <div key={item.id} className="tarjeta-conces">
+              <img src={item.imagen} alt={item.ciudad} />
 
-                <div className="info">
-                  <h3>{item.nombre}</h3>
-                  <p>{item.direccion}</p>
-                  <p>{item.horario}</p>
+              <div className="info">
+                <h3>{item.nombre}</h3>
+                <p>{item.direccion}</p>
+                <p>{item.horario}</p>
 
-                  <button
-                    className="btn-ver-detalles"
-                    onClick={() => setConcesionarioActivo(item)}
-                  >
-                    Ver detalles
-                  </button>
-                </div>
+                <button
+                  className="btn-ver-detalles"
+                  onClick={() => setConcesionarioActivo(item)}
+                >
+                  Ver detalles
+                </button>
               </div>
-            ))}
+            </div>
+          ))}
 
-            {/* ==================================================
+          {/* ==================================================
                 MODAL / BANNER DE DETALLES (DINÁMICO)
             =================================================== */}
-            {concesionarioActivo && (
+          {concesionarioActivo && (
+            <div
+              className="banner-detalles activo"
+              id="banner-detalles"
+              onClick={() => setConcesionarioActivo(null)}
+            >
               <div
-                className="banner-detalles activo"
-                id="banner-detalles"
-                onClick={() => setConcesionarioActivo(null)}
+                className="banner-contenido"
+                onClick={(e) => e.stopPropagation()}
               >
-                <div
-                  className="banner-contenido"
-                  onClick={(e) => e.stopPropagation()}
+                {/* BOTÓN CERRAR */}
+                <button
+                  className="cerrar-banner"
+                  id="cerrar-banner"
+                  aria-label="Cerrar detalles"
+                  onClick={() => setConcesionarioActivo(null)}
                 >
-                  {/* BOTÓN CERRAR */}
-                  <button
-                    className="cerrar-banner"
-                    id="cerrar-banner"
-                    aria-label="Cerrar detalles"
-                    onClick={() => setConcesionarioActivo(null)}
-                  >
-                    <X size={20} />
-                  </button>
+                  <X size={20} />
+                </button>
 
-                  {/* IMAGEN DEL CONCESIONARIO */}
-                  <div className="banner-imagen">
-                    <img
-                      id="banner-img"
-                      src={concesionarioActivo.imagen}
-                      alt={concesionarioActivo.nombre}
-                    />
+                {/* IMAGEN DEL CONCESIONARIO */}
+                <div className="banner-imagen">
+                  <img
+                    id="banner-img"
+                    src={concesionarioActivo.imagen}
+                    alt={concesionarioActivo.nombre}
+                  />
+                </div>
+
+                {/* INFORMACIÓN */}
+                <div className="banner-info">
+                  <span className="banner-etiqueta">VERTEX MOTOS</span>
+                  <h2 id="banner-nombre">{concesionarioActivo.nombre}</h2>
+                  <p id="banner-descripcion">
+                    {concesionarioActivo.descripcion}
+                  </p>
+
+                  {/* DATOS */}
+                  <div className="banner-datos">
+                    <div>
+                      <MapPin size={18} color="#2d5bff" />
+                      <div>
+                        <strong>Dirección</strong>
+                        <span id="banner-direccion">
+                          {concesionarioActivo.direccion}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div>
+                      <Clock size={18} color="#2d5bff" />
+                      <div>
+                        <strong>Horario</strong>
+                        <span id="banner-horario">
+                          {concesionarioActivo.horario}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div>
+                      <Phone size={18} color="#2d5bff" />
+                      <div>
+                        <strong>Teléfono</strong>
+                        <span id="banner-telefono">
+                          {concesionarioActivo.telefono}
+                        </span>
+                      </div>
+                    </div>
                   </div>
 
-                  {/* INFORMACIÓN */}
-                  <div className="banner-info">
-                    <span className="banner-etiqueta">VERTEX MOTOS</span>
-                    <h2 id="banner-nombre">{concesionarioActivo.nombre}</h2>
-                    <p id="banner-descripcion">
-                      {concesionarioActivo.descripcion}
-                    </p>
+                  {/* BOTONES */}
+                  <div className="banner-botones">
+                    <a
+                      href={concesionarioActivo.mapsUrl}
+                      id="btn-maps"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Navigation size={15} />
+                      <span>Cómo llegar</span>
+                    </a>
 
-                    {/* DATOS */}
-                    <div className="banner-datos">
-                      <div>
-                        <MapPin size={18} color="#2d5bff" />
-                        <div>
-                          <strong>Dirección</strong>
-                          <span id="banner-direccion">
-                            {concesionarioActivo.direccion}
-                          </span>
-                        </div>
-                      </div>
-
-                      <div>
-                        <Clock size={18} color="#2d5bff" />
-                        <div>
-                          <strong>Horario</strong>
-                          <span id="banner-horario">
-                            {concesionarioActivo.horario}
-                          </span>
-                        </div>
-                      </div>
-
-                      <div>
-                        <Phone size={18} color="#2d5bff" />
-                        <div>
-                          <strong>Teléfono</strong>
-                          <span id="banner-telefono">
-                            {concesionarioActivo.telefono}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* BOTONES */}
-                    <div className="banner-botones">
-                      <a
-                        href={concesionarioActivo.mapsUrl}
-                        id="btn-maps"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Navigation size={15} />
-                        <span>Cómo llegar</span>
-                      </a>
-
-                      <Link to="/agendar-prueba">
-                        <Calendar size={15} />
-                        <span>Agendar prueba</span>
-                      </Link>
-                    </div>
+                    <Link to="/agendar-prueba">
+                      <Calendar size={15} />
+                      <span>Agendar prueba</span>
+                    </Link>
                   </div>
                 </div>
               </div>
-            )}
-          </div>
-        </section>
-      </main>
+            </div>
+          )}
+        </div>
+      </section>
+    </main>
   );
 }
 
