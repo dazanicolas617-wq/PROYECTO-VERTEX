@@ -1,10 +1,25 @@
+/* =====================================================
+   NEWSCAROUSEL.JSX — CARRUSEL DE NOTICIAS
+   Muestra un conjunto de noticias paginadas de a 2.
+   El usuario navega entre páginas con flechas izquierda
+   y derecha, o haciendo clic en los indicadores de puntos.
+
+   Lógica:
+   - noticiasPorPagina: cuántas noticias se muestran a la vez
+   - paginaActual: índice de la página visible (empieza en 0)
+   - noticiasVisibles: slice del array según la página actual
+   - La paginación es circular (va del final al inicio y viceversa)
+===================================================== */
+
 import { useState } from "react";
 import "./NewsCarousel.css";
 
 function Noticias() {
+
   /* =========================================
        LISTA DE NOTICIAS
-    ========================================= */
+       Cada objeto tiene título, descripción e imagen
+  ========================================= */
 
   const noticias = [
     {
@@ -74,25 +89,30 @@ function Noticias() {
 
   /* =========================================
        CONFIGURACIÓN
-    ========================================= */
+       Cuántas noticias se muestran por página
+  ========================================= */
 
   const noticiasPorPagina = 2;
 
   /* =========================================
        ESTADO
-    ========================================= */
+       Índice de la página actualmente visible (base 0)
+  ========================================= */
 
   const [paginaActual, setPaginaActual] = useState(0);
 
   /* =========================================
        CANTIDAD DE PÁGINAS
-    ========================================= */
+       Redondea hacia arriba por si hay un número impar
+  ========================================= */
 
   const cantidadPaginas = Math.ceil(noticias.length / noticiasPorPagina);
 
   /* =========================================
        NOTICIAS VISIBLES
-    ========================================= */
+       Calcula qué noticias mostrar según la página actual.
+       Ejemplo: página 0 → índices 0-1, página 1 → 2-3, etc.
+  ========================================= */
 
   const inicio = paginaActual * noticiasPorPagina;
 
@@ -100,12 +120,13 @@ function Noticias() {
 
   /* =========================================
        SIGUIENTE PÁGINA
-    ========================================= */
+       Si está en la última, vuelve a la primera (circular)
+  ========================================= */
 
   const siguientePagina = () => {
     setPaginaActual((pagina) => {
       if (pagina >= cantidadPaginas - 1) {
-        return 0;
+        return 0;               // Vuelve al inicio
       }
 
       return pagina + 1;
@@ -114,12 +135,13 @@ function Noticias() {
 
   /* =========================================
        PÁGINA ANTERIOR
-    ========================================= */
+       Si está en la primera, va a la última (circular)
+  ========================================= */
 
   const anteriorPagina = () => {
     setPaginaActual((pagina) => {
       if (pagina <= 0) {
-        return cantidadPaginas - 1;
+        return cantidadPaginas - 1;   // Salta al final
       }
 
       return pagina - 1;
@@ -128,13 +150,15 @@ function Noticias() {
 
   /* =========================================
        RENDERIZADO
-    ========================================= */
+       Estructura: título → carrusel → indicadores
+  ========================================= */
 
   return (
     <section className="seccion-noticias">
+
       {/* =================================
-                TÍTULO
-            ================================= */}
+                TÍTULO DE SECCIÓN con líneas decorativas
+          ================================= */}
 
       <div className="encabezado-noticias">
         <span className="linea-titulo"></span>
@@ -145,25 +169,24 @@ function Noticias() {
       </div>
 
       {/* =================================
-                FONDO
-            ================================= */}
+                FONDO DECORATIVO de la sección
+          ================================= */}
 
       <div className="fondo-noticias"></div>
 
       {/* =================================
-                CONTENIDO
-            ================================= */}
+                CONTENIDO PRINCIPAL del carrusel
+          ================================= */}
 
       <div className="contenido-seccion-noticias">
+
         {/* =================================
-                    CARRUSEL
+                    CARRUSEL — Flechas + Tarjetas
                 ================================= */}
 
         <div className="carrusel-noticias">
-          {/* -----------------------------
-                        FLECHA IZQUIERDA
-                    ----------------------------- */}
 
+          {/* ── FLECHA IZQUIERDA ── */}
           <button
             className="flecha-noticia flecha-izquierda"
             onClick={anteriorPagina}
@@ -172,36 +195,34 @@ function Noticias() {
             <span>‹</span>
           </button>
 
-          {/* -----------------------------
-                        TARJETAS
-                    ----------------------------- */}
-
+          {/* ── TARJETAS DE NOTICIAS ───────────────────────
+              Se renderizan solo las noticias de la página actual.
+              La key usa (inicio + indice) para ser único globalmente.
+          ──────────────────────────────────────────────────── */}
           <div className="contenedor-noticias">
             {noticiasVisibles.map((noticia, indice) => (
               <article className="tarjeta-noticia" key={inicio + indice}>
-                {/* IMAGEN */}
 
+                {/* Imagen de portada de la noticia */}
                 <div className="imagen-noticia">
                   <img src={noticia.imagen} alt={noticia.titulo} />
                 </div>
 
-                {/* CONTENIDO */}
-
+                {/* Título, descripción y botón "Leer más" */}
                 <div className="contenido-noticia">
                   <h3>{noticia.titulo}</h3>
 
                   <p>{noticia.descripcion}</p>
 
+                  {/* Botón decorativo — sin funcionalidad de navegación */}
                   <button className="boton-leer">LEER MÁS</button>
                 </div>
+
               </article>
             ))}
           </div>
 
-          {/* -----------------------------
-                        FLECHA DERECHA
-                    ----------------------------- */}
-
+          {/* ── FLECHA DERECHA ── */}
           <button
             className="flecha-noticia flecha-derecha"
             onClick={siguientePagina}
@@ -212,7 +233,9 @@ function Noticias() {
         </div>
 
         {/* =================================
-                    INDICADORES
+                    INDICADORES DE PÁGINA (puntos)
+                    Permite saltar directamente a cualquier página.
+                    El punto activo recibe la clase "activo".
                 ================================= */}
 
         <div className="indicadores-noticias">
@@ -224,7 +247,7 @@ function Noticias() {
               className={`indicador-noticia ${
                 indice === paginaActual ? "activo" : ""
               }`}
-              onClick={() => setPaginaActual(indice)}
+              onClick={() => setPaginaActual(indice)}    // Navega directo a esa página
               aria-label={`Ir a página ${indice + 1}`}
             ></button>
           ))}

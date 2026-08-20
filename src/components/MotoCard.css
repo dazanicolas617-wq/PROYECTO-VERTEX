@@ -1,3 +1,13 @@
+/* =====================================================
+   MOTOCARD.CSS — ESTILOS DE LA TARJETA DE MOTO
+   Define la apariencia de cada tarjeta del catálogo:
+   - Fondo oscuro con borde sutil
+   - Efecto de elevación al pasar el cursor (hover)
+   - Imagen con zoom suave y degradado en la parte inferior
+   - Nombre superpuesto sobre la imagen
+   - Precio y botones en la sección inferior
+===================================================== */
+
 .moto-card {
   width: 100%;
   background: #111111;

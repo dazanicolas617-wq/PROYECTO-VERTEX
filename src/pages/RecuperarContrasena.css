@@ -1,0 +1,346 @@
+/* =============================================
+   RECUPERAR CONTRASEÑA - VERTEX MOTORS
+   ============================================= */
+
+.pagina-recuperar {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #000;
+  color: #fff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* =========================
+   IMAGEN IZQUIERDA
+========================= */
+
+.imagen-recuperar {
+  position: relative;
+  min-height: 650px;
+  background-image: url("/moto-login.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.capa-imagen-recuperar {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.contenido-imagen-recuperar {
+  position: absolute;
+  left: 55px;
+  bottom: 65px;
+  z-index: 2;
+}
+
+.contenido-imagen-recuperar h1 {
+  margin: 0;
+  font-size: 48px;
+  line-height: 1.08;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.contenido-imagen-recuperar p {
+  margin-top: 25px;
+  color: #ddd;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* =========================
+   SECCIÓN FORMULARIO
+========================= */
+
+.seccion-recuperar {
+  padding: 45px 70px;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.volver-recuperar {
+  display: inline-block;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  margin-bottom: 40px;
+  transition: color 0.2s;
+}
+
+.volver-recuperar:hover {
+  color: #3262ff;
+}
+
+.contenido-recuperar {
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.contenido-recuperar h2 {
+  margin: 0 0 14px;
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+.subtitulo-recuperar {
+  color: #9ca3af;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 28px;
+}
+
+/* =========================
+   SELECTOR DE MÉTODO
+========================= */
+
+.etiqueta-recuperar {
+  display: block;
+  color: #d1d5db;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.selector-metodo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.opcion-metodo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #0f1117;
+  border: 1.5px solid #1e2230;
+  border-radius: 10px;
+  color: #9ca3af;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.opcion-metodo:hover {
+  border-color: #3262ff;
+  color: #fff;
+}
+
+.opcion-metodo.activo {
+  border-color: #3262ff;
+  background: rgba(50, 98, 255, 0.1);
+  color: #ffffff;
+}
+
+.icono-metodo {
+  font-size: 16px;
+}
+
+.radio-metodo {
+  margin-left: auto;
+  font-size: 14px;
+}
+
+/* =========================
+   CAMPO DE ENTRADA
+========================= */
+
+.grupo-recuperar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.grupo-recuperar label {
+  color: #d1d5db;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.contenedor-input-recuperar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  background: #0f1117;
+  border: 1px solid #1e2230;
+  border-radius: 10px;
+  transition: border-color 0.2s;
+}
+
+.contenedor-input-recuperar:focus-within {
+  border-color: #3262ff;
+  box-shadow: 0 0 0 2px rgba(50, 98, 255, 0.12);
+}
+
+.icono-input-recuperar {
+  width: 48px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.contenedor-input-recuperar input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 15px;
+}
+
+.contenedor-input-recuperar input::placeholder {
+  color: #4b5563;
+}
+
+.error-recuperar {
+  color: #f87171;
+  font-size: 13px;
+}
+
+/* =========================
+   BOTÓN PRINCIPAL
+========================= */
+
+.boton-enviar-recuperar {
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 10px;
+  background: #3160ff;
+  color: white;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(49, 96, 255, 0.3);
+  transition: all 0.25s ease;
+}
+
+.boton-enviar-recuperar:hover {
+  background: #4772ff;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(49, 96, 255, 0.4);
+}
+
+.texto-login-recuperar {
+  margin-top: 24px;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.texto-login-recuperar a {
+  color: #3262ff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.texto-login-recuperar a:hover {
+  color: #60a5fa;
+}
+
+/* =========================
+   PANTALLA ÉXITO
+========================= */
+
+.exito-recuperar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+  padding: 20px 0;
+}
+
+.icono-exito-recuperar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.exito-recuperar h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.exito-recuperar p {
+  color: #9ca3af;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 380px;
+}
+
+.exito-recuperar strong {
+  color: #ffffff;
+}
+
+.nota-exito-recuperar {
+  font-size: 13px !important;
+  color: #6b7280 !important;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+  .pagina-recuperar {
+    grid-template-columns: 1fr;
+  }
+
+  .imagen-recuperar {
+    min-height: 400px;
+  }
+
+  .contenido-imagen-recuperar {
+    left: 35px;
+    bottom: 40px;
+  }
+
+  .contenido-imagen-recuperar h1 {
+    font-size: 38px;
+  }
+
+  .seccion-recuperar {
+    padding: 40px 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .imagen-recuperar {
+    min-height: 300px;
+  }
+
+  .contenido-imagen-recuperar h1 {
+    font-size: 30px;
+  }
+
+  .seccion-recuperar {
+    padding: 35px 20px;
+  }
+
+  .selector-metodo {
+    grid-template-columns: 1fr;
+  }
+}

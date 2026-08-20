@@ -1,68 +1,80 @@
+/* =====================================================
+   APP.JSX — COMPONENTE RAÍZ CON TODAS LAS RUTAS
+   Configura el enrutador de React y define qué
+   componente/página se muestra según la URL actual.
+===================================================== */
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// COMPONENTES
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import MotoCarousel from "./components/MotoCarousel";
-import NewsCarousel from "./components/NewsCarousel";
-import QuickActions from "./components/QuickActions";
-import QuickActionsEncuentranos from "./components/QuickActionsEncuentranos";
-import Footer from "./components/Footer";
+// ── COMPONENTES REUTILIZABLES ──────────────────────────
+import Navbar from "./components/Navbar";                     // Barra de navegación superior
+import Hero from "./components/Hero";                         // Sección hero de bienvenida
+import MotoCarousel from "./components/MotoCarousel";         // Carrusel de motos en la portada
+import NewsCarousel from "./components/NewsCarousel";         // Carrusel de noticias
+import QuickActions from "./components/QuickActions";         // Tarjeta de acceso rápido (Agendar prueba)
+import QuickActionsEncuentranos from "./components/QuickActionsEncuentranos"; // Tarjeta "Encuéntranos"
+import Footer from "./components/Footer";                     // Pie de página
 
-// PÁGINAS
-import Motos from "./pages/Motos";
-import AgendarPrueba from "./pages/AgendarPrueba";
-
-import Blog from "./pages/Blog";
-
-import Login from "./pages/Login";
-import Registro from "./pages/Registro";
+// ── PÁGINAS ────────────────────────────────────────────
+import Motos from "./pages/Motos";                           // Catálogo de motocicletas
+import AgendarPrueba from "./pages/AgendarPrueba";           // Página para agendar prueba de manejo
+import Blog from "./pages/Blog";                             // Blog de noticias
+import Login from "./pages/Login";                           // Inicio de sesión
+import Registro from "./pages/Registro";                     // Crear cuenta nueva
+import RecuperarContrasena from "./pages/RecuperarContrasena"; // Recuperar contraseña olvidada
+import Dashboard from "./pages/Dashboard";                   // Panel de administración
 
 import "./App.css";
 
 
 /* =====================================================
-   PÁGINA PRINCIPAL
+   PÁGINA PRINCIPAL (HOME)
+   Agrupa todos los componentes que forman la portada:
+   Navbar → Hero → Carrusel Motos → Noticias → Acciones → Footer
 ===================================================== */
 
 function Home() {
   return (
     <>
+      {/* Barra de navegación superior */}
       <Navbar />
 
       <main>
 
         {/* =========================
-            HERO
+            HERO — Sección de bienvenida con imagen de fondo
         ========================= */}
 
         <Hero />
 
 
         {/* =========================
-            CARRUSEL DE MOTOS
+            CARRUSEL DE MOTOS — Muestra modelos destacados con flechas de navegación
         ========================= */}
 
         <MotoCarousel />
 
 
         {/* =========================
-            NOTICIAS
+            NOTICIAS — Carrusel paginado con las últimas novedades
         ========================= */}
 
         <NewsCarousel />
 
 
         {/* =========================
-            ENLACES RÁPIDOS
+            ENLACES RÁPIDOS — Dos tarjetas de acceso rápido (Agendar prueba / Encuéntranos)
         ========================= */}
 
+        {/* Contenedor que alinea las dos tarjetas en fila */}
         <section className="quick-links quick-links--double">
 
           <div className="quick-links-grid">
 
+            {/* Tarjeta: Agendar prueba de manejo */}
             <QuickActions />
 
+            {/* Tarjeta: Encuéntranos / Puntos de venta */}
             <QuickActionsEncuentranos />
 
           </div>
@@ -71,6 +83,7 @@ function Home() {
 
       </main>
 
+      {/* Pie de página con links, redes y copyright */}
       <Footer />
     </>
   );
@@ -78,7 +91,10 @@ function Home() {
 
 
 /* =====================================================
-   APP
+   APP — CONFIGURACIÓN PRINCIPAL DE RUTAS
+   BrowserRouter habilita la navegación por URL.
+   Cada <Route> define qué componente renderizar
+   cuando el usuario visita esa ruta.
 ===================================================== */
 
 function App() {
@@ -90,7 +106,23 @@ function App() {
         <Routes>
 
           {/* =================================================
-              INICIO
+              ADMIN / DASHBOARD — Panel de administración
+              Accesible desde /dashboard o /admin
+          ================================================= */}
+
+          <Route
+            path="/dashboard"
+            element={<Dashboard />}
+          />
+
+          <Route
+            path="/admin"
+            element={<Dashboard />}
+          />
+
+
+          {/* =================================================
+              INICIO — Página principal con hero y carrusel
           ================================================= */}
 
           <Route
@@ -100,7 +132,7 @@ function App() {
 
 
           {/* =================================================
-              MOTOS
+              MOTOS — Catálogo de motocicletas con filtros
           ================================================= */}
 
           <Route
@@ -120,7 +152,7 @@ function App() {
 
 
           {/* =================================================
-              AGENDAR PRUEBA
+              AGENDAR PRUEBA — Formulario para reservar prueba de manejo
           ================================================= */}
 
           <Route
@@ -140,7 +172,7 @@ function App() {
 
 
           {/* =================================================
-              INICIAR SESIÓN
+              INICIAR SESIÓN — Formulario de login con validaciones
           ================================================= */}
 
           <Route
@@ -158,7 +190,7 @@ function App() {
 
 
           {/* =================================================
-              CREAR CUENTA
+              CREAR CUENTA — Formulario de registro con requisitos de contraseña
           ================================================= */}
 
           <Route
@@ -175,8 +207,26 @@ function App() {
           />
 
 
+          {/* =================================================
+              RECUPERAR CONTRASEÑA — Envío por correo o teléfono
+          ================================================= */}
+
+          <Route
+            path="/recuperar-contrasena"
+            element={
+              <>
+                <Navbar />
+
+                <RecuperarContrasena />
+
+                <Footer />
+              </>
+            }
+          />
+
+
           {/* =========================
-              PÁGINA BLOG
+              BLOG — Página de noticias y artículos
           ========================= */}
 
           <Route
@@ -186,7 +236,8 @@ function App() {
 
 
           {/* =================================================
-              PÁGINA NO ENCONTRADA
+              PÁGINA NO ENCONTRADA (404) — Ruta comodín "*"
+              Se activa cuando ninguna otra ruta coincide
           ================================================= */}
 
           <Route
@@ -195,6 +246,7 @@ function App() {
               <>
                 <Navbar />
 
+                {/* Contenido centrado con fondo negro */}
                 <main
                   style={{
                     minHeight: "70vh",

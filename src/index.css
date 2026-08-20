@@ -4,9 +4,35 @@
   box-sizing: border-box;
 }
 
+/* CUSTOM DARK SCROLLBAR - ELIMINA SCROLLBARS BLANCOS Y MEJORA EL AJUSTE A LA PANTALLA */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 18, 26, 0.95);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252e42;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #252e42 rgba(15, 18, 26, 0.95);
+}
+
 body {
   background: #000;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: white;
 }
 
 .content {

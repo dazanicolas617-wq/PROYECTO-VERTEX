@@ -1,10 +1,39 @@
+/* =====================================================
+   REGISTRO.JSX — PÁGINA DE CREACIÓN DE CUENTA
+   Diseño dividido en dos columnas:
+   - Izquierda: imagen de fondo con texto motivacional
+   - Derecha: formulario de registro con múltiples campos
+
+   Campos del formulario:
+   - Nombre y apellido
+   - Correo electrónico
+   - Teléfono
+   - Tipo y número de documento
+   - Contraseña (con indicador de requisitos en tiempo real)
+   - Confirmar contraseña
+   - Aceptación de términos y condiciones
+
+   Validaciones:
+   - Todos los campos son requeridos
+   - Correo debe ser válido (regex)
+   - Contraseña: mínimo 10 chars, mayúscula, minúscula,
+     número y sin espacios
+   - Las dos contraseñas deben coincidir
+===================================================== */
+
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Registro.css";
 
 function Registro() {
+
+  /* Hook para navegar a /login tras el registro exitoso */
   const navigate = useNavigate();
 
+  /* ── ESTADO DEL FORMULARIO ────────────────────────────────
+     Un único objeto agrupa todos los campos del formulario.
+     Se actualiza con handleChange de forma genérica.
+  ──────────────────────────────────────────────────────────── */
   const [form, setForm] = useState({
     nombre: "",
     apellido: "",
@@ -14,37 +43,53 @@ function Registro() {
     numeroDocumento: "",
     password: "",
     confirmarPassword: "",
-    terminos: false,
+    terminos: false,         // Checkbox de aceptación de términos
   });
 
-  const [mostrarPassword, setMostrarPassword] = useState(false);
-  const [mostrarConfirmar, setMostrarConfirmar] = useState(false);
-  const [passwordFocus, setPasswordFocus] = useState(false);
+  /* ── VISIBILIDAD DE CONTRASEÑAS ──────────────────────────── */
+  const [mostrarPassword, setMostrarPassword] = useState(false);     // Alterna vista contraseña
+  const [mostrarConfirmar, setMostrarConfirmar] = useState(false);   // Alterna vista confirmación
+  const [passwordFocus, setPasswordFocus] = useState(false);         // Muestra panel de requisitos
 
+  /* ── ERRORES DE VALIDACIÓN ───────────────────────────────── */
   const [errores, setErrores] = useState({});
 
+  /* ── MANEJADOR GENÉRICO DE CAMBIOS ────────────────────────
+     Detecta el tipo de input (checkbox o texto) y actualiza
+     el campo correspondiente en el objeto form.
+     También limpia el error de ese campo en tiempo real.
+  ──────────────────────────────────────────────────────────── */
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
     setForm({
       ...form,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: type === "checkbox" ? checked : value, // Si es checkbox usa checked, si no usa value
     });
 
+    /* Limpia el error del campo que está siendo editado */
     setErrores({
       ...errores,
       [name]: "",
     });
   };
 
+  /* ── VALIDACIONES DE CONTRASEÑA EN TIEMPO REAL ────────────
+     Objeto booleano con el resultado de cada requisito.
+     Se usa para colorear el panel de indicadores.
+  ──────────────────────────────────────────────────────────── */
   const passwordValidations = {
-    length: form.password.length >= 10,
-    lowercase: /[a-z]/.test(form.password),
-    uppercase: /[A-Z]/.test(form.password),
-    number: /[0-9]/.test(form.password),
-    noSpaces: !/\s/.test(form.password),
+    length: form.password.length >= 10,           // Mínimo 10 caracteres
+    lowercase: /[a-z]/.test(form.password),       // Al menos una minúscula
+    uppercase: /[A-Z]/.test(form.password),       // Al menos una mayúscula
+    number: /[0-9]/.test(form.password),          // Al menos un número
+    noSpaces: !/\s/.test(form.password),          // Sin espacios en blanco
   };
 
+  /* ── VALIDAR TODO EL FORMULARIO ──────────────────────────
+     Se llama antes de enviar. Construye un objeto de errores.
+     Retorna true si no hay errores, false si los hay.
+  ──────────────────────────────────────────────────────────── */
   const validarFormulario = () => {
     const nuevosErrores = {};
 
@@ -59,7 +104,7 @@ function Registro() {
     if (!form.correo.trim()) {
       nuevosErrores.correo = "Ingresa tu correo";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.correo)) {
-      nuevosErrores.correo = "Ingresa un correo válido";
+      nuevosErrores.correo = "Ingresa un correo válido";   // Regex básico de email
     }
 
     if (!form.telefono.trim()) {
@@ -74,6 +119,7 @@ function Registro() {
       nuevosErrores.numeroDocumento = "Ingresa tu número de documento";
     }
 
+    /* Valida los requisitos de la contraseña */
     if (!passwordValidations.length) {
       nuevosErrores.password =
         "La contraseña debe tener mínimo 10 caracteres";
@@ -87,12 +133,14 @@ function Registro() {
         "La contraseña no cumple todos los requisitos";
     }
 
+    /* Verifica que las contraseñas coincidan */
     if (!form.confirmarPassword) {
       nuevosErrores.confirmarPassword = "Confirma tu contraseña";
     } else if (form.password !== form.confirmarPassword) {
       nuevosErrores.confirmarPassword = "Las contraseñas no coinciden";
     }
 
+    /* Verifica que se hayan aceptado los términos */
     if (!form.terminos) {
       nuevosErrores.terminos =
         "Debes aceptar los términos y condiciones";
@@ -100,32 +148,39 @@ function Registro() {
 
     setErrores(nuevosErrores);
 
-    return Object.keys(nuevosErrores).length === 0;
+    return Object.keys(nuevosErrores).length === 0; // true = sin errores
   };
 
+  /* ── ENVIAR FORMULARIO ────────────────────────────────────
+     Si la validación pasa, muestra confirmación y redirige
+     al usuario a la página de login.
+  ──────────────────────────────────────────────────────────── */
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();   // Evita la recarga de la página
 
     if (!validarFormulario()) {
-      return;
+      return;             // Sale si hay campos inválidos
     }
 
     alert("Cuenta creada correctamente");
 
-    navigate("/login");
+    navigate("/login");   // Redirige al formulario de inicio de sesión
   };
 
   return (
     <div className="registro-page">
 
       {/* =====================================================
-          COLUMNA IZQUIERDA
+          COLUMNA IZQUIERDA — Imagen de fondo decorativa
+          Texto motivacional superpuesto sobre la foto
       ===================================================== */}
 
       <section className="registro-image">
 
+        {/* Capa oscura sobre la imagen para contraste */}
         <div className="registro-overlay"></div>
 
+        {/* Contenido textual centrado */}
         <div className="registro-image-content">
 
           <span>VERTEX MOTORS</span>
@@ -138,6 +193,7 @@ function Registro() {
             COMIENZA AQUÍ.
           </h1>
 
+          {/* Línea decorativa separadora */}
           <div className="registro-line"></div>
 
           <p>
@@ -152,7 +208,7 @@ function Registro() {
 
 
       {/* =====================================================
-          COLUMNA DERECHA
+          COLUMNA DERECHA — Formulario de registro
       ===================================================== */}
 
       <section className="registro-form-section">
@@ -169,11 +225,12 @@ function Registro() {
           <form onSubmit={handleSubmit}>
 
             {/* =================================================
-                NOMBRE / APELLIDO
+                NOMBRE / APELLIDO — Dos campos en fila
             ================================================= */}
 
             <div className="registro-two-columns">
 
+              {/* Campo: Nombre */}
               <div className="registro-field">
 
                 <label>NOMBRE</label>
@@ -192,6 +249,7 @@ function Registro() {
 
                 </div>
 
+                {/* Error del campo nombre */}
                 {errores.nombre && (
                   <small>{errores.nombre}</small>
                 )}
@@ -199,6 +257,7 @@ function Registro() {
               </div>
 
 
+              {/* Campo: Apellido */}
               <div className="registro-field">
 
                 <label>APELLIDO</label>
@@ -217,6 +276,7 @@ function Registro() {
 
                 </div>
 
+                {/* Error del campo apellido */}
                 {errores.apellido && (
                   <small>{errores.apellido}</small>
                 )}
@@ -227,7 +287,7 @@ function Registro() {
 
 
             {/* =================================================
-                CORREO
+                CORREO ELECTRÓNICO
             ================================================= */}
 
             <div className="registro-field">
@@ -285,11 +345,12 @@ function Registro() {
 
 
             {/* =================================================
-                DOCUMENTOS
+                DOCUMENTOS — Tipo y número en dos columnas
             ================================================= */}
 
             <div className="registro-two-columns">
 
+              {/* Campo: Tipo de documento (select) */}
               <div className="registro-field">
 
                 <label>TIPO DE DOCUMENTO</label>
@@ -331,6 +392,7 @@ function Registro() {
               </div>
 
 
+              {/* Campo: Número de documento */}
               <div className="registro-field">
 
                 <label>NÚMERO DE DOCUMENTO</label>
@@ -359,18 +421,21 @@ function Registro() {
 
 
             {/* =================================================
-                CONTRASEÑAS
+                CONTRASEÑAS — En dos columnas
             ================================================= */}
 
             <div className="registro-two-columns">
 
-              {/* CONTRASEÑA */}
-
+              {/* ── CONTRASEÑA ──────────────────────────────────
+                  Al hacer focus en este campo, se muestra el
+                  panel de requisitos de la contraseña.
+              ──────────────────────────────────────────────────── */}
               <div
                 className="registro-field password-field"
-                onFocus={() => setPasswordFocus(true)}
+                onFocus={() => setPasswordFocus(true)}   // Activa el panel de requisitos
                 onBlur={(e) => {
 
+                  /* Solo oculta el panel si el foco salió completamente del contenedor */
                   if (
                     !e.currentTarget.contains(
                       e.relatedTarget
@@ -388,6 +453,7 @@ function Registro() {
 
                   <span>🔒</span>
 
+                  {/* Alterna entre "text" y "password" según mostrarPassword */}
                   <input
                     type={
                       mostrarPassword
@@ -400,6 +466,7 @@ function Registro() {
                     onChange={handleChange}
                   />
 
+                  {/* Botón para alternar visibilidad */}
                   <button
                     type="button"
                     className="password-button"
@@ -420,7 +487,9 @@ function Registro() {
 
 
                 {/* =================================================
-                    REQUISITOS
+                    PANEL DE REQUISITOS DE CONTRASEÑA
+                    Solo se muestra cuando el campo tiene el foco.
+                    Cada requisito cambia a verde cuando se cumple.
                 ================================================= */}
 
                 {passwordFocus && (
@@ -433,18 +502,19 @@ function Registro() {
 
                     <div className="password-requirements-grid">
 
+                      {/* Requisito: mínimo 10 caracteres */}
                       <div
                         className={`password-requirement ${
                           passwordValidations.length
-                            ? "valid"
+                            ? "valid"      // Clase "valid" cambia el color a verde
                             : ""
                         }`}
                       >
 
                         <span className="requirement-dot">
                           {passwordValidations.length
-                            ? "●"
-                            : "○"}
+                            ? "●"          // Punto lleno si cumple
+                            : "○"}        // Punto vacío si no cumple
                         </span>
 
                         Mínimo 10 caracteres
@@ -452,6 +522,7 @@ function Registro() {
                       </div>
 
 
+                      {/* Requisito: mayúscula */}
                       <div
                         className={`password-requirement ${
                           passwordValidations.uppercase
@@ -471,6 +542,7 @@ function Registro() {
                       </div>
 
 
+                      {/* Requisito: minúscula */}
                       <div
                         className={`password-requirement ${
                           passwordValidations.lowercase
@@ -490,6 +562,7 @@ function Registro() {
                       </div>
 
 
+                      {/* Requisito: número */}
                       <div
                         className={`password-requirement ${
                           passwordValidations.number
@@ -509,6 +582,7 @@ function Registro() {
                       </div>
 
 
+                      {/* Requisito: sin espacios */}
                       <div
                         className={`password-requirement ${
                           passwordValidations.noSpaces
@@ -536,7 +610,7 @@ function Registro() {
               </div>
 
 
-              {/* CONFIRMAR CONTRASEÑA */}
+              {/* ── CONFIRMAR CONTRASEÑA ─────────────────────── */}
 
               <div className="registro-field">
 
@@ -558,6 +632,7 @@ function Registro() {
                     onChange={handleChange}
                   />
 
+                  {/* Botón para alternar visibilidad del campo de confirmación */}
                   <button
                     type="button"
                     className="password-button"
@@ -584,7 +659,8 @@ function Registro() {
 
 
             {/* =================================================
-                TÉRMINOS
+                TÉRMINOS Y CONDICIONES
+                Checkbox de aceptación con links a las políticas
             ================================================= */}
 
             <div className="registro-terms">
@@ -615,6 +691,7 @@ function Registro() {
             </div>
 
 
+            {/* Error si no aceptó los términos */}
             {errores.terminos && (
               <small className="terms-error">
                 {errores.terminos}
@@ -623,7 +700,7 @@ function Registro() {
 
 
             {/* =================================================
-                BOTÓN
+                BOTÓN CREAR CUENTA
             ================================================= */}
 
             <button
@@ -636,7 +713,7 @@ function Registro() {
 
 
             {/* =================================================
-                LOGIN
+                ENLACE A LOGIN para usuarios ya registrados
             ================================================= */}
 
             <p className="login-link">

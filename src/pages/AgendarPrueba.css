@@ -3,7 +3,7 @@
   min-height: 100vh;
   background: #000207;
   color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 /* =========================
@@ -64,94 +64,95 @@
 }
 
 /* =========================
-   LOGIN CARD
+   LOGIN CARD ESTILO IMAGEN 2
 ========================= */
 
 .login-section {
   display: flex;
   justify-content: center;
-
   padding: 50px 20px 100px;
 }
 
 .login-card {
   width: min(100%, 480px);
-  padding: 42px 40px;
-
+  padding: 44px 36px;
   text-align: center;
-
-  background: #121216;
-  border: 1px solid #292a30;
-  border-radius: 18px;
-
+  background: #111319;
+  border: 1px solid #1e2433;
+  border-radius: 20px;
   box-sizing: border-box;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card-label {
-  color: #3164ff;
-  font-size: 12px;
+  color: #3b82f6;
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .login-card h2 {
-  margin: 22px 0;
-
+  margin: 18px 0 12px;
   font-size: 26px;
-  line-height: 1.2;
+  line-height: 1.25;
   font-weight: 800;
+  color: #ffffff;
 }
 
 .login-card p {
-  margin: 0 auto 25px;
-
-  max-width: 390px;
-
-  color: #a1a1aa;
-  font-size: 15px;
-  line-height: 1.7;
+  margin: 0 0 26px;
+  max-width: 380px;
+  color: #9ca3af;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-.login-button {
+/* BOTÓN PRINCIPAL AZUL DESTACADO */
+.btn-iniciar-sesion {
   width: 100%;
-  height: 50px;
-
-  border: none;
-  border-radius: 11px;
-
-  background: linear-gradient(
-    90deg,
-    #2e5cff,
-    #4b70ff
-  );
-
-  color: white;
-  font-size: 13px;
+  max-width: 320px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  background: #3b82f6;
+  color: #ffffff;
+  font-size: 14px;
   font-weight: 800;
-
-  cursor: pointer;
-
-  box-shadow: 0 8px 25px rgba(42, 88, 255, 0.3);
-
-  transition: 0.3s ease;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  margin-bottom: 22px;
+  box-sizing: border-box;
 }
 
-.login-button:hover {
+.btn-iniciar-sesion:hover {
+  background: #2563eb;
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(42, 88, 255, 0.45);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.55);
 }
 
-.create-account {
-  margin-top: 28px;
-
-  color: #888890;
-  font-size: 13px;
+/* ENLACE SECUNDARIO A CREAR CUENTA */
+.texto-crear-cuenta {
+  color: #9ca3af !important;
+  font-size: 13px !important;
+  margin: 0 !important;
 }
 
-.create-account a {
-  color: #fff;
+.link-crear-cuenta {
+  color: #ffffff;
   font-weight: 700;
   text-decoration: underline;
+  margin-left: 4px;
+  transition: color 0.2s;
+}
+
+.link-crear-cuenta:hover {
+  color: #60a5fa;
 }
 
 /* =========================
@@ -161,29 +162,22 @@
 .location-section {
   display: flex;
   justify-content: center;
-
   padding: 0 20px 70px;
 }
 
 .location-card {
   width: 315px;
   height: 88px;
-
   padding: 0 20px;
-
   display: flex;
   align-items: center;
-
   background: #1c1c1d;
-
   border-radius: 5px;
-
   box-sizing: border-box;
 }
 
 .location-icon {
   width: 40px;
-
   color: #999;
   font-size: 30px;
 }
@@ -194,7 +188,6 @@
 
 .location-text p {
   margin: 0;
-
   color: white;
   font-size: 13px;
   font-weight: 600;
@@ -211,7 +204,6 @@
 ========================= */
 
 @media (max-width: 850px) {
-
   .agendar-hero {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -225,11 +217,9 @@
   .hero-image {
     height: 250px;
   }
-
 }
 
 @media (max-width: 550px) {
-
   .agendar-hero {
     padding: 35px 18px;
   }

@@ -1,14 +1,34 @@
+/* =====================================================
+   MOTOS.JSX — PÁGINA DE CATÁLOGO DE MOTOCICLETAS
+   Muestra todas las motos disponibles organizadas
+   en dos categorías, con filtros de ordenamiento
+   por cilindrada y precio.
+
+   Estructura de la página:
+   1. Encabezado con título de sección
+   2. Barra de filtros (cilindrada y precio)
+   3. Categoría 1: Enduro y Clásicas (primeras 6 motos)
+   4. Categoría 2: Doble Propósito (motos 7 a 12)
+   5. Modal de detalles (si hay una moto seleccionada)
+   6. Modal de cotización (si el usuario solicita cotizar)
+
+   Cada moto tiene: id, nombre, imagen, precio, categoría,
+   cilindrada y descripción.
+===================================================== */
+
 import { useState } from "react";
 
-import MotoCard from "../components/MotoCard";
-import MotoDetails from "../components/MotoDetails";
-import MotoCotizacion from "../components/MotoCotizacion";
+import MotoCard from "../components/MotoCard";           // Tarjeta de presentación de cada moto
+import MotoDetails from "../components/MotoDetails";     // Modal con detalles completos
+import MotoCotizacion from "../components/MotoCotizacion"; // Modal de formulario de cotización
 
 import "./Motos.css";
 
 
 /* =========================
    IMPORTAR IMÁGENES
+   Se importan como módulos para que Vite las optimice
+   y gestione las rutas correctamente en producción.
 ========================= */
 
 import Moto1 from "../assets/motos/Moto1.jpg";
@@ -27,6 +47,11 @@ import Moto12 from "../assets/motos/Moto12.jpg";
 
 /* =========================
    DATOS DE LAS MOTOS
+   Array con todos los modelos disponibles en el catálogo.
+   - precio        : string formateado para mostrar en UI
+   - precioNumero  : número entero para ordenamiento
+   - cilindrada    : string con "cc" para mostrar
+   - cilindradaNumero: número para ordenamiento
 ========================= */
 
 const motos = [
@@ -194,17 +219,24 @@ function Motos() {
 
   /* =========================
      MODALES
+     Almacenan el objeto de la moto seleccionada.
+     null = ningún modal abierto
   ========================= */
 
+  /* Moto seleccionada para el modal de detalles */
   const [motoSeleccionada, setMotoSeleccionada] =
     useState(null);
 
+  /* Moto seleccionada para el modal de cotización */
   const [motoCotizacion, setMotoCotizacion] =
     useState(null);
 
 
   /* =========================
-     FILTROS
+     FILTROS DE ORDENAMIENTO
+     "todos" = sin ordenamiento aplicado
+     "asc"   = de menor a mayor
+     "desc"  = de mayor a menor
   ========================= */
 
   const [filtroCilindrada, setFiltroCilindrada] =
@@ -215,7 +247,8 @@ function Motos() {
 
 
   /* =========================
-     ABRIR DETALLES
+     ABRIR MODAL DE DETALLES
+     Se llama cuando el usuario hace clic en "VER MÁS"
   ========================= */
 
   const abrirDetalles = (moto) => {
@@ -226,7 +259,8 @@ function Motos() {
 
 
   /* =========================
-     ABRIR COTIZACIÓN
+     ABRIR MODAL DE COTIZACIÓN
+     Se llama cuando el usuario hace clic en "COTIZACIÓN"
   ========================= */
 
   const abrirCotizacion = (moto) => {
@@ -238,21 +272,24 @@ function Motos() {
 
   /* =========================
      FILTRAR Y ORDENAR MOTOS
+     Se parte de una copia del array original para
+     no mutar el array de datos.
   ========================= */
 
   let motosFiltradas = [...motos];
 
 
-  /* -------------------------
-     ORDENAR CILINDRADA
-  ------------------------- */
+  /* ── ORDENAR POR CILINDRADA ─────────────────────────────
+     "asc"  → de menor cilindrada a mayor
+     "desc" → de mayor cilindrada a menor
+  ──────────────────────────────────────────────────────── */
 
   if (filtroCilindrada === "asc") {
 
     motosFiltradas.sort(
       (a, b) =>
         a.cilindradaNumero -
-        b.cilindradaNumero
+        b.cilindradaNumero     // Menor a mayor
     );
 
   }
@@ -262,22 +299,23 @@ function Motos() {
     motosFiltradas.sort(
       (a, b) =>
         b.cilindradaNumero -
-        a.cilindradaNumero
+        a.cilindradaNumero     // Mayor a menor
     );
 
   }
 
 
-  /* -------------------------
-     ORDENAR PRECIO
-  ------------------------- */
+  /* ── ORDENAR POR PRECIO ─────────────────────────────────
+     "asc"  → de menor precio a mayor
+     "desc" → de mayor precio a menor
+  ──────────────────────────────────────────────────────── */
 
   if (filtroPrecio === "asc") {
 
     motosFiltradas.sort(
       (a, b) =>
         a.precioNumero -
-        b.precioNumero
+        b.precioNumero         // Menor a mayor
     );
 
   }
@@ -287,7 +325,7 @@ function Motos() {
     motosFiltradas.sort(
       (a, b) =>
         b.precioNumero -
-        a.precioNumero
+        a.precioNumero         // Mayor a menor
     );
 
   }
@@ -295,6 +333,7 @@ function Motos() {
 
   /* =========================
      LIMPIAR FILTROS
+     Reinicia ambos selectores a "todos"
   ========================= */
 
   const limpiarFiltros = () => {
@@ -311,11 +350,12 @@ function Motos() {
 
 
       {/* =========================
-          ENCABEZADO
+          ENCABEZADO — Título principal del catálogo
       ========================= */}
 
       <section className="motos-header">
 
+        {/* Título con líneas decorativas */}
         <div className="section-title">
 
           <span></span>
@@ -337,13 +377,14 @@ function Motos() {
 
 
       {/* =========================
-          FILTROS
+          BARRA DE FILTROS
+          Permite ordenar las motos por cilindrada o precio.
+          El botón LIMPIAR reinicia ambos filtros.
       ========================= */}
 
       <section className="motos-filtros">
 
-        {/* CILINDRADA */}
-
+        {/* Filtro de cilindrada */}
         <div className="filtro-grupo">
 
           <label htmlFor="filtro-cilindrada">
@@ -375,8 +416,7 @@ function Motos() {
         </div>
 
 
-        {/* PRECIO */}
-
+        {/* Filtro de precio */}
         <div className="filtro-grupo">
 
           <label htmlFor="filtro-precio">
@@ -408,8 +448,7 @@ function Motos() {
         </div>
 
 
-        {/* LIMPIAR */}
-
+        {/* Botón para resetear todos los filtros */}
         <button
           type="button"
           className="btn-limpiar-filtros"
@@ -423,7 +462,8 @@ function Motos() {
 
 
       {/* =========================
-          CATEGORÍA 1
+          CATEGORÍA 1 — Enduro y Clásicas
+          Muestra las primeras 6 motos del array filtrado
       ========================= */}
 
       <section className="moto-category">
@@ -432,17 +472,18 @@ function Motos() {
           ENDURO Y CLÁSICAS
         </h2>
 
+        {/* Grid de tarjetas MotoCard */}
         <div className="motos-grid">
 
           {motosFiltradas
-            .slice(0, 6)
+            .slice(0, 6)              // Solo las primeras 6 motos
             .map((moto) => (
 
               <MotoCard
                 key={moto.id}
                 moto={moto}
-                onVerMas={abrirDetalles}
-                onCotizar={abrirCotizacion}
+                onVerMas={abrirDetalles}      // Abre el modal de detalles
+                onCotizar={abrirCotizacion}   // Abre el modal de cotización
               />
 
             ))}
@@ -454,7 +495,8 @@ function Motos() {
 
 
       {/* =========================
-          CATEGORÍA 2
+          CATEGORÍA 2 — Doble Propósito
+          Muestra las motos del índice 6 al 11 del array filtrado
       ========================= */}
 
       <section className="moto-category">
@@ -466,7 +508,7 @@ function Motos() {
         <div className="motos-grid">
 
           {motosFiltradas
-            .slice(6, 12)
+            .slice(6, 12)             // Motos del índice 6 al 11
             .map((moto) => (
 
               <MotoCard
@@ -486,6 +528,8 @@ function Motos() {
 
       {/* =========================
           MODAL DETALLES
+          Solo se renderiza si hay una moto seleccionada.
+          onClose limpia el estado cerrando el modal.
       ========================= */}
 
       {motoSeleccionada && (
@@ -493,7 +537,7 @@ function Motos() {
         <MotoDetails
           moto={motoSeleccionada}
           onClose={() =>
-            setMotoSeleccionada(null)
+            setMotoSeleccionada(null)    // Cierra el modal
           }
         />
 
@@ -503,6 +547,7 @@ function Motos() {
 
       {/* =========================
           MODAL COTIZACIÓN
+          Solo se renderiza si el usuario pidió cotizar una moto.
       ========================= */}
 
       {motoCotizacion && (
@@ -510,7 +555,7 @@ function Motos() {
         <MotoCotizacion
           moto={motoCotizacion}
           onClose={() =>
-            setMotoCotizacion(null)
+            setMotoCotizacion(null)      // Cierra el modal
           }
         />
 

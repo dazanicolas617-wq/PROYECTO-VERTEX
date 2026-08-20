@@ -1,94 +1,57 @@
 /* =========================
-   MODAL
-========================= */
+   MODAL DE DETALLES DE MOTO
+   ========================= */
 
 .moto-modal {
   position: fixed;
-
   inset: 0;
-
   z-index: 9999;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   padding: 20px;
 }
 
-
-/* =========================
-   FONDO
-========================= */
-
+/* FONDO */
 .moto-modal-background {
   position: absolute;
-
   inset: 0;
-
-  background: rgba(0, 0, 0, 0.82);
-
-  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
 }
 
-
-/* =========================
-   CONTENEDOR
-========================= */
-
+/* CONTENEDOR MARCO LIMPIO - OVERFLOW HIDDEN PARA NO CORTAR EL BORDE AZUL NI LAS ESQUINAS */
 .moto-details {
   position: relative;
-
   z-index: 2;
-
-  width: min(100%, 720px);
-
-  max-height: 88vh;
-
-  overflow-y: auto;
-
-  padding: 28px 32px;
-
+  width: min(94vw, 580px);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 28px;
   background: #121216;
-
-  border: 1px solid #2f5cff;
-
+  border: 1.5px solid #2f5cff;
   border-radius: 18px;
-
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75);
-
   box-sizing: border-box;
+  overflow: hidden;
 }
 
-
-/* =========================
-   CERRAR
-========================= */
-
+/* CERRAR */
 .moto-close {
   position: absolute;
-
   top: 14px;
   right: 16px;
-
-  width: 42px;
-  height: 42px;
-
+  width: 36px;
+  height: 36px;
   border: none;
-
   border-radius: 50%;
-
   background: #242424;
-
   color: #ffffff;
-
-  font-size: 28px;
-
+  font-size: 24px;
   line-height: 1;
-
   cursor: pointer;
-
+  z-index: 10;
   transition: background 0.2s ease;
 }
 
@@ -96,285 +59,129 @@
   background: #333333;
 }
 
-
-/* =========================
-   TITULO
-========================= */
-
-.moto-details h2 {
-  margin: 0 60px 18px 0;
-
-  color: #ffffff;
-
-  font-size: 32px;
-
-  font-weight: 900;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.5px;
+/* ── CUERPO CON SCROLL INTERNO ─────────────────────────
+   El contenido del modal tiene scroll propio para que
+   no se desborde el contenedor en pantallas pequeñas.
+   Se personaliza la barra de scroll (webkit).
+──────────────────────────────────────────────────────── */
+.moto-details-content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
+.moto-details-content::-webkit-scrollbar {
+  width: 5px;
+}
 
-/* =========================
-   IMAGEN
-========================= */
+.moto-details-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.moto-details-content::-webkit-scrollbar-thumb {
+  background: #252e42;
+  border-radius: 10px;
+}
+
+.moto-details-content::-webkit-scrollbar-thumb:hover {
+  background: #2f5cff;
+}
+
+.moto-details h2 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0;
+  padding-right: 40px;
+  text-transform: uppercase;
+}
 
 .moto-details-image {
   width: 100%;
-
-  height: 260px;
-
+  max-height: 220px;
   overflow: hidden;
-
   border-radius: 12px;
-
-  border: 1px solid #292929;
-
-  background: #08080b;
+  border: 1px solid #26262b;
 }
 
 .moto-details-image img {
   width: 100%;
-
-  height: 100%;
-
+  height: 220px;
   object-fit: cover;
-
-  display: block;
 }
-
-
-/* =========================
-   CARACTERÍSTICAS
-========================= */
 
 .moto-details-grid {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 12px;
-
-  margin-top: 16px;
 }
-
 
 .detail-box {
+  padding: 12px 14px;
+  background: #1a1a20;
+  border: 1px solid #292932;
+  border-radius: 8px;
   display: flex;
-
   flex-direction: column;
-
-  gap: 5px;
-
-  padding: 14px 18px;
-
-  background: #1e1e1e;
-
-  border-left: 3px solid #2f5cff;
-
-  border-radius: 4px;
+  gap: 4px;
 }
-
 
 .detail-box strong {
-  color: #ffffff;
-
-  font-size: 13px;
-
-  font-weight: 800;
-}
-
-
-.detail-box span {
-  color: #bcbcbc;
-
-  font-size: 17px;
-}
-
-
-/* =========================
-   DESCRIPCIÓN
-========================= */
-
-.moto-description {
-  margin: 18px 0;
-
-  color: #c7c7c7;
-
-  font-size: 15px;
-
-  line-height: 1.55;
-}
-
-
-/* =========================
-   PRECIO
-========================= */
-
-.modal-price {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 4px;
-
-  padding-top: 16px;
-
-  border-top: 1px solid #292929;
-}
-
-
-.modal-price span {
-  color: #929292;
-
-  text-transform: uppercase;
-
-  font-size: 11px;
-
+  font-size: 0.68rem;
+  color: #777777;
   letter-spacing: 1px;
 }
 
+.detail-box span {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.moto-description {
+  font-size: 0.88rem;
+  color: #a1a1aa;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.modal-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(47, 92, 255, 0.08);
+  border: 1px solid rgba(47, 92, 255, 0.25);
+  border-radius: 10px;
+}
+
+.modal-price span {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
 
 .modal-price strong {
+  font-size: 1.2rem;
   color: #ffffff;
-
-  font-size: 24px;
-
-  font-weight: 800;
 }
-
-
-/* =========================
-   BOTÓN
-========================= */
 
 .modal-test-button {
-  display: block;
-
-  width: 100%;
-
-  margin-top: 18px;
-
-  padding: 14px;
-
-  border: none;
-
-  border-radius: 8px;
-
   background: #2f5cff;
-
-  color: #ffffff;
-
-  font-size: 14px;
-
-  font-weight: 800;
-
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
   cursor: pointer;
-
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
+  transition: background 0.2s;
+  width: 100%;
 }
-
 
 .modal-test-button:hover {
-  background: #2149e6;
-}
-
-
-.modal-test-button:active {
-  transform: scale(0.98);
-}
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 700px) {
-
-  .moto-modal {
-    padding: 12px;
-  }
-
-
-  .moto-details {
-    width: 94%;
-
-    max-height: 90vh;
-
-    padding: 22px 18px;
-
-    border-radius: 14px;
-  }
-
-
-  .moto-details h2 {
-    font-size: 24px;
-
-    margin-right: 45px;
-
-    margin-bottom: 14px;
-  }
-
-
-  .moto-details-image {
-    height: 210px;
-
-    border-radius: 10px;
-  }
-
-
-  .moto-details-grid {
-    grid-template-columns: 1fr;
-
-    gap: 8px;
-  }
-
-
-  .detail-box {
-    padding: 12px 15px;
-  }
-
-
-  .detail-box strong {
-    font-size: 12px;
-  }
-
-
-  .detail-box span {
-    font-size: 16px;
-  }
-
-
-  .moto-description {
-    font-size: 14px;
-
-    line-height: 1.5;
-  }
-
-
-  .modal-price strong {
-    font-size: 21px;
-  }
-
-
-  .modal-test-button {
-    padding: 13px;
-
-    font-size: 13px;
-  }
-
-
-  .moto-close {
-    width: 38px;
-    height: 38px;
-
-    top: 10px;
-    right: 10px;
-
-    font-size: 25px;
-  }
-
+  background: #1d48e0;
 }

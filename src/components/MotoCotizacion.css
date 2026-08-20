@@ -1,93 +1,57 @@
 /* =========================
-   MODAL
+   MODAL DE COTIZACIÓN
 ========================= */
 
 .cotizacion-modal {
   position: fixed;
-
   inset: 0;
-
   z-index: 10000;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   padding: 20px;
 }
 
-
-/* =========================
-   FONDO
-========================= */
-
+/* FONDO DE CORTE CON BLUR */
 .cotizacion-background {
   position: absolute;
-
   inset: 0;
-
-  background: rgba(0, 0, 0, 0.84);
-
-  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
 }
 
-
-/* =========================
-   CONTENEDOR
-========================= */
-
+/* MARCO LIMPIO - OVERFLOW HIDDEN PARA NO CORTAR EL BORDE AZUL NI LAS ESQUINAS */
 .cotizacion-container {
   position: relative;
-
   z-index: 2;
-
-  width: min(100%, 650px);
-
+  width: min(94vw, 580px);
   max-height: 90vh;
-
-  overflow-y: auto;
-
-  padding: 30px 34px;
-
+  display: flex;
+  flex-direction: column;
+  padding: 24px 28px;
   background: #111111;
-
-  border: 1px solid #2f5cff;
-
+  border: 1.5px solid #2f5cff;
   border-radius: 18px;
-
-  box-shadow:
-    0 25px 80px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.75);
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-
-/* =========================
-   CERRAR
-========================= */
-
+/* BOTÓN CERRAR X */
 .cotizacion-close {
   position: absolute;
-
-  top: 15px;
-  right: 18px;
-
-  width: 38px;
-  height: 38px;
-
+  top: 14px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
   border: none;
-
   border-radius: 50%;
-
   background: #242424;
-
   color: #ffffff;
-
-  font-size: 28px;
-
+  font-size: 24px;
   line-height: 1;
-
   cursor: pointer;
-
+  z-index: 10;
   transition: 0.2s ease;
 }
 
@@ -95,449 +59,268 @@
   background: #333333;
 }
 
+/* CUERPO CON SCROLL INTERNO INSET */
+.cotizacion-body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 
-/* =========================
-   HEADER
-========================= */
+.cotizacion-body::-webkit-scrollbar {
+  width: 5px;
+}
 
+.cotizacion-body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.cotizacion-body::-webkit-scrollbar-thumb {
+  background: #252e42;
+  border-radius: 10px;
+}
+
+.cotizacion-body::-webkit-scrollbar-thumb:hover {
+  background: #2f5cff;
+}
+
+/* HEADER DEL FORMULARIO */
 .cotizacion-header {
-  margin-bottom: 20px;
-
-  padding-right: 45px;
+  margin-bottom: 8px;
+  padding-right: 40px;
 }
 
 .cotizacion-header > span {
   color: #2f5cff;
-
   font-size: 11px;
-
   font-weight: 800;
-
   letter-spacing: 2px;
 }
 
 .cotizacion-header h2 {
-  margin: 5px 0 5px;
-
+  margin: 4px 0;
   color: #ffffff;
-
-  font-size: 28px;
-
+  font-size: 24px;
   font-weight: 900;
-
   text-transform: uppercase;
 }
 
 .cotizacion-header p {
   margin: 0;
-
   color: #8f8f8f;
-
   font-size: 13px;
-
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
-
-/* =========================
-   INFORMACIÓN MOTO
-========================= */
-
+/* INFORMACIÓN MOTO */
 .cotizacion-moto {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 10px;
-
-  margin-bottom: 18px;
+  margin-bottom: 6px;
 }
 
 .cotizacion-moto > div {
-  padding: 13px 15px;
-
+  padding: 10px 14px;
   background: #1a1a1a;
-
   border: 1px solid #292929;
-
   border-radius: 8px;
 }
 
 .cotizacion-moto span {
   display: block;
-
-  margin-bottom: 4px;
-
+  margin-bottom: 2px;
   color: #777777;
-
   font-size: 10px;
-
   font-weight: 700;
-
   letter-spacing: 1px;
 }
 
 .cotizacion-moto strong {
   color: #ffffff;
-
-  font-size: 15px;
+  font-size: 14px;
 }
 
-
-/* =========================
-   FORMULARIO
-========================= */
-
+/* FORMULARIO Y CAMPOS */
 .cotizacion-form {
   display: flex;
-
   flex-direction: column;
-
-  gap: 13px;
+  gap: 12px;
 }
 
 .cotizacion-row {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 12px;
 }
 
 .campo {
   display: flex;
-
   flex-direction: column;
-
   gap: 6px;
 }
 
 .campo label {
   color: #c5c5c5;
-
   font-size: 11px;
-
   font-weight: 700;
-
   text-transform: uppercase;
-
   letter-spacing: 0.5px;
 }
 
 .campo input,
 .campo select {
   width: 100%;
-
   box-sizing: border-box;
-
-  padding: 11px 12px;
-
+  padding: 10px 12px;
   border: 1px solid #303030;
-
   border-radius: 7px;
-
   outline: none;
-
   background: #191919;
-
   color: #ffffff;
-
   font-size: 13px;
-
-  transition:
-    border-color 0.2s ease,
-    background 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .campo input:focus,
 .campo select:focus {
   border-color: #2f5cff;
-
-  background: #1d1d1d;
+  background: #202020;
 }
 
-.campo input::placeholder {
-  color: #606060;
-}
-
-
-/* =========================
-   RESUMEN
-========================= */
-
+/* RESUMEN FINANCIERO DE COTIZACIÓN */
 .cotizacion-resumen {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 8px;
-
-  margin-top: 4px;
-
-  padding: 12px;
-
-  background: #0b0b0b;
-
-  border: 1px solid #242424;
-
-  border-radius: 8px;
+  padding: 12px 14px;
+  background: rgba(47, 92, 255, 0.08);
+  border: 1px solid rgba(47, 92, 255, 0.25);
+  border-radius: 10px;
 }
 
 .cotizacion-resumen > div {
   display: flex;
-
   flex-direction: column;
-
-  gap: 3px;
-
-  padding: 8px;
+  gap: 2px;
 }
 
 .cotizacion-resumen span {
-  color: #777777;
-
-  font-size: 9px;
-
-  font-weight: 700;
-
-  letter-spacing: 0.8px;
+  font-size: 0.68rem;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
 }
 
 .cotizacion-resumen strong {
+  font-size: 0.95rem;
   color: #ffffff;
-
-  font-size: 13px;
 }
 
-.cotizacion-resumen .cuota-destacada {
-  color: #2f5cff;
-
-  font-size: 16px;
+.cuota-destacada {
+  color: #60a5fa !important;
+  font-size: 1.1rem !important;
 }
-
-
-/* =========================
-   BOTÓN
-========================= */
 
 .btn-enviar-cotizacion {
   width: 100%;
-
-  margin-top: 3px;
-
   padding: 13px;
-
-  border: 1px solid #2f5cff;
-
-  border-radius: 7px;
-
+  border: none;
+  border-radius: 8px;
   background: #2f5cff;
-
   color: #ffffff;
-
-  font-size: 12px;
-
+  font-size: 14px;
   font-weight: 800;
-
-  letter-spacing: 0.5px;
-
+  letter-spacing: 1px;
   cursor: pointer;
-
-  transition: 0.2s ease;
+  transition: background 0.2s ease;
+  margin-top: 4px;
 }
 
 .btn-enviar-cotizacion:hover {
-  background: #2149e6;
-
-  border-color: #2149e6;
+  background: #1d48e0;
 }
 
-
-/* =========================
-   VENTANA DE ÉXITO
-========================= */
-
+/* PANTALLA ÉXITO */
 .cotizacion-exito {
-  padding: 15px 5px 5px;
-
   text-align: center;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
 }
 
 .exito-icono {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34d399;
   display: flex;
-
   align-items: center;
   justify-content: center;
-
-  width: 58px;
-  height: 58px;
-
-  margin: 0 auto 14px;
-
-  border-radius: 50%;
-
-  background: #2f5cff;
-
-  color: #ffffff;
-
-  font-size: 30px;
-
-  font-weight: 900;
+  font-size: 26px;
 }
 
 .exito-label {
-  color: #2f5cff;
-
-  font-size: 10px;
-
+  color: #34d399;
+  font-size: 11px;
   font-weight: 800;
-
   letter-spacing: 2px;
 }
 
 .cotizacion-exito h2 {
-  margin: 6px 0 8px;
-
   color: #ffffff;
-
-  font-size: 25px;
-
+  font-size: 22px;
   font-weight: 900;
+  margin: 0;
 }
 
-.cotizacion-exito > p {
-  margin: 0 auto 20px;
-
-  max-width: 400px;
-
-  color: #999999;
-
-  font-size: 13px;
-
-  line-height: 1.5;
+.cotizacion-exito p {
+  color: #a1a1aa;
+  font-size: 14px;
+  margin: 0;
 }
-
-
-/* =========================
-   DATOS ÉXITO
-========================= */
 
 .exito-datos {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr 1fr;
-
-  gap: 8px;
-
-  margin-bottom: 20px;
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid #292929;
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
 }
 
 .exito-datos > div {
-  padding: 11px 8px;
-
-  background: #1a1a1a;
-
-  border: 1px solid #292929;
-
-  border-radius: 7px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .exito-datos span {
-  display: block;
-
-  margin-bottom: 4px;
-
-  color: #6f6f6f;
-
-  font-size: 9px;
-
-  font-weight: 700;
-
-  letter-spacing: 0.8px;
+  font-size: 0.75rem;
+  color: #777;
 }
 
 .exito-datos strong {
-  display: block;
-
-  overflow: hidden;
-
-  color: #ffffff;
-
-  font-size: 11px;
-
-  text-overflow: ellipsis;
-
-  white-space: nowrap;
+  font-size: 0.88rem;
+  color: #fff;
 }
-
-
-/* =========================
-   BOTÓN ACEPTAR
-========================= */
 
 .btn-exito {
   width: 100%;
-
   padding: 12px;
-
-  border: 1px solid #2f5cff;
-
-  border-radius: 7px;
-
+  border: none;
+  border-radius: 8px;
   background: #2f5cff;
-
-  color: #ffffff;
-
-  font-size: 12px;
-
+  color: #fff;
+  font-size: 14px;
   font-weight: 800;
-
   cursor: pointer;
-
-  transition: 0.2s ease;
-}
-
-.btn-exito:hover {
-  background: #2149e6;
-
-  border-color: #2149e6;
-}
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 600px) {
-
-  .cotizacion-modal {
-    padding: 10px;
-  }
-
-  .cotizacion-container {
-    padding: 25px 18px;
-
-    border-radius: 14px;
-  }
-
-  .cotizacion-header h2 {
-    font-size: 22px;
-  }
-
-  .cotizacion-row {
-    grid-template-columns: 1fr;
-  }
-
-  .cotizacion-moto {
-    grid-template-columns: 1fr;
-  }
-
-  .cotizacion-resumen {
-    grid-template-columns: 1fr;
-  }
-
-  .exito-datos {
-    grid-template-columns: 1fr;
-  }
-
 }

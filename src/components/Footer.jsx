@@ -1,3 +1,16 @@
+/* =====================================================
+   FOOTER.JSX — PIE DE PÁGINA
+   Muestra cuatro columnas de enlaces organizadas por
+   categoría, una sección de redes sociales y la barra
+   inferior con copyright y políticas legales.
+
+   Columnas:
+   1. Motocicletas — categorías del catálogo
+   2. Navegación   — links principales del sitio
+   3. Contacto     — formas de contactar a Vertex
+   4. Nuestro Mundo — historia y comunidad
+===================================================== */
+
 import "./Footer.css";
 
 
@@ -7,17 +20,18 @@ function Footer() {
 
     <footer className="footer">
 
+      {/* ── COLUMNAS DE ENLACES ────────────────────────────── */}
       <div className="footer-container">
 
 
-        {/* COLUMNA 1 */}
-
+        {/* ── COLUMNA 1: Motocicletas ─────────────────────── */}
         <div className="footer-column">
 
           <h3>
             MOTOCICLETAS
           </h3>
 
+          {/* Categorías del catálogo de motos */}
           <a href="#">
             Doble Propósito
           </a>
@@ -33,14 +47,14 @@ function Footer() {
         </div>
 
 
-        {/* COLUMNA 2 */}
-
+        {/* ── COLUMNA 2: Navegación ────────────────────────── */}
         <div className="footer-column">
 
           <h3>
             NAVEGACIÓN
           </h3>
 
+          {/* Links de ancla que llevan a secciones de la portada */}
           <a href="#inicio">
             Inicio
           </a>
@@ -60,8 +74,7 @@ function Footer() {
         </div>
 
 
-        {/* COLUMNA 3 */}
-
+        {/* ── COLUMNA 3: Contacto ──────────────────────────── */}
         <div className="footer-column">
 
           <h3>
@@ -83,8 +96,7 @@ function Footer() {
         </div>
 
 
-        {/* COLUMNA 4 */}
-
+        {/* ── COLUMNA 4: Nuestro Mundo ─────────────────────── */}
         <div className="footer-column">
 
           <h3>
@@ -104,8 +116,9 @@ function Footer() {
       </div>
 
 
-      {/* REDES */}
-
+      {/* ── REDES SOCIALES ───────────────────────────────────
+          Invitación a seguir las redes de Vertex Motors
+      ──────────────────────────────────────────────────────── */}
       <div className="footer-social">
 
         <p>
@@ -135,8 +148,9 @@ function Footer() {
       </div>
 
 
-      {/* PARTE INFERIOR */}
-
+      {/* ── BARRA INFERIOR ────────────────────────────────────
+          Copyright, políticas de privacidad y términos
+      ──────────────────────────────────────────────────────── */}
       <div className="footer-bottom">
 
         <div>

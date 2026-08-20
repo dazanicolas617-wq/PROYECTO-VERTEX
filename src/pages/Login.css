@@ -1,4 +1,4 @@
-.login-page {
+.pagina-login {
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -10,43 +10,37 @@
    IMAGEN
 ========================= */
 
-.login-image {
+.imagen-login {
   position: relative;
   min-height: 650px;
-
   background-image: url("/moto-login.jpg");
   background-size: cover;
   background-position: center;
 }
 
-.login-image-overlay {
+.capa-imagen-login {
   position: absolute;
   inset: 0;
-
   background: rgba(0, 0, 0, 0.45);
 }
 
-.login-image-content {
+.contenido-imagen-login {
   position: absolute;
-
   left: 55px;
   bottom: 65px;
-
   z-index: 2;
 }
 
-.login-image-content h1 {
+.contenido-imagen-login h1 {
   margin: 0;
-
   font-size: 48px;
   line-height: 1.08;
   font-weight: 900;
   letter-spacing: -1px;
 }
 
-.login-image-content p {
+.contenido-imagen-login p {
   margin-top: 25px;
-
   color: #ddd;
   font-size: 18px;
   line-height: 1.6;
@@ -56,42 +50,38 @@
    FORMULARIO
 ========================= */
 
-.login-form-section {
+.seccion-formulario-login {
   padding: 45px 70px;
   background: #000;
 }
 
-.back-home {
+.volver-inicio {
   display: inline-block;
-
   color: #fff;
   font-size: 16px;
   text-decoration: none;
-
   margin-bottom: 45px;
 }
 
-.back-home:hover {
+.volver-inicio:hover {
   color: #3262ff;
 }
 
-.login-content {
+.contenido-login {
   max-width: 500px;
   margin: 0 auto;
 }
 
-.login-content h2 {
+.contenido-login h2 {
   margin: 0;
-
   font-size: 38px;
   line-height: 1.15;
   font-weight: 900;
 }
 
-.login-subtitle {
+.subtitulo-login {
   margin-top: 12px;
   margin-bottom: 32px;
-
   color: #999;
   font-size: 17px;
 }
@@ -100,82 +90,64 @@
    INPUTS
 ========================= */
 
-.form-group {
+.grupo-formulario {
   margin-bottom: 25px;
 }
 
-.form-group label {
+.grupo-formulario label {
   display: block;
-
   margin-bottom: 9px;
-
   color: #ddd;
   font-size: 15px;
   font-weight: 600;
 }
 
-.input-container {
+.contenedor-input {
   position: relative;
-
   display: flex;
   align-items: center;
-
   height: 56px;
-
   background: #121216;
-
   border: 1px solid #303036;
   border-radius: 10px;
-
   transition: 0.2s;
 }
 
-.input-container:focus-within {
+.contenedor-input:focus-within {
   border-color: #3262ff;
   box-shadow: 0 0 0 2px rgba(50, 98, 255, 0.12);
 }
 
-.input-icon {
+.icono-input {
   width: 45px;
-
   text-align: center;
-
   color: #777;
 }
 
-.input-container input {
+.contenedor-input input {
   flex: 1;
-
   height: 100%;
-
   border: none;
   outline: none;
-
   background: transparent;
-
   color: #fff;
-
   font-size: 16px;
 }
 
-.input-container input::placeholder {
+.contenedor-input input::placeholder {
   color: #666;
 }
 
-.show-password {
+.mostrar-contrasena {
   width: 50px;
   height: 100%;
-
   border: none;
-
   background: transparent;
-
   color: #888;
-
   cursor: pointer;
 }
 
-.show-password:hover {
+.mostrar-contrasena:hover {
   color: #fff;
 }
 
@@ -183,13 +155,10 @@
    ERRORES
 ========================= */
 
-.error-message {
+.mensaje-error {
   display: block;
-
   margin-top: 7px;
-
   color: #ff5d5d;
-
   font-size: 13px;
 }
 
@@ -197,19 +166,16 @@
    RECUPERAR PASSWORD
 ========================= */
 
-.forgot-password {
+.olvidado-contrasena {
   text-align: right;
-
   margin-top: -5px;
   margin-bottom: 25px;
 }
 
-.forgot-password a {
+.olvidado-contrasena a {
   color: #2860ff;
-
   font-size: 14px;
   font-weight: 600;
-
   text-decoration: none;
 }
 
@@ -217,28 +183,21 @@
    BOTÓN
 ========================= */
 
-.login-submit {
+.enviar-login {
   width: 100%;
   height: 56px;
-
   border: none;
   border-radius: 10px;
-
   background: #3160ff;
-
   color: white;
-
   font-size: 16px;
   font-weight: 800;
-
   cursor: pointer;
-
   box-shadow: 0 8px 25px rgba(49, 96, 255, 0.25);
-
   transition: 0.25s;
 }
 
-.login-submit:hover {
+.enviar-login:hover {
   background: #4772ff;
   transform: translateY(-1px);
 }
@@ -247,20 +206,16 @@
    REGISTRO
 ========================= */
 
-.register-text {
+.texto-registro {
   margin-top: 28px;
-
   text-align: center;
-
   color: #999;
   font-size: 15px;
 }
 
-.register-text a {
+.texto-registro a {
   color: #3160ff;
-
   font-weight: 700;
-
   text-decoration: none;
 }
 
@@ -269,50 +224,46 @@
 ========================= */
 
 @media (max-width: 850px) {
-
-  .login-page {
+  .pagina-login {
     grid-template-columns: 1fr;
   }
 
-  .login-image {
+  .imagen-login {
     min-height: 400px;
   }
 
-  .login-image-content {
+  .contenido-imagen-login {
     left: 35px;
     bottom: 40px;
   }
 
-  .login-image-content h1 {
+  .contenido-imagen-login h1 {
     font-size: 38px;
   }
 
-  .login-form-section {
+  .seccion-formulario-login {
     padding: 40px 30px;
   }
-
 }
 
 @media (max-width: 500px) {
-
-  .login-image {
+  .imagen-login {
     min-height: 320px;
   }
 
-  .login-image-content h1 {
+  .contenido-imagen-login h1 {
     font-size: 30px;
   }
 
-  .login-image-content p {
+  .contenido-imagen-login p {
     font-size: 14px;
   }
 
-  .login-form-section {
+  .seccion-formulario-login {
     padding: 35px 20px;
   }
 
-  .login-content h2 {
+  .contenido-login h2 {
     font-size: 32px;
   }
-
 }
