@@ -22,6 +22,7 @@ import Blog from "./pages/Blog";                             // Blog de noticias
 import Login from "./pages/Login";                           // Inicio de sesión
 import Registro from "./pages/Registro";                     // Crear cuenta nueva
 import RecuperarContrasena from "./pages/RecuperarContrasena"; // Recuperar contraseña olvidada
+import MiCuenta from "./pages/MiCuenta";                       // Panel de cliente / Mi cuenta
 import Dashboard from "./pages/Dashboard";                   // Panel de administración
 
 import "./App.css";
@@ -218,6 +219,41 @@ function App() {
                 <Navbar />
 
                 <RecuperarContrasena />
+
+                <Footer />
+              </>
+            }
+          />
+
+
+          {/* =================================================
+              MI CUENTA — Panel de gestión de usuario/cliente
+          ================================================= */}
+
+          <Route
+            path="/mi-cuenta"
+            element={
+              <>
+                <Navbar />
+
+                <main>
+                  <MiCuenta />
+                </main>
+
+                <Footer />
+              </>
+            }
+          />
+
+          <Route
+            path="/cuenta"
+            element={
+              <>
+                <Navbar />
+
+                <main>
+                  <MiCuenta />
+                </main>
 
                 <Footer />
               </>

@@ -87,15 +87,37 @@ function Login() {
       (emailMinusculas === "admin@vertex.com" && password === "admin123")
     ) {
       localStorage.setItem("vertex_authenticated", "true");
+      localStorage.setItem("vertex_user_logged_in", "true");
       localStorage.setItem("vertex_user_email", correo);
+      window.dispatchEvent(new Event("vertex_auth_change"));
       navigate("/dashboard");
     } else {
       /* ── ACCESO USUARIO NORMAL ────────────────────────────
-         Cualquier otro correo/contraseña redirige a la portada.
-         Se guarda la sesión como no autenticada (false).
+         Guarda la sesión del usuario y redirige a la portada.
       ──────────────────────────────────────────────────────── */
       localStorage.setItem("vertex_authenticated", "false");
+      localStorage.setItem("vertex_user_logged_in", "true");
       localStorage.setItem("vertex_user_email", correo);
+      
+      // Si no hay perfil guardado, crea uno básico
+      if (!localStorage.getItem("vertex_user_profile")) {
+        const nombreUsuario = correo.split("@")[0];
+        localStorage.setItem(
+          "vertex_user_profile",
+          JSON.stringify({
+            nombre: nombreUsuario.charAt(0).toUpperCase() + nombreUsuario.slice(1),
+            apellido: "",
+            correo: correo,
+            telefono: "+57 300 123 4567",
+            tipoDocumento: "CC",
+            numeroDocumento: "1020304050",
+            ciudad: "Bogotá D.C.",
+            direccion: "Cra 15 # 93-40"
+          })
+        );
+      }
+
+      window.dispatchEvent(new Event("vertex_auth_change"));
       navigate("/");
     }
   };

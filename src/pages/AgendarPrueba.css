@@ -1,9 +1,14 @@
+/* =====================================================
+   AGENDARPRUEBA.CSS — ESTILOS DE AGENDAR PRUEBA
+   ===================================================== */
+
 .agendar-page {
   width: 100%;
   min-height: 100vh;
   background: #000207;
   color: #fff;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  box-sizing: border-box;
 }
 
 /* =========================
@@ -11,19 +16,28 @@
 ========================= */
 
 .agendar-hero {
-  max-width: 980px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 60px 32px 50px;
-
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 48px;
+  box-sizing: border-box;
+}
+
+.hero-badge {
+  display: inline-block;
+  color: #3b82f6;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
 }
 
 .hero-text h1 {
   margin: 0;
-  font-size: 46px;
+  font-size: 44px;
   line-height: 1.05;
   font-weight: 900;
   letter-spacing: -1px;
@@ -31,11 +45,10 @@
 
 .hero-text p {
   max-width: 450px;
-  margin-top: 25px;
-
+  margin-top: 20px;
   color: #a5a5ad;
-  font-size: 17px;
-  line-height: 1.8;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 .hero-image {
@@ -43,6 +56,8 @@
   height: 300px;
   overflow: hidden;
   border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
 .hero-image img {
@@ -57,21 +72,26 @@
 ========================= */
 
 .separator {
-  max-width: 980px;
+  max-width: 1100px;
   height: 1px;
   margin: 0 auto;
   background: #17191f;
 }
 
 /* =========================
-   LOGIN CARD ESTILO IMAGEN 2
+   CONTENEDOR CENTRAL
 ========================= */
 
-.login-section {
+.agendar-contenido-seccion {
   display: flex;
   justify-content: center;
-  padding: 50px 20px 100px;
+  padding: 50px 24px 100px;
+  box-sizing: border-box;
 }
+
+/* =========================
+   1. LOGIN CARD (USUARIO NO LOGUEADO)
+========================= */
 
 .login-card {
   width: min(100%, 480px);
@@ -111,7 +131,6 @@
   line-height: 1.6;
 }
 
-/* BOTÓN PRINCIPAL AZUL DESTACADO */
 .btn-iniciar-sesion {
   width: 100%;
   max-width: 320px;
@@ -136,7 +155,6 @@
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.55);
 }
 
-/* ENLACE SECUNDARIO A CREAR CUENTA */
 .texto-crear-cuenta {
   color: #9ca3af !important;
   font-size: 13px !important;
@@ -156,47 +174,296 @@
 }
 
 /* =========================
-   LOCATION
+   2. FORMULARIO DE AGENDAMIENTO (LOGUEADO)
 ========================= */
 
-.location-section {
-  display: flex;
-  justify-content: center;
-  padding: 0 20px 70px;
-}
-
-.location-card {
-  width: 315px;
-  height: 88px;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  background: #1c1c1d;
-  border-radius: 5px;
+.formulario-agendar-contenedor {
+  width: min(100%, 720px);
+  background: #0f121a;
+  border: 1.5px solid #1e293b;
+  border-radius: 20px;
+  padding: 40px 44px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
   box-sizing: border-box;
 }
 
-.location-icon {
-  width: 40px;
-  color: #999;
-  font-size: 30px;
+.encabezado-form-agendar {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.location-text {
-  flex: 1;
+.badge-form-agendar {
+  color: #3b82f6;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
 }
 
-.location-text p {
+.encabezado-form-agendar h2 {
+  margin: 10px 0 6px;
+  font-size: 28px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.encabezado-form-agendar p {
   margin: 0;
-  color: white;
-  font-size: 13px;
-  font-weight: 600;
+  color: #94a3b8;
+  font-size: 14.5px;
 }
 
-.location-arrow {
-  color: white;
-  font-size: 30px;
-  font-weight: 300;
+.form-agendar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.grupo-agendar-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.grupo-agendar-campo.ancho-completo {
+  grid-column: 1 / -1;
+}
+
+.grupo-agendar-campo label {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.input-agendar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 52px;
+  background: #080a0f;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 0 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.input-agendar-wrapper:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.icono-input-agendar {
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.input-agendar-wrapper input,
+.input-agendar-wrapper select {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 15px;
+  font-family: inherit;
+  width: 100%;
+}
+
+.input-agendar-wrapper select {
+  cursor: pointer;
+}
+
+.input-agendar-wrapper select option {
+  background: #0f121a;
+  color: #ffffff;
+}
+
+.checkbox-licencia-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.checkbox-licencia-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+
+.checkbox-licencia-label span {
+  font-size: 13.5px;
+  color: #cbd5e1;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+.checkbox-licencia-label strong {
+  color: #ffffff;
+}
+
+.icono-licencia {
+  color: #38bdf8;
+  display: inline;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.boton-confirmar-agendar {
+  width: 100%;
+  padding: 16px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+  margin-top: 6px;
+}
+
+.boton-confirmar-agendar:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.55);
+}
+
+/* =========================
+   3. TARJETA DE CONFIRMACIÓN / ÉXITO
+========================= */
+
+.tarjeta-exito-agendar {
+  width: min(100%, 560px);
+  background: #0f121a;
+  border: 1.5px solid #10b981;
+  border-radius: 20px;
+  padding: 40px 36px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
+}
+
+.icono-check-reserva {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1.5px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge-confirmado {
+  color: #34d399;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.tarjeta-exito-agendar h2 {
+  margin: 8px 0 10px;
+  font-size: 24px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.subtitulo-exito-reserva {
+  margin: 0 0 24px;
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.resumen-reserva-caja {
+  background: #080a0f;
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  margin-bottom: 26px;
+}
+
+.item-resumen-reserva {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+}
+
+.etiqueta-resumen {
+  color: #94a3b8;
+}
+
+.item-resumen-reserva strong {
+  color: #ffffff;
+  text-align: right;
+}
+
+.botones-exito-reserva {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-ir-mi-cuenta {
+  flex: 1;
+  min-width: 180px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 20px;
+  background: #2563eb;
+  color: #ffffff;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-ir-mi-cuenta:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.btn-otra-prueba {
+  flex: 1;
+  min-width: 180px;
+  padding: 13px 20px;
+  background: #1e293b;
+  color: #cbd5e1;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-otra-prueba:hover {
+  background: #334155;
 }
 
 /* =========================
@@ -211,46 +478,44 @@
   }
 
   .hero-text h1 {
-    font-size: 38px;
+    font-size: 36px;
   }
 
-  .hero-image {
-    height: 250px;
+  .formulario-agendar-contenedor {
+    padding: 30px 24px;
+  }
+
+  .form-agendar-grid {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 550px) {
   .agendar-hero {
-    padding: 35px 18px;
+    padding: 30px 16px;
   }
 
   .hero-text h1 {
-    font-size: 32px;
-  }
-
-  .hero-text p {
-    font-size: 15px;
+    font-size: 30px;
   }
 
   .hero-image {
-    height: 210px;
+    height: 200px;
   }
 
-  .login-section {
-    padding: 35px 15px 70px;
+  .agendar-contenido-seccion {
+    padding: 30px 16px 70px;
   }
 
-  .login-card {
-    width: 100%;
-    padding: 40px 25px;
+  .formulario-agendar-contenedor {
+    padding: 24px 18px;
   }
 
-  .login-card h2 {
-    font-size: 24px;
+  .encabezado-form-agendar h2 {
+    font-size: 22px;
   }
 
-  .location-card {
-    width: 100%;
-    max-width: 315px;
+  .botones-exito-reserva {
+    flex-direction: column;
   }
 }

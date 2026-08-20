@@ -1,0 +1,1094 @@
+/* =====================================================
+   MICUENTA.CSS — ESTILOS DEL PANEL DE CLIENTE VERTEX
+   Diseño premium oscuro con acentos en azul eléctrico,
+   tarjetas con bordes sutiles y transiciones fluidas.
+===================================================== */
+
+.pagina-mi-cuenta {
+  width: 100%;
+  min-height: 80vh;
+  background-color: #08080a;
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* =====================================================
+   1. CABECERA DE PERFIL BANNER
+===================================================== */
+
+.cabecera-perfil-cliente {
+  width: 100%;
+  background: linear-gradient(180deg, #10141f 0%, #08080a 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 40px 24px 30px;
+  box-sizing: border-box;
+}
+
+.contenedor-cabecera-perfil {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.bloque-identidad-usuario {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 0;
+}
+
+.avatar-perfil-grande {
+  width: 74px;
+  height: 74px;
+  min-width: 74px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4), 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.info-texto-usuario {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.fila-nombre-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.fila-nombre-badge h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.badge-vip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  background: rgba(49, 94, 251, 0.15);
+  border: 1px solid rgba(49, 94, 251, 0.4);
+  color: #60a5fa;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.correo-subtexto {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 14.5px;
+  word-break: break-word;
+}
+
+.datos-rapidos-usuario {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 3px;
+  color: #64748b;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+.datos-rapidos-usuario span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.resumen-metadatos-perfil {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tarjeta-stat-perfil {
+  background: #11141c;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 105px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+}
+
+.stat-valor {
+  font-size: 22px;
+  font-weight: 900;
+  color: #38bdf8;
+}
+
+.stat-etiqueta {
+  font-size: 11.5px;
+  color: #94a3b8;
+  font-weight: 600;
+  margin-top: 3px;
+  text-align: center;
+}
+
+/* =====================================================
+   2. CUERPO PRINCIPAL: SIDEBAR + PANELES
+===================================================== */
+
+.cuerpo-mi-cuenta {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 35px 24px 70px;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 28px;
+  box-sizing: border-box;
+  align-items: start;
+}
+
+/* ── SIDEBAR DE NAVEGACIÓN ────────────────────────── */
+.sidebar-cuenta {
+  background: #0f121a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 14px 12px;
+  position: sticky;
+  top: 120px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+}
+
+.menu-navegacion-cuenta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.boton-tab-cuenta {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: #94a3b8;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.boton-tab-cuenta:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+}
+
+.boton-tab-cuenta.activo {
+  background: rgba(37, 99, 235, 0.12);
+  border-color: rgba(37, 99, 235, 0.35);
+  color: #60a5fa;
+}
+
+.flecha-tab {
+  margin-left: auto;
+  opacity: 0.4;
+  transition: transform 0.2s;
+}
+
+.boton-tab-cuenta.activo .flecha-tab {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+.contador-tab {
+  margin-left: auto;
+  padding: 2px 7px;
+  background: #1e293b;
+  color: #94a3b8;
+  border-radius: 10px;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.boton-tab-cuenta.activo .contador-tab {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.divisor-sidebar {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 12px 4px;
+}
+
+.boton-logout-sidebar {
+  color: #f87171;
+}
+
+.boton-logout-sidebar:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #fca5a5;
+}
+
+/* =====================================================
+   3. PANEL PRINCIPAL
+===================================================== */
+
+.panel-principal-cuenta {
+  min-width: 0;
+  width: 100%;
+}
+
+.seccion-panel-cuenta {
+  background: #0f121a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 30px 32px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.seccion-panel-cuenta.animada {
+  animation: fadeSlideIn 0.25s ease-out;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.encabezado-seccion-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.encabezado-seccion-panel h2 {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.encabezado-seccion-panel p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.boton-accion-secundario {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  color: #60a5fa;
+  border-radius: 9px;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.boton-accion-secundario:hover {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+.alerta-exito-cuenta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 10px;
+  color: #34d399;
+  font-size: 13.5px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.alerta-cuenta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.alerta-cuenta.exito {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+.alerta-cuenta.error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+
+/* =====================================================
+   4. FORMULARIO DE PERFIL
+===================================================== */
+
+.formulario-perfil-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  width: 100%;
+}
+
+.grupo-input-cuenta {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+}
+
+.grupo-input-cuenta label {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.campo-input-cuenta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  background: #080a0f;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  padding: 0 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.campo-input-cuenta:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+}
+
+.icono-campo {
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.campo-input-cuenta input,
+.campo-input-cuenta select {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 14.5px;
+  font-family: inherit;
+  min-width: 0;
+  width: 100%;
+}
+
+.campo-input-cuenta select {
+  cursor: pointer;
+}
+
+.campo-input-cuenta select option {
+  background: #0d111a;
+  color: #ffffff;
+}
+
+.acciones-formulario-cuenta {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+}
+
+.boton-primario-cuenta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+.boton-primario-cuenta:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+}
+
+/* =====================================================
+   5. LISTA DE PRUEBAS DE MANEJO
+===================================================== */
+
+.lista-tarjetas-pruebas {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.tarjeta-prueba-manejo {
+  background: #080a0f;
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  overflow: hidden;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.tarjeta-prueba-manejo:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.imagen-prueba-wrapper {
+  position: relative;
+  height: 100%;
+  min-height: 160px;
+}
+
+.imagen-prueba-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.badge-estado-prueba {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 9px;
+  border-radius: 20px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.badge-estado-prueba.confirmada {
+  background: rgba(16, 185, 129, 0.9);
+  color: #ffffff;
+}
+
+.badge-estado-prueba.en-proceso {
+  background: rgba(245, 158, 11, 0.9);
+  color: #ffffff;
+}
+
+.cuerpo-tarjeta-prueba {
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  min-width: 0;
+}
+
+.codigo-cita {
+  color: #3b82f6;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.cabecera-tarjeta-prueba h3 {
+  margin: 3px 0 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.detalles-grid-prueba {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.dato-prueba {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #94a3b8;
+  font-size: 13px;
+  min-width: 0;
+}
+
+.dato-prueba span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.botones-accion-prueba {
+  display: flex;
+  gap: 10px;
+  margin-top: 2px;
+  flex-wrap: wrap;
+}
+
+.btn-prueba-secundario {
+  padding: 7px 14px;
+  background: #1e293b;
+  color: #f1f5f9;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.btn-prueba-secundario:hover {
+  background: #334155;
+}
+
+.btn-prueba-peligro {
+  padding: 7px 14px;
+  background: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-prueba-peligro:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+/* =====================================================
+   6. MIS COTIZACIONES
+===================================================== */
+
+.lista-cotizaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  width: 100%;
+}
+
+.tarjeta-cotizacion-cuenta {
+  background: #080a0f;
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-sizing: border-box;
+}
+
+.top-tarjeta-cotizacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.codigo-cotizacion {
+  color: #3b82f6;
+  font-size: 11.5px;
+  font-weight: 800;
+}
+
+.top-tarjeta-cotizacion h3 {
+  margin: 3px 0 0;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.badge-cotizacion {
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.badge-cotizacion.aprobada {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+}
+
+.badge-cotizacion.en-revisión {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+}
+
+.valores-cotizacion-cuerpo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  background: #0f121a;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.fila-valor-cot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  gap: 10px;
+}
+
+.fila-valor-cot span {
+  color: #94a3b8;
+}
+
+.fila-valor-cot strong {
+  color: #ffffff;
+  text-align: right;
+}
+
+.fila-valor-cot.cuota-destacada {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 7px;
+  margin-top: 3px;
+}
+
+.texto-azul {
+  color: #38bdf8 !important;
+  font-size: 14.5px;
+}
+
+.footer-tarjeta-cotizacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  gap: 10px;
+}
+
+.fecha-cotizacion {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.enlace-contacto-asesor {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #3b82f6;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.enlace-contacto-asesor:hover {
+  text-decoration: underline;
+}
+
+/* =====================================================
+   7. MOTOS FAVORITAS
+===================================================== */
+
+.grid-motos-favoritas-cuenta {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.tarjeta-moto-favorita {
+  background: #080a0f;
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.tarjeta-moto-favorita:hover {
+  transform: translateY(-3px);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.foto-favorita-wrapper {
+  position: relative;
+  height: 150px;
+}
+
+.foto-favorita-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.categoria-tag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 3px 7px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  border-radius: 5px;
+  color: #94a3b8;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.contenido-favorita {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.contenido-favorita h3 {
+  margin: 0;
+  font-size: 15.5px;
+  font-weight: 800;
+}
+
+.specs-rapidas {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  color: #94a3b8;
+}
+
+.precio-fav {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.botones-favorita-accion {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin-top: auto;
+}
+
+.btn-fav-principal {
+  padding: 7px;
+  background: #2563eb;
+  color: #ffffff;
+  border-radius: 7px;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-fav-secundario {
+  padding: 7px;
+  background: #1e293b;
+  color: #cbd5e1;
+  border-radius: 7px;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* =====================================================
+   8. SEGURIDAD Y NOTIFICACIONES
+===================================================== */
+
+.bloque-seguridad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  width: 100%;
+}
+
+.caja-ajuste-cuenta {
+  background: #080a0f;
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  padding: 22px;
+  box-sizing: border-box;
+}
+
+.caja-ajuste-cuenta h3 {
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.subtexto-caja {
+  margin: 0 0 16px;
+  color: #94a3b8;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.form-seguridad {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.lista-switches-notificaciones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.switch-item-cuenta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  background: #0f121a;
+  border-radius: 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.switch-item-cuenta strong {
+  display: block;
+  font-size: 13.5px;
+  color: #f1f5f9;
+}
+
+.switch-item-cuenta p {
+  margin: 3px 0 0;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.switch-item-cuenta input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #2563eb;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* =====================================================
+   9. ESTADO VACÍO
+===================================================== */
+
+.estado-vacio-panel {
+  text-align: center;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.icono-vacio {
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.estado-vacio-panel h3 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.estado-vacio-panel p {
+  margin: 0 0 16px;
+  color: #94a3b8;
+  font-size: 14px;
+  max-width: 360px;
+}
+
+/* =====================================================
+   10. RESPONSIVE ADAPTATIVO
+===================================================== */
+
+@media (max-width: 960px) {
+  .cuerpo-mi-cuenta {
+    grid-template-columns: 1fr;
+    padding: 24px 16px 60px;
+    gap: 20px;
+  }
+
+  .sidebar-cuenta {
+    position: static;
+    padding: 10px;
+    overflow-x: auto;
+  }
+
+  .menu-navegacion-cuenta {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 8px;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .menu-navegacion-cuenta::-webkit-scrollbar {
+    display: none;
+  }
+
+  .boton-tab-cuenta {
+    width: auto;
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 10px 14px;
+    font-size: 13.5px;
+  }
+
+  .flecha-tab {
+    display: none;
+  }
+
+  .divisor-sidebar {
+    display: none;
+  }
+
+  .boton-logout-sidebar {
+    display: none;
+  }
+
+  .cabecera-perfil-cliente {
+    padding: 30px 16px 24px;
+  }
+
+  .seccion-panel-cuenta {
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+
+  .tarjeta-prueba-manejo {
+    grid-template-columns: 1fr;
+  }
+
+  .imagen-prueba-wrapper {
+    height: 180px;
+  }
+
+  .bloque-identidad-usuario {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .fila-nombre-badge {
+    justify-content: center;
+  }
+
+  .datos-rapidos-usuario {
+    justify-content: center;
+  }
+
+  .resumen-metadatos-perfil {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .tarjeta-stat-perfil {
+    flex: 1;
+    min-width: 90px;
+    padding: 10px 8px;
+  }
+}
+
+@media (max-width: 540px) {
+  .fila-nombre-badge h1 {
+    font-size: 22px;
+  }
+
+  .avatar-perfil-grande {
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    font-size: 28px;
+  }
+
+  .resumen-metadatos-perfil {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .stat-valor {
+    font-size: 18px;
+  }
+
+  .stat-etiqueta {
+    font-size: 10.5px;
+  }
+
+  .formulario-perfil-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bloque-seguridad-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lista-cotizaciones-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-motos-favoritas-cuenta {
+    grid-template-columns: 1fr;
+  }
+}

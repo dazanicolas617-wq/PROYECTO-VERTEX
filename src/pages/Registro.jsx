@@ -163,9 +163,27 @@ function Registro() {
       return;             // Sale si hay campos inválidos
     }
 
-    alert("Cuenta creada correctamente");
+    const nuevoUsuario = {
+      nombre: form.nombre,
+      apellido: form.apellido,
+      correo: form.correo,
+      telefono: form.telefono,
+      tipoDocumento: form.tipoDocumento || "CC",
+      numeroDocumento: form.numeroDocumento || "",
+      ciudad: "Bogotá D.C.",
+      direccion: ""
+    };
 
-    navigate("/login");   // Redirige al formulario de inicio de sesión
+    localStorage.setItem("vertex_user_profile", JSON.stringify(nuevoUsuario));
+    localStorage.setItem("vertex_user_email", form.correo);
+    localStorage.setItem("vertex_user_name", `${form.nombre} ${form.apellido}`);
+    localStorage.setItem("vertex_user_logged_in", "true");
+    localStorage.setItem("vertex_authenticated", "false");
+    window.dispatchEvent(new Event("vertex_auth_change"));
+
+    alert("¡Cuenta creada con éxito! Bienvenido a Vertex Motors.");
+
+    navigate("/mi-cuenta");   // Redirige directamente al panel de su cuenta
   };
 
   return (
