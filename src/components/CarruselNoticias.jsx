@@ -150,7 +150,7 @@ function CarruselNoticias() {
                     className="boton-leer"
                     onClick={() => setNoticiaSeleccionada(noticia)}
                   >
-                    LEER MÁS
+                    Leer más
                   </button>
                 </div>
               </article>
