@@ -1,192 +1,118 @@
-/* =====================================================
-   NEWSCAROUSEL.JSX — CARRUSEL DE NOTICIAS
-   Muestra un conjunto de noticias paginadas de a 2.
-   El usuario navega entre páginas con flechas izquierda
-   y derecha, o haciendo clic en los indicadores de puntos.
-
-   Lógica:
-   - noticiasPorPagina: cuántas noticias se muestran a la vez
-   - paginaActual: índice de la página visible (empieza en 0)
-   - noticiasVisibles: slice del array según la página actual
-   - La paginación es circular (va del final al inicio y viceversa)
-===================================================== */
-
 import { useState } from "react";
 import "./NewsCarousel.css";
 
 function Noticias() {
-
   /* =========================================
-       LISTA DE NOTICIAS
-       Cada objeto tiene título, descripción e imagen
-  ========================================= */
-
+        LISTA DE NOTICIAS
+     ========================================= */
   const noticias = [
     {
       titulo: "NUEVA COLECCIÓN 2026",
       descripcion:
         "Descubre los nuevos modelos que llegan para llevar tu pasión por las motos al siguiente nivel.",
+      contenidoCompleto:
+        "Nuestra nueva colección 2026 redefine el concepto de velocidad, diseño y ergonomía. Cada modelo ha sido desarrollado tras intensas pruebas de rendimiento en circuito y carretera, integrando materiales ligeros de alta resistencia y acabados prémium. Ven a conocer las especificaciones completas en nuestros concesionarios autorizados.",
       imagen:
-        "https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg",
+        "https://www.alquilerdemotosmedellin.com/wp-content/uploads/2020/07/ALQUILERMOTOSMEDELLINALTOCILINDRAJEKAWAZAKIZ250-0.jpg",
     },
-
     {
       titulo: "POTENCIA SIN LÍMITES",
       descripcion:
         "Conoce motocicletas diseñadas para ofrecer máximo rendimiento, potencia y presencia.",
+      contenidoCompleto:
+        "Equipadas con motores de última generación, aceleración instantánea y sistemas de escape optimizados. Siente el verdadero rugido de la potencia y mantén el control absoluto en todo momento gracias a nuestros sistemas avanzados de frenado y suspensión ajustables.",
       imagen:
-        "https://images.pexels.com/photos/1413412/pexels-photo-1413412.jpeg",
+        "https://images.unsplash.com/photo-1525013066836-c6090f0ad9d8?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm9uZG8lMjBkZSUyMHBhbnRhbGxhJTIwZGUlMjBtb3RvJTIwZGUlMjBjcm9zc3xlbnwwfHwwfHx8MA%3D%3D.jpg",
     },
-
     {
       titulo: "VIVE LA EXPERIENCIA",
       descripcion:
         "Siente la libertad de conducir una motocicleta creada para quienes buscan algo diferente.",
+      contenidoCompleto:
+        "Más que un medio de transporte, una declaración de principios. Únete a nuestras rodadas mensuales y vive la hermandad en ruta. Organizamos eventos exclusivos, pruebas de manejo y clínicas de conducción para toda nuestra comunidad.",
       imagen:
-        "https://images.pexels.com/photos/2611690/pexels-photo-2611690.jpeg",
+        "https://img.magnific.com/fotos-premium/bicicleta-negra-estacionada-junto-lago-crepusculo-cielo-azul-profundo-que-refleja-agua_879736-90512.jpg?semt=ais_hybrid&w=740&q=80.jpg",
     },
-
     {
       titulo: "AVENTURA SOBRE DOS RUEDAS",
       descripcion:
         "Prepárate para recorrer nuevos caminos y convertir cada viaje en una experiencia inolvidable.",
+      contenidoCompleto:
+        "Diseñadas para afrontar cualquier terreno. Con capacidad de carga ampliada, protección aerodinámica de primera y tecnología de navegación integrada para que tu única preocupación sea disfrutar el paisaje.",
       imagen:
-        "https://images.pexels.com/photos/163210/motorcycle-racer-racing-speed-163210.jpeg",
+        "https://img1.wallspic.com/crops/0/4/3/9/4/149340/149340-hombre_de_chaqueta_negra_montando_motocicleta_en_la_carretera_durante_el_dia-3840x2160.jpg",
     },
-
     {
       titulo: "DISEÑO QUE IMPONE",
       descripcion:
         "Líneas agresivas, detalles únicos y una personalidad que no pasa desapercibida.",
+      contenidoCompleto:
+        "Inspiradas en la estética urbana contemporánea y las motos de competición clásica. Cada curva de la carrocería ha sido esculpida para minimizar la resistencia al viento manteniendo una presencia imponente.",
       imagen:
-        "https://images.pexels.com/photos/2393816/pexels-photo-2393816.jpeg",
+        "https://images.unsplash.com/photo-1660725997223-efbedf3397fb?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm9uZG8lMjBkZSUyMHBhbnRhbGxhJTIweWFtYWhhfGVufDB8fDB8fHww.jpg",
     },
-
     {
       titulo: "TECNOLOGÍA Y RENDIMIENTO",
       descripcion:
         "La combinación perfecta entre innovación, tecnología y el espíritu de las motocicletas.",
+      contenidoCompleto:
+        "Incluye pantallas TFT a color de alta definición, conectividad Bluetooth con tu smartphone, múltiples modos de manejo configurable (Rain, Sport, Eco) y control de tracción dinámico.",
       imagen:
-        "https://images.pexels.com/photos/2519374/pexels-photo-2519374.jpeg",
+        "https://img1.wallspic.com/previews/1/9/3/3/2/123391/123391-motocicleta-stunt_artista_interprete_o_ejecutante-deporte_extremo-motociclismo-automovilismo-x750.jpg",
     },
-
     {
       titulo: "TU PRÓXIMA MOTOCICLETA",
       descripcion:
         "Encuentra el modelo que se adapta a tu estilo y comienza una nueva aventura.",
+      contenidoCompleto:
+        "Planes de financiamiento a tu medida, garantía extendida y servicios de mantenimiento preferenciales. Acércate a nuestra red de asesores para configurar la moto de tus sueños.",
       imagen:
-        "https://images.pexels.com/photos/104842/bmw-motorcycle-ride-bike-104842.jpeg",
+        "https://wallpaper.forfun.com/fetch/c0/c0a949a04dd13b894b6cc89a766fb875.jpeg",
     },
-
     {
       titulo: "UNA NUEVA HISTORIA COMIENZA",
       descripcion:
         "No se trata solamente de conducir. Se trata de vivir cada kilómetro al máximo.",
+      contenidoCompleto:
+        "Da el primer paso hacia la libertad. Explora nuestros catálogos interactivos, solicita una prueba de manejo y descubre por qué miles de motociclistas nos eligen día a día.",
       imagen:
-        "https://images.pexels.com/photos/164634/motorcycles-choppers-harley-davidson-freedom-164634.jpeg",
+        "https://4kwallpapers.com/images/wallpapers/honda-cbr650r-biker-racer-3840x2160-125.jpg",
     },
   ];
 
   /* =========================================
-       CONFIGURACIÓN
-       Cuántas noticias se muestran por página
-  ========================================= */
-
+        ESTADOS Y LÓGICA
+     ========================================= */
   const noticiasPorPagina = 2;
-
-  /* =========================================
-       ESTADO
-       Índice de la página actualmente visible (base 0)
-  ========================================= */
-
   const [paginaActual, setPaginaActual] = useState(0);
-
-  /* =========================================
-       CANTIDAD DE PÁGINAS
-       Redondea hacia arriba por si hay un número impar
-  ========================================= */
+  const [noticiaSeleccionada, setNoticiaSeleccionada] = useState(null);
 
   const cantidadPaginas = Math.ceil(noticias.length / noticiasPorPagina);
-
-  /* =========================================
-       NOTICIAS VISIBLES
-       Calcula qué noticias mostrar según la página actual.
-       Ejemplo: página 0 → índices 0-1, página 1 → 2-3, etc.
-  ========================================= */
-
   const inicio = paginaActual * noticiasPorPagina;
-
   const noticiasVisibles = noticias.slice(inicio, inicio + noticiasPorPagina);
 
-  /* =========================================
-       SIGUIENTE PÁGINA
-       Si está en la última, vuelve a la primera (circular)
-  ========================================= */
-
   const siguientePagina = () => {
-    setPaginaActual((pagina) => {
-      if (pagina >= cantidadPaginas - 1) {
-        return 0;               // Vuelve al inicio
-      }
-
-      return pagina + 1;
-    });
+    setPaginaActual((pagina) => (pagina >= cantidadPaginas - 1 ? 0 : pagina + 1));
   };
-
-  /* =========================================
-       PÁGINA ANTERIOR
-       Si está en la primera, va a la última (circular)
-  ========================================= */
 
   const anteriorPagina = () => {
-    setPaginaActual((pagina) => {
-      if (pagina <= 0) {
-        return cantidadPaginas - 1;   // Salta al final
-      }
-
-      return pagina - 1;
-    });
+    setPaginaActual((pagina) => (pagina <= 0 ? cantidadPaginas - 1 : pagina - 1));
   };
-
-  /* =========================================
-       RENDERIZADO
-       Estructura: título → carrusel → indicadores
-  ========================================= */
 
   return (
     <section className="seccion-noticias">
-
-      {/* =================================
-                TÍTULO DE SECCIÓN con líneas decorativas
-          ================================= */}
-
+      {/* ENCABEZADO */}
       <div className="encabezado-noticias">
         <span className="linea-titulo"></span>
-
         <h2>Noticias</h2>
-
         <span className="linea-titulo"></span>
       </div>
 
-      {/* =================================
-                FONDO DECORATIVO de la sección
-          ================================= */}
-
       <div className="fondo-noticias"></div>
 
-      {/* =================================
-                CONTENIDO PRINCIPAL del carrusel
-          ================================= */}
-
       <div className="contenido-seccion-noticias">
-
-        {/* =================================
-                    CARRUSEL — Flechas + Tarjetas
-                ================================= */}
-
         <div className="carrusel-noticias">
-
-          {/* ── FLECHA IZQUIERDA ── */}
+          {/* FLECHA IZQUIERDA */}
           <button
             className="flecha-noticia flecha-izquierda"
             onClick={anteriorPagina}
@@ -195,34 +121,30 @@ function Noticias() {
             <span>‹</span>
           </button>
 
-          {/* ── TARJETAS DE NOTICIAS ───────────────────────
-              Se renderizan solo las noticias de la página actual.
-              La key usa (inicio + indice) para ser único globalmente.
-          ──────────────────────────────────────────────────── */}
+          {/* TARJETAS DE NOTICIAS */}
           <div className="contenedor-noticias">
             {noticiasVisibles.map((noticia, indice) => (
               <article className="tarjeta-noticia" key={inicio + indice}>
-
-                {/* Imagen de portada de la noticia */}
                 <div className="imagen-noticia">
                   <img src={noticia.imagen} alt={noticia.titulo} />
                 </div>
 
-                {/* Título, descripción y botón "Leer más" */}
                 <div className="contenido-noticia">
                   <h3>{noticia.titulo}</h3>
-
                   <p>{noticia.descripcion}</p>
-
-                  {/* Botón decorativo — sin funcionalidad de navegación */}
-                  <button className="boton-leer">LEER MÁS</button>
+                  
+                  <button
+                    className="boton-leer"
+                    onClick={() => setNoticiaSeleccionada(noticia)}
+                  >
+                    LEER MÁS
+                  </button>
                 </div>
-
               </article>
             ))}
           </div>
 
-          {/* ── FLECHA DERECHA ── */}
+          {/* FLECHA DERECHA */}
           <button
             className="flecha-noticia flecha-derecha"
             onClick={siguientePagina}
@@ -232,27 +154,63 @@ function Noticias() {
           </button>
         </div>
 
-        {/* =================================
-                    INDICADORES DE PÁGINA (puntos)
-                    Permite saltar directamente a cualquier página.
-                    El punto activo recibe la clase "activo".
-                ================================= */}
-
+        {/* INDICADORES */}
         <div className="indicadores-noticias">
-          {Array.from({
-            length: cantidadPaginas,
-          }).map((_, indice) => (
+          {Array.from({ length: cantidadPaginas }).map((_, indice) => (
             <button
               key={indice}
               className={`indicador-noticia ${
                 indice === paginaActual ? "activo" : ""
               }`}
-              onClick={() => setPaginaActual(indice)}    // Navega directo a esa página
+              onClick={() => setPaginaActual(indice)}
               aria-label={`Ir a página ${indice + 1}`}
             ></button>
           ))}
         </div>
       </div>
+
+      {/* =========================================
+            MODAL DE NOTICIA COMPLETA (CLASES ÚNICAS)
+         ========================================= */}
+      {noticiaSeleccionada && (
+        <div
+          className="modal-noticia-overlay"
+          onClick={() => setNoticiaSeleccionada(null)}
+        >
+          <div
+            className="modal-noticia-contenedor"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="modal-noticia-cerrar"
+              onClick={() => setNoticiaSeleccionada(null)}
+              aria-label="Cerrar noticia"
+            >
+              ✕
+            </button>
+
+            <div className="modal-noticia-portada">
+              <img
+                src={noticiaSeleccionada.imagen}
+                alt={noticiaSeleccionada.titulo}
+              />
+            </div>
+
+            <div className="modal-noticia-cuerpo">
+              <h2 className="modal-noticia-titulo">
+                {noticiaSeleccionada.titulo}
+              </h2>
+              <p className="modal-noticia-bajada">
+                {noticiaSeleccionada.descripcion}
+              </p>
+              <div className="modal-noticia-separador"></div>
+              <p className="modal-noticia-texto">
+                {noticiaSeleccionada.contenidoCompleto}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
