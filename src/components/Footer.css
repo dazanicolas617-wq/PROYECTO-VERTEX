@@ -107,34 +107,35 @@
 
 
 .social-icons a {
-  width: 65px;
-
-  height: 65px;
-
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
-
-  background: #1c1c1c;
-
+  background: #18181c;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
-  color: #fff;
-
+  color: #d1d5db;
   text-decoration: none;
-
-  font-size: 12px;
-
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
 }
 
+.social-icons a svg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
 
 .social-icons a:hover {
   background: #315efb;
-
+  border-color: #315efb;
+  color: #ffffff;
   transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(49, 94, 251, 0.35);
+}
+
+.social-icons a:hover svg {
+  transform: scale(1.1);
 }
 
 

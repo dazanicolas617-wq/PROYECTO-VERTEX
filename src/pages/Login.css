@@ -53,23 +53,15 @@
 .seccion-formulario-login {
   padding: 45px 70px;
   background: #000;
-}
-
-.volver-inicio {
-  display: inline-block;
-  color: #fff;
-  font-size: 16px;
-  text-decoration: none;
-  margin-bottom: 45px;
-}
-
-.volver-inicio:hover {
-  color: #3262ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .contenido-login {
   max-width: 500px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .contenido-login h2 {

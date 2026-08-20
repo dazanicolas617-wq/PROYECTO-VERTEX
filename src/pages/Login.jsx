@@ -18,7 +18,7 @@
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Mail, Lock, Eye, EyeOff, ArrowLeft } from "lucide-react"; // Íconos de la librería Lucide
+import { Mail, Lock, Eye, EyeOff } from "lucide-react"; // Íconos de la librería Lucide
 import "./Login.css";
 
 function Login() {
@@ -132,13 +132,6 @@ function Login() {
           Incluye campos de correo y contraseña con validación
       ──────────────────────────────────────────────────────── */}
       <section className="seccion-formulario-login">
-
-        {/* Enlace para volver a la página principal */}
-        <Link to="/" className="volver-inicio">
-          <ArrowLeft size={16} style={{ display: "inline", marginRight: 6 }} />
-          Volver al inicio
-        </Link>
-
         <div className="contenido-login">
           <h2>
             BIENVENIDO A

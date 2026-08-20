@@ -17,7 +17,7 @@
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Mail, Phone, Check, ArrowLeft } from "lucide-react";
+import { Mail, Phone, Check } from "lucide-react";
 import "./RecuperarContrasena.css";
 
 function RecuperarContrasena() {
@@ -93,12 +93,6 @@ function RecuperarContrasena() {
 
       {/* ── COLUMNA DERECHA: Formulario de recuperación ─────── */}
       <section className="seccion-recuperar">
-
-        {/* Enlace para volver al login */}
-        <Link to="/login" className="volver-recuperar">
-          <ArrowLeft size={16} /> Volver al inicio
-        </Link>
-
         <div className="contenido-recuperar">
 
           {/* ── CONDICIONAL: muestra formulario o pantalla de éxito ── */}
