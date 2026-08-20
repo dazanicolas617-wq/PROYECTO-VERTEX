@@ -22,8 +22,6 @@ import {
 } from "lucide-react";
 import "./AgendarPrueba.css";
 
-import heroMotos from "../assets/hero-motos.jpg";
-
 function AgendarPrueba() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -145,7 +143,7 @@ function AgendarPrueba() {
 
         <div className="hero-image">
           <img
-            src={heroMotos}
+            src="/moto-prueba.jpg"
             alt="Motocicleta para prueba de manejo"
           />
         </div>

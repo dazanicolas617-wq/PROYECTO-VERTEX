@@ -92,7 +92,7 @@ function Navbar() {
         <nav className="enlaces-barra-navegacion">
           <Link to="/">Inicio</Link>
           <Link to="/motos">Motos</Link>
-          <a href="#encuentranos">Encuéntranos</a>
+          <Link to="/encuentranos">Encuéntranos</Link>
           <Link to="/blog">Blog</Link>
           <Link to="/agendar-prueba">Agendar prueba</Link>
         </nav>

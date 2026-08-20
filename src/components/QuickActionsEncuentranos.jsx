@@ -5,31 +5,26 @@
    Comparte los mismos estilos de QuickActions.css.
 ===================================================== */
 
+import { Link } from "react-router-dom";
+import { MapPin, ArrowRight } from "lucide-react";
 import "./QuickActions.css";
 
 function QuickActionsEncuentranos() {
   return (
-    /* Sección de enlace rápido — variante de una sola tarjeta */
     <section className="quick-links quick-links--single">
       <div className="quick-links-grid">
-
-        {/* Tarjeta completa como enlace (actualmente apunta a "/") */}
-        <a href="/" className="quick-link-card">
-
-          {/* Ícono decorativo (se estiliza con CSS) */}
+        {/* Tarjeta completa como enlace hacia la página /encuentranos */}
+        <Link to="/encuentranos" className="quick-link-card">
           <div className="quick-link-icon" aria-hidden="true">
-            {/* Icono decorativo */}
+            <MapPin size={22} color="#3b82f6" />
           </div>
 
-          {/* Texto principal de la tarjeta */}
           <h3>Encuéntranos</h3>
 
-          {/* Flecha decorativa indicando que es un enlace */}
           <span className="quick-link-arrow" aria-hidden="true">
-            →
+            <ArrowRight size={20} />
           </span>
-        </a>
-
+        </Link>
       </div>
     </section>
   );

@@ -11,6 +11,7 @@
    4. Nuestro Mundo — historia y comunidad
 ===================================================== */
 
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 function Footer() {
@@ -31,17 +32,21 @@ function Footer() {
           </h3>
 
           {/* Categorías del catálogo de motos */}
-          <a href="/motos">
+          <Link to="/motos">
             Doble Propósito
-          </a>
+          </Link>
 
-          <a href="/motos">
+          <Link to="/motos">
             Enduro
-          </a>
+          </Link>
 
-          <a href="/motos">
-            Clásica
-          </a>
+          <Link to="/motos">
+            Scooters
+          </Link>
+
+          <Link to="/motos">
+            Naked
+          </Link>
 
         </div>
 
@@ -54,21 +59,21 @@ function Footer() {
           </h3>
 
           {/* Links de ancla que llevan a secciones de la portada */}
-          <a href="/">
+          <Link to="/">
             Inicio
-          </a>
+          </Link>
 
-          <a href="/motos">
+          <Link to="/motos">
             Motos
-          </a>
+          </Link>
 
-          <a href="#encuentranos">
+          <Link to="/encuentranos">
             Encuéntranos
-          </a>
+          </Link>
 
-          <a href="/blog">
+          <Link to="/blog">
             Blog
-          </a>
+          </Link>
 
         </div>
 
@@ -80,17 +85,17 @@ function Footer() {
             CONTACTO
           </h3>
 
-          <a href="#encuentranos">
+          <Link to="/encuentranos">
             Contáctanos
-          </a>
+          </Link>
 
-          <a href="#encuentranos">
+          <Link to="/encuentranos">
             Puntos De Venta
-          </a>
+          </Link>
 
-          <a href="/agendar-prueba">
+          <Link to="/agendar-prueba">
             Prueba una
-          </a>
+          </Link>
 
         </div>
 
@@ -102,13 +107,13 @@ function Footer() {
             NUESTRO MUNDO
           </h3>
 
-          <a href="/blog">
+          <Link to="/blog">
             Historia
-          </a>
+          </Link>
 
-          <a href="/blog">
+          <Link to="/blog">
             Comunidad
-          </a>
+          </Link>
 
         </div>
 

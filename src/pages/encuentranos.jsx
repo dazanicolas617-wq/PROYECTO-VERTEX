@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { MapPin, Clock, Phone, Navigation, Calendar, X } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./encuentranos.css";
+import heroMotos from "../assets/hero-motos.jpg";
 
 function Encuentranos() {
-  // Estado para controlar qué concesionario está activo en el Banner
+  // Estado para controlar qué concesionario está activo en el Modal
   const [concesionarioActivo, setConcesionarioActivo] = useState(null);
 
   // Lista de concesionarios con sus datos dinámicos
@@ -23,7 +25,7 @@ function Encuentranos() {
     },
     {
       id: 2,
-      nombre: "Poblado Moto experiencia",
+      nombre: "Poblado Moto Experiencia",
       ciudad: "Medellín",
       direccion: "Avenida El Poblado Medellín",
       horario: "Lunes - Sábado (8:30 AM - 6:30 PM)",
@@ -80,7 +82,6 @@ function Encuentranos() {
 
   return (
     <>
-      {/* 1. Usamos tu componente Navbar existente */}
       <Navbar />
 
       <main>
@@ -89,7 +90,7 @@ function Encuentranos() {
         =================================================== */}
         <section className="hero">
           <img
-            src="IMAGENES/moto.jpg"
+            src={heroMotos}
             alt="Motocicleta Vertex"
             className="hero-img"
           />
@@ -121,7 +122,6 @@ function Encuentranos() {
                   <p>{item.direccion}</p>
                   <p>{item.horario}</p>
 
-                  {/* Abre el Banner asignando la sede seleccionada */}
                   <button
                     className="btn-ver-detalles"
                     onClick={() => setConcesionarioActivo(item)}
@@ -139,11 +139,11 @@ function Encuentranos() {
               <div 
                 className="banner-detalles activo" 
                 id="banner-detalles"
-                onClick={() => setConcesionarioActivo(null)} // Cierra al hacer clic en el fondo
+                onClick={() => setConcesionarioActivo(null)}
               >
                 <div 
                   className="banner-contenido" 
-                  onClick={(e) => e.stopPropagation()} // Detiene el cierre si hace clic dentro
+                  onClick={(e) => e.stopPropagation()}
                 >
                   {/* BOTÓN CERRAR */}
                   <button
@@ -152,7 +152,7 @@ function Encuentranos() {
                     aria-label="Cerrar detalles"
                     onClick={() => setConcesionarioActivo(null)}
                   >
-                    <i className="fi fi-rr-rectangle-xmark"></i> &times;
+                    <X size={20} />
                   </button>
 
                   {/* IMAGEN DEL CONCESIONARIO */}
@@ -173,7 +173,7 @@ function Encuentranos() {
                     {/* DATOS */}
                     <div className="banner-datos">
                       <div>
-                        <i className="fi fi-rr-diamond-turn-right"></i>
+                        <MapPin size={18} color="#2d5bff" />
                         <div>
                           <strong>Dirección</strong>
                           <span id="banner-direccion">{concesionarioActivo.direccion}</span>
@@ -181,7 +181,7 @@ function Encuentranos() {
                       </div>
 
                       <div>
-                        <i className="fi fi-rr-prime-time"></i>
+                        <Clock size={18} color="#2d5bff" />
                         <div>
                           <strong>Horario</strong>
                           <span id="banner-horario">{concesionarioActivo.horario}</span>
@@ -189,7 +189,7 @@ function Encuentranos() {
                       </div>
 
                       <div>
-                        <i className="fi fi-br-phone-call"></i>
+                        <Phone size={18} color="#2d5bff" />
                         <div>
                           <strong>Teléfono</strong>
                           <span id="banner-telefono">{concesionarioActivo.telefono}</span>
@@ -205,13 +205,13 @@ function Encuentranos() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <i className="fi fi-rs-home-location"></i>
-                        Cómo llegar
+                        <Navigation size={15} />
+                        <span>Cómo llegar</span>
                       </a>
 
                       <Link to="/agendar-prueba">
-                        <i className="fi fi-rs-book-bookmark"></i>
-                        Agendar prueba
+                        <Calendar size={15} />
+                        <span>Agendar prueba</span>
                       </Link>
                     </div>
                   </div>
@@ -222,7 +222,6 @@ function Encuentranos() {
         </section>
       </main>
 
-      {/* 2. Usamos tu componente Footer existente */}
       <Footer />
     </>
   );

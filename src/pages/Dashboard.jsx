@@ -58,7 +58,17 @@ export default function Dashboard() {
   // Estado con persistencia en LocalStorage
   const [inventory, setInventory] = useState(() => {
     const guardado = localStorage.getItem("vertex_inventory");
-    return guardado ? JSON.parse(guardado) : INITIAL_INVENTORY;
+    if (guardado) {
+      try {
+        const parsed = JSON.parse(guardado);
+        if (Array.isArray(parsed) && parsed.length >= 12 && parsed[0].price > 1000000) {
+          return parsed;
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    return INITIAL_INVENTORY;
   });
 
   const [cotizaciones, setCotizaciones] = useState(() => {
@@ -90,7 +100,7 @@ export default function Dashboard() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Todas las Categorías");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 6;
 
   // Modales
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
@@ -556,7 +566,7 @@ export default function Dashboard() {
                         </td>
                         <td>
                           <span className="texto-precio">
-                            ${item.price.toLocaleString("en-US", { minimumFractionDigits: 2 })}
+                            ${Number(item.price).toLocaleString("es-CO")} COP
                           </span>
                         </td>
                         <td>{item.stock}</td>
@@ -600,7 +610,7 @@ export default function Dashboard() {
                 <div className="pie-tabla">
                   <span className="informacion-pie">
                     Mostrando {filteredInventory.length === 0 ? 0 : startIndex + 1} a{" "}
-                    {Math.min(startIndex + itemsPerPage, filteredInventory.length)} de 124 entradas
+                    {Math.min(startIndex + itemsPerPage, filteredInventory.length)} de {filteredInventory.length} motos
                   </span>
 
                   <div className="controles-paginacion">
