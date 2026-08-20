@@ -37,7 +37,7 @@ import {
   INITIAL_COTIZACIONES,
   INITIAL_AGENDA,
   INITIAL_NOTICIAS
-} from "../data/initialData";
+} from "../data/datosIniciales";
 
 import "./Dashboard.css";
 
@@ -434,10 +434,6 @@ export default function Dashboard() {
             <button className="boton-icono-encabezado" title="Notificaciones" onClick={() => showToast("Notificaciones al día")}>
               <Bell size={18} />
               <span className="punto-badge-notificacion"></span>
-            </button>
-
-            <button className="boton-icono-encabezado" title="Configuración" onClick={() => setActiveTab("configuracion")}>
-              <Settings size={18} />
             </button>
 
             <div className="boton-logo-marca-superior" title="Vertex Motors Admin" onClick={() => navigate("/")}>

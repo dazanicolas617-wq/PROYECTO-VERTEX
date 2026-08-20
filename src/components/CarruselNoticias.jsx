@@ -1,5 +1,5 @@
 /* =====================================================
-   NEWSCAROUSEL.JSX — CARRUSEL DE NOTICIAS
+   CARRUSELNOTICIAS.JSX — CARRUSEL DE NOTICIAS
    Muestra un conjunto de noticias paginadas de a 2.
    El usuario navega entre páginas con flechas izquierda
    y derecha, o haciendo clic en los indicadores de puntos.
@@ -12,9 +12,9 @@
 ===================================================== */
 
 import { useState } from "react";
-import "./NewsCarousel.css";
+import "./CarruselNoticias.css";
 
-function Noticias() {
+function CarruselNoticias() {
 
   /* =========================================
        LISTA DE NOTICIAS
@@ -257,4 +257,4 @@ function Noticias() {
   );
 }
 
-export default Noticias;
+export default CarruselNoticias;

@@ -1,15 +1,15 @@
 /* =====================================================
-   QUICKACTIONSENCUENTRANOS.JSX — TARJETA "ENCUÉNTRANOS"
+   ACCIONESRAPIDASENCUENTRANOS.JSX — TARJETA "ENCUÉNTRANOS"
    Muestra una tarjeta de acceso rápido para guiar al
    usuario hacia los puntos de venta / ubicación.
-   Comparte los mismos estilos de QuickActions.css.
+   Comparte los mismos estilos de AccionesRapidas.css.
 ===================================================== */
 
 import { Link } from "react-router-dom";
 import { MapPin, ArrowRight } from "lucide-react";
-import "./QuickActions.css";
+import "./AccionesRapidas.css";
 
-function QuickActionsEncuentranos() {
+function AccionesRapidasEncuentranos() {
   return (
     <section className="quick-links quick-links--single">
       <div className="quick-links-grid">
@@ -30,4 +30,4 @@ function QuickActionsEncuentranos() {
   );
 }
 
-export default QuickActionsEncuentranos;
+export default AccionesRapidasEncuentranos;

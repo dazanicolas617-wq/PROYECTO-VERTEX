@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { MapPin, Clock, Phone, Navigation, Calendar, X } from "lucide-react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import "./encuentranos.css";
 import heroMotos from "../assets/hero-motos.jpg";
 
@@ -81,10 +79,7 @@ function Encuentranos() {
   ];
 
   return (
-    <>
-      <Navbar />
-
-      <main>
+    <main>
         {/* ==================================================
             HERO SECTION
         =================================================== */}
@@ -221,9 +216,6 @@ function Encuentranos() {
           </div>
         </section>
       </main>
-
-      <Footer />
-    </>
   );
 }
 

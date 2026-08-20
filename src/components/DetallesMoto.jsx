@@ -1,5 +1,5 @@
 /* =====================================================
-   MOTODETAILS.JSX — MODAL DE DETALLES DE MOTOCICLETA
+   DETALLESMOTOS.JSX — MODAL DE DETALLES DE MOTOCICLETA
    Se abre cuando el usuario hace clic en "VER MÁS"
    dentro del catálogo de motos.
 
@@ -17,9 +17,9 @@
 
 import { useNavigate } from "react-router-dom";
 import { Calendar, X } from "lucide-react";
-import "./MotoDetails.css";
+import "./DetallesMoto.css";
 
-function MotoDetails({ moto, onClose }) {
+function DetallesMoto({ moto, onClose }) {
 
   /* Hook de React Router para navegar entre rutas */
   const navigate = useNavigate();
@@ -127,4 +127,4 @@ function MotoDetails({ moto, onClose }) {
   );
 }
 
-export default MotoDetails;
+export default DetallesMoto;

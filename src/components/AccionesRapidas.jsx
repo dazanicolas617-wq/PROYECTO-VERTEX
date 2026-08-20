@@ -1,21 +1,22 @@
 /* =====================================================
-   QUICKACTIONS.JSX — TARJETA DE ACCIÓN RÁPIDA
+   ACCIONESRAPIDAS.JSX — TARJETA DE ACCIÓN RÁPIDA
    Muestra una tarjeta con acceso directo a la página
    de "Agendar prueba de manejo".
-   Se usa junto a QuickActionsEncuentranos para formar
+   Se usa junto a AccionesRapidasEncuentranos para formar
    la sección de acciones rápidas en la portada.
 ===================================================== */
 
-import "./QuickActions.css";
+import { Link } from "react-router-dom";
+import "./AccionesRapidas.css";
 
-function QuickActions() {
+function AccionesRapidas() {
   return (
     /* Sección de enlace rápido — variante de una sola tarjeta */
     <section className="quick-links quick-links--single">
       <div className="quick-links-grid">
 
         {/* Tarjeta completa como enlace */}
-        <a href="/agendar-prueba" className="quick-link-card">
+        <Link to="/agendar-prueba" className="quick-link-card">
 
           {/* Ícono decorativo (vacío — se estiliza con CSS) */}
           <div className="quick-link-icon" aria-hidden="true">
@@ -29,11 +30,11 @@ function QuickActions() {
           <span className="quick-link-arrow" aria-hidden="true">
             →
           </span>
-        </a>
+        </Link>
 
       </div>
     </section>
   );
 }
 
-export default QuickActions;
+export default AccionesRapidas;

@@ -1,8 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-
 import "./Blog.css";
 
 // ============================================================
@@ -509,8 +506,6 @@ function Blog() {
 
   return (
     <>
-      <Navbar />
-
       <main className="pagina_blog">
         {/* ====================================================
             HERO
@@ -749,8 +744,6 @@ function Blog() {
           </div>
         </div>
       )}
-
-      <Footer />
     </>
   );
 }

@@ -1,5 +1,5 @@
 /* =====================================================
-   MOTOCAROUSEL.JSX — CARRUSEL DE MOTOS DESTACADAS
+   CARRUSELMOTOS.JSX — CARRUSEL DE MOTOS DESTACADAS
    Muestra un carrusel de diapositivas con imagen de fondo,
    título, eslogan y botón de exploración para cada moto.
    Permite navegar usando las flechas izquierda y derecha.
@@ -7,7 +7,7 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./MotoCarousel.css";
+import "./CarruselMotos.css";
 
 // Imágenes de las motos del carrusel importadas como módulos
 import Moto1 from "../assets/Moto1.jpg";
@@ -45,7 +45,7 @@ const motos = [
   },
 ];
 
-function MotoCarousel() {
+function CarruselMotos() {
   /* Índice de la moto que se está mostrando actualmente */
   const [diapositivaActual, setDiapositivaActual] = useState(0);
 
@@ -153,4 +153,4 @@ function MotoCarousel() {
   );
 }
 
-export default MotoCarousel;
+export default CarruselMotos;
