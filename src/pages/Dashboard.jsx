@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Bike,
@@ -19,9 +19,6 @@ import {
   User,
   Briefcase,
   Clock,
-  CheckCircle,
-  XCircle,
-  AlertTriangle,
   X,
   Check,
   Bold,

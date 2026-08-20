@@ -7,7 +7,7 @@
 ===================================================== */
 
 import { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   Calendar,
   Clock,
@@ -24,15 +24,9 @@ import "./AgendarPrueba.css";
 
 function AgendarPrueba() {
   const location = useLocation();
-  const navigate = useNavigate();
 
   // Estado de autenticación
   const [isAuth, setIsAuth] = useState(false);
-  const [usuario, setUsuario] = useState({
-    nombre: "",
-    correo: "",
-    telefono: ""
-  });
 
   // Estado del formulario de agendamiento
   const [form, setForm] = useState({
@@ -71,12 +65,6 @@ function AgendarPrueba() {
           console.error(e);
         }
       }
-
-      setUsuario({
-        nombre: nombrePerfil,
-        correo: email,
-        telefono: telefonoPerfil
-      });
 
       // Prellenar formulario
       setForm((prev) => ({
