@@ -262,6 +262,8 @@ export const INITIAL_AGENDA = [
   {
     id: 1,
     hora: "09:00 AM",
+    fecha: "Hoy, 24 Oct",
+    periodo: "HOY",
     duracion: "45 min",
     cliente: "Lucas Vance",
     tipo: "VIP",
@@ -274,6 +276,8 @@ export const INITIAL_AGENDA = [
   {
     id: 2,
     hora: "10:30 AM",
+    fecha: "Hoy, 24 Oct",
+    periodo: "HOY",
     duracion: "45 min",
     cliente: "Diana Prince",
     tipo: "REGULAR",
@@ -286,6 +290,8 @@ export const INITIAL_AGENDA = [
   {
     id: 3,
     hora: "01:00 PM",
+    fecha: "Hoy, 24 Oct",
+    periodo: "HOY",
     duracion: "30 min",
     cliente: "Arthur Pendelton",
     tipo: "NUEVO",
@@ -298,6 +304,8 @@ export const INITIAL_AGENDA = [
   {
     id: 4,
     hora: "02:30 PM",
+    fecha: "Mañana, 25 Oct",
+    periodo: "SEMANA",
     duracion: "45 min",
     cliente: "Gwen Stacy",
     tipo: "VIP",
@@ -310,6 +318,8 @@ export const INITIAL_AGENDA = [
   {
     id: 5,
     hora: "04:00 PM",
+    fecha: "Sáb, 26 Oct",
+    periodo: "SEMANA",
     duracion: "45 min",
     cliente: "Bruce Wayne",
     tipo: "VIP",
@@ -322,6 +332,8 @@ export const INITIAL_AGENDA = [
   {
     id: 6,
     hora: "05:30 PM",
+    fecha: "Lun, 28 Oct",
+    periodo: "MES",
     duracion: "45 min",
     cliente: "Mateo Silva",
     tipo: "VIP",
@@ -330,6 +342,34 @@ export const INITIAL_AGENDA = [
     estado: "CONFIRMADO",
     isUpcoming: false,
     image: Moto1
+  },
+  {
+    id: 7,
+    hora: "11:00 AM",
+    fecha: "Mié, 30 Oct",
+    periodo: "MES",
+    duracion: "45 min",
+    cliente: "Valeria Gómez",
+    tipo: "NUEVO",
+    modelo: "Scram 411",
+    asesor: "Marcus Thorne",
+    estado: "EN PROCESO",
+    isUpcoming: false,
+    image: Moto10
+  },
+  {
+    id: 8,
+    hora: "03:15 PM",
+    fecha: "Jue, 31 Oct",
+    periodo: "MES",
+    duracion: "45 min",
+    cliente: "Carlos Mendoza",
+    tipo: "VIP",
+    modelo: "KTM Adventure 390",
+    asesor: "Elena Rostova",
+    estado: "CONFIRMADO",
+    isUpcoming: false,
+    image: Moto12
   }
 ];
 

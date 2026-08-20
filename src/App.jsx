@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Outlet, useLocation } from "react-router-dom";
+import { TemaProvider } from "./context/TemaContext";
 
 // ── COMPONENTES REUTILIZABLES ──────────────────────────
 import BarraNavegacion from "./components/BarraNavegacion";              // Barra de navegación superior
@@ -9,6 +10,7 @@ import AccionesRapidas from "./components/AccionesRapidas";              // Tarj
 import AccionesRapidasEncuentranos from "./components/AccionesRapidasEncuentranos"; // Tarjeta "Encuéntranos"
 import PieDePagina from "./components/PieDePagina";                     // Pie de página
 import ScrollToTop from "./components/ScrollToTop";                     // Restaurador de scroll suave
+import BotonTemaFlotante from "./components/BotonTemaFlotante";         // Botón flotante para alternar tema claro / oscuro
 
 // ── PÁGINAS ────────────────────────────────────────────
 import Motos from "./pages/Motos";                           // Catálogo de motocicletas
@@ -81,7 +83,7 @@ function LayoutPublico() {
 
 /* =====================================================
    PÁGINA PRINCIPAL (HOME)
-===================================================== */
+==================================================== */
 function Inicio() {
   return (
     <main>
@@ -120,35 +122,38 @@ function PaginaNoEncontrada() {
 ===================================================== */
 function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <div className="app">
-        <Routes>
-          {/* =========================================
-              PANEL ADMINISTRATIVO (Sin Layout Público)
-          ========================================= */}
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/admin" element={<Dashboard />} />
+    <TemaProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <BotonTemaFlotante />
+        <div className="app">
+          <Routes>
+            {/* =========================================
+                PANEL ADMINISTRATIVO (Sin Layout Público)
+            ========================================= */}
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/admin" element={<Dashboard />} />
 
-          {/* =========================================
-              RUTAS PÚBLICAS (Con Layout Persistente)
-          ========================================= */}
-          <Route element={<LayoutPublico />}>
-            <Route path="/" element={<Inicio />} />
-            <Route path="/motos" element={<Motos />} />
-            <Route path="/agendar-prueba" element={<AgendarPrueba />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/registro" element={<Registro />} />
-            <Route path="/encuentranos" element={<Encuentranos />} />
-            <Route path="/recuperar-contrasena" element={<RecuperarContrasena />} />
-            <Route path="/mi-cuenta" element={<MiCuenta />} />
-            <Route path="/cuenta" element={<MiCuenta />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="*" element={<PaginaNoEncontrada />} />
-          </Route>
-        </Routes>
-      </div>
-    </BrowserRouter>
+            {/* =========================================
+                RUTAS PÚBLICAS (Con Layout Persistente)
+            ========================================= */}
+            <Route element={<LayoutPublico />}>
+              <Route path="/" element={<Inicio />} />
+              <Route path="/motos" element={<Motos />} />
+              <Route path="/agendar-prueba" element={<AgendarPrueba />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/registro" element={<Registro />} />
+              <Route path="/encuentranos" element={<Encuentranos />} />
+              <Route path="/recuperar-contrasena" element={<RecuperarContrasena />} />
+              <Route path="/mi-cuenta" element={<MiCuenta />} />
+              <Route path="/cuenta" element={<MiCuenta />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="*" element={<PaginaNoEncontrada />} />
+            </Route>
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </TemaProvider>
   );
 }
 

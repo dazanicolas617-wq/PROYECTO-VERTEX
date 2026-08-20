@@ -51,14 +51,14 @@
 .hero-content h1 {
   max-width: 50rem;
   width: 100%;
-  color: var(--color-texto);
+  color: #ffffff !important;
   font-family: "Montserrat", sans-serif;
   text-align: center;
   font-weight: 900;
   font-size: clamp(2.2rem, 5.5vw, 4rem);
   letter-spacing: 0.05rem;
   line-height: 1.1;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.9) !important;
   margin: 0;
 }
 
@@ -69,14 +69,14 @@
 .hero-content p {
   max-width: 48rem;
   width: 100%;
-  color: rgba(255, 255, 255, 0.9);
+  color: #ffffff !important;
   font-family: "Montserrat", sans-serif;
   text-align: center;
-  font-weight: 400;
+  font-weight: 500;
   font-size: clamp(0.95rem, 1.8vw, 1.15rem);
   letter-spacing: 0.02rem;
   line-height: 1.7;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 1px 6px rgba(0, 0, 0, 0.8) !important;
   margin: 0;
 }
 

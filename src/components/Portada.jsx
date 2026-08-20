@@ -19,9 +19,9 @@ function Portada() {
       id="inicio"
       style={{
         backgroundImage: `linear-gradient(
-          rgba(0, 0, 0, 0.55),
-          rgba(0, 0, 0, 0.75)
-        ), url(${heroImage})`   // Degradado negro sobre la foto para legibilidad del texto
+          rgba(0, 0, 0, 0.22),
+          rgba(0, 0, 0, 0.48)
+        ), url(${heroImage})`
       }}
     >
 

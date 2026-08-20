@@ -130,7 +130,7 @@ img {
   object-fit: cover;
   object-position: center;
 
-  filter: brightness(65%);
+  filter: brightness(85%);
 }
 
 
@@ -148,8 +148,8 @@ img {
   background:
     linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.1) 0%,
-      rgba(0, 0, 0, 0.45) 100%
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0.42) 100%
     );
 }
 
@@ -171,16 +171,13 @@ img {
   padding: 0 4%;
 
   text-align: center;
-
-  text-shadow:
-    0 3px 12px rgba(0, 0, 0, 0.7);
 }
 
 
 .intro_texto h1 {
   margin: 0 0 16px;
 
-  color: #ffffff;
+  color: #ffffff !important;
 
   font-size: clamp(2.2rem, 4vw, 3.8rem);
 
@@ -189,6 +186,8 @@ img {
   font-weight: 800;
 
   letter-spacing: -0.01em;
+
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.9) !important;
 }
 
 
@@ -197,13 +196,15 @@ img {
 
   margin: 0 0 16px;
 
-  color: #4a73ff;
+  color: #60a5fa !important;
 
-  font-size: 1.15rem;
+  font-size: 1.25rem;
 
-  font-weight: 700;
+  font-weight: 800;
 
   letter-spacing: 0.02em;
+
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 1px 6px rgba(0, 0, 0, 0.9) !important;
 }
 
 
@@ -212,11 +213,15 @@ img {
 
   margin: 0 auto;
 
-  color: #f0f0f0;
+  color: #ffffff !important;
 
-  font-size: 1.05rem;
+  font-size: 1.08rem;
+
+  font-weight: 500;
 
   line-height: 1.7;
+
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 1px 6px rgba(0, 0, 0, 0.9) !important;
 }
 
 

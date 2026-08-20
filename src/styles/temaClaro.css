@@ -1,0 +1,1764 @@
+/* =====================================================
+   TEMACLARO.CSS — REGLAS GLOBALES COMPLETAS PARA MODO CLARO
+   Se aplican automáticamente cuando [data-theme="claro"]
+   está activo en el elemento raíz (HTML o BODY).
+===================================================== */
+
+/* ── 1. VARIABLES GLOBALES DE CSS EN MODO CLARO ─────── */
+:root[data-theme="claro"],
+[data-theme="claro"],
+body.tema-claro {
+  --color-fondo: #f8fafc !important;
+  --color-texto: #0f172a !important;
+  --color-card: #ffffff !important;
+  --color-borde: #e2e8f0 !important;
+  --color-secundario: #475569 !important;
+  --color-gris-text: #64748b !important;
+  --color-fondo-principal: #f1f5f9 !important;
+  --color-fondo-barra-lateral: #ffffff !important;
+  --color-fondo-tarjeta: #ffffff !important;
+  --color-fondo-tarjeta-hover: #f8fafc !important;
+  --color-fondo-encabezado: #ffffff !important;
+  --color-fondo-input: #f8fafc !important;
+  --color-texto-principal: #0f172a !important;
+  --color-texto-atenuado: #64748b !important;
+  --color-texto-oscuro: #94a3b8 !important;
+}
+
+/* ── 2. ESTRUCTURA Y FONDO GENERAL ─────────────────── */
+[data-theme="claro"] body,
+body.tema-claro {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .app,
+[data-theme="claro"] .contenedor-pagina-publica,
+[data-theme="claro"] main {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] ::-webkit-scrollbar-track {
+  background: #f1f5f9 !important;
+}
+
+[data-theme="claro"] ::-webkit-scrollbar-thumb {
+  background: #cbd5e1 !important;
+}
+
+[data-theme="claro"] ::-webkit-scrollbar-thumb:hover {
+  background: #315efb !important;
+}
+
+/* ── 3. BARRA DE NAVEGACIÓN (NAVBAR) Y MENÚ DROPDOWN ── */
+[data-theme="claro"] .barra-navegacion {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="claro"] .enlaces-barra-navegacion a {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .enlaces-barra-navegacion a:hover {
+  color: #315efb !important;
+}
+
+[data-theme="claro"] .login-barra-navegacion {
+  background: #315efb !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(49, 94, 251, 0.35) !important;
+}
+
+[data-theme="claro"] .login-barra-navegacion:hover {
+  background: #2048e6 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 20px rgba(49, 94, 251, 0.45) !important;
+}
+
+[data-theme="claro"] .boton-avatar-usuario {
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25) !important;
+}
+
+/* Menú desplegable del usuario en navbar */
+[data-theme="claro"] .menu-desplegable-usuario {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="claro"] .usuario-header-dropdown {
+  background: transparent !important;
+}
+
+[data-theme="claro"] .correo-dropdown {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="claro"] .divisor-dropdown {
+  background: #e2e8f0 !important;
+}
+
+[data-theme="claro"] .item-dropdown {
+  color: #334155 !important;
+  background: transparent !important;
+}
+
+[data-theme="claro"] .item-dropdown:hover {
+  background: #f1f5f9 !important;
+  color: #2563eb !important;
+}
+
+[data-theme="claro"] .item-dropdown.cerrar-sesion {
+  color: #ef4444 !important;
+}
+
+[data-theme="claro"] .item-dropdown.cerrar-sesion:hover {
+  background: #fef2f2 !important;
+  color: #dc2626 !important;
+}
+
+[data-theme="claro"] .boton-hamburguesa span {
+  background-color: #0f172a !important;
+}
+
+[data-theme="claro"] .menu-movil-desplegable {
+  background: #ffffff !important;
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .enlaces-menu-movil a {
+  color: #0f172a !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+}
+
+/* ── 4. PIE DE PÁGINA (FOOTER) ─────────────────────── */
+[data-theme="claro"] .footer {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .footer-container {
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .footer-column h3 {
+  color: #315efb !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="claro"] .footer-column a {
+  color: #475569 !important;
+  font-weight: 500 !important;
+}
+
+[data-theme="claro"] .footer-column a:hover {
+  color: #315efb !important;
+}
+
+[data-theme="claro"] .footer-social {
+  background: #ffffff !important;
+}
+
+[data-theme="claro"] .footer-social p {
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .social-icons a {
+  background: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .social-icons a:hover {
+  background: #315efb !important;
+  border-color: #315efb !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 20px rgba(49, 94, 251, 0.3) !important;
+}
+
+[data-theme="claro"] .footer-bottom {
+  background: #f8fafc !important;
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .footer-bottom a {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .footer-bottom a:hover {
+  color: #315efb !important;
+}
+
+[data-theme="claro"] .footer-bottom p {
+  color: #94a3b8 !important;
+}
+
+/* ── 5. SECCIÓN ACCIONES RÁPIDAS (QUICK LINKS) ─────── */
+[data-theme="claro"] .quick-links {
+  background: #f8fafc !important;
+}
+
+[data-theme="claro"] .quick-links::before {
+  background: radial-gradient(circle, rgba(49, 94, 251, 0.25) 0%, transparent 80%) !important;
+}
+
+[data-theme="claro"] .tarjeta-accion-rapida {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  color: #0f172a !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="claro"] .tarjeta-accion-rapida:hover {
+  background: #ffffff !important;
+  border-color: #315efb !important;
+  box-shadow: 0 16px 36px rgba(49, 94, 251, 0.12) !important;
+}
+
+[data-theme="claro"] .tarjeta-accion-icono-caja {
+  background: #eff6ff !important;
+  border: 1px solid #dbeafe !important;
+  color: #315efb !important;
+}
+
+[data-theme="claro"] .tarjeta-accion-etiqueta {
+  background: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .tarjeta-accion-cuerpo h3 {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="claro"] .tarjeta-accion-cuerpo p {
+  color: #475569 !important;
+  font-weight: 500 !important;
+}
+
+[data-theme="claro"] .tarjeta-accion-link-texto {
+  color: #315efb !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="claro"] .tarjeta-accion-flecha-circulo {
+  background: #eff6ff !important;
+  border: 1px solid #dbeafe !important;
+  color: #315efb !important;
+}
+
+[data-theme="claro"] .tarjeta-accion-rapida:hover .tarjeta-accion-flecha-circulo {
+  background: #315efb !important;
+  color: #ffffff !important;
+}
+
+/* ── 6. PÁGINA DE INICIO (PORTADA Y CARRUSELES) ─────── */
+[data-theme="claro"] .hero .hero-content h1,
+[data-theme="claro"] .hero-content h1,
+[data-theme="claro"] .hero h1 {
+  color: #ffffff !important;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.9) !important;
+}
+
+[data-theme="claro"] .hero .hero-content p,
+[data-theme="claro"] .hero-content p,
+[data-theme="claro"] .hero p {
+  color: #ffffff !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 1px 6px rgba(0, 0, 0, 0.8) !important;
+}
+
+[data-theme="claro"] .hero-contenido h1,
+[data-theme="claro"] .hero-contenido span,
+[data-theme="claro"] .hero-contenido p {
+  color: #ffffff !important;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8) !important;
+}
+
+[data-theme="claro"] .diapositiva_moto .nombre_moto h3,
+[data-theme="claro"] .diapositiva_moto .subtitulo_moto,
+[data-theme="claro"] .diapositiva_moto .precio_moto {
+  color: #ffffff !important;
+}
+
+[data-theme="claro"] .contenedor_titulo {
+  background-color: #f8fafc !important;
+}
+
+[data-theme="claro"] .titulo h2 {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .linea_titulo {
+  background-color: #315efb !important;
+}
+
+[data-theme="claro"] .seccion-noticias {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .encabezado-noticias {
+  background-color: #f8fafc !important;
+}
+
+[data-theme="claro"] .encabezado-noticias h2 {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .linea-titulo {
+  background-color: #315efb !important;
+}
+
+/* ── 7. CATÁLOGO DE MOTOS Y BARRA DE FILTROS ───────── */
+[data-theme="claro"] .motos-page {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .section-title h1 {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .section-title span {
+  background: #315efb !important;
+}
+
+[data-theme="claro"] .motos-header p {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .moto-category h2 {
+  color: #315efb !important;
+}
+
+/* Barra de filtros del catálogo */
+[data-theme="claro"] .motos-filtros {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="claro"] .filtro-grupo label {
+  color: #475569 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="claro"] .filtro-grupo select {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+  border: 1.5px solid #cbd5e1 !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="claro"] .filtro-grupo select:hover {
+  border-color: #315efb !important;
+}
+
+[data-theme="claro"] .filtro-grupo select:focus {
+  border-color: #315efb !important;
+  box-shadow: 0 0 0 2px rgba(49, 94, 251, 0.15) !important;
+}
+
+[data-theme="claro"] .filtro-grupo select option {
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .btn-limpiar {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+
+[data-theme="claro"] .btn-limpiar:hover {
+  background: #e2e8f0 !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Tarjetas de motos */
+[data-theme="claro"] .moto-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="claro"] .moto-card:hover {
+  border-color: #315efb !important;
+  box-shadow: 0 14px 30px rgba(49, 94, 251, 0.15) !important;
+}
+
+[data-theme="claro"] .moto-card-info {
+  background: #ffffff !important;
+}
+
+[data-theme="claro"] .moto-price strong {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .moto-price span {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .btn-ver-mas {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+[data-theme="claro"] .btn-ver-mas:hover {
+  background: #e2e8f0 !important;
+}
+
+[data-theme="claro"] .btn-cotizacion {
+  background: #315efb !important;
+  color: #ffffff !important;
+  border: 1px solid #315efb !important;
+}
+
+[data-theme="claro"] .btn-cotizacion:hover {
+  background: #254edb !important;
+}
+
+/* ── 8. MODALES DE DETALLES Y COTIZACIÓN ────────────── */
+[data-theme="claro"] .moto-details,
+[data-theme="claro"] .cotizacion-contenedor {
+  background: #ffffff !important;
+  border: 1.5px solid #315efb !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .moto-title,
+[data-theme="claro"] .cotizacion-titulo,
+[data-theme="claro"] .moto-price-modal strong {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .moto-description,
+[data-theme="claro"] .cotizacion-subtitulo {
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .moto-spec-card {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .moto-spec-card strong {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .moto-spec-card span {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .moto-close,
+[data-theme="claro"] .cotizacion-cerrar {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .moto-close:hover,
+[data-theme="claro"] .cotizacion-cerrar:hover {
+  background: #e2e8f0 !important;
+}
+
+[data-theme="claro"] .cotizacion-formulario input,
+[data-theme="claro"] .cotizacion-formulario select {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+/* ── 9. AGENDAR PRUEBA ─────────────────────────────── */
+[data-theme="claro"] .agendar-page {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .login-card,
+[data-theme="claro"] .formulario-agendar-contenedor,
+[data-theme="claro"] .tarjeta-exito-agendar {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.06) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .formulario-agendar-contenedor h2,
+[data-theme="claro"] .login-card h2,
+[data-theme="claro"] .tarjeta-exito-agendar h2 {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .encabezado-form-agendar h2 {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .encabezado-form-agendar p,
+[data-theme="claro"] .login-card p,
+[data-theme="claro"] .subtitulo-exito-reserva {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .grupo-agendar-campo label {
+  color: #475569 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="claro"] .input-agendar-wrapper {
+  background: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+
+[data-theme="claro"] .input-agendar-wrapper:focus-within {
+  border-color: #315efb !important;
+  box-shadow: 0 0 0 3px rgba(49, 94, 251, 0.15) !important;
+}
+
+[data-theme="claro"] .icono-input-agendar {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .input-agendar-wrapper input,
+[data-theme="claro"] .input-agendar-wrapper select {
+  background: transparent !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .input-agendar-wrapper select option {
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .checkbox-licencia-label {
+  background: #eff6ff !important;
+  border: 1.5px solid #dbeafe !important;
+  color: #1e3a8a !important;
+}
+
+[data-theme="claro"] .checkbox-licencia-label span {
+  color: #1e3a8a !important;
+}
+
+[data-theme="claro"] .resumen-reserva-caja {
+  background: #f1f5f9 !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .item-resumen-reserva strong {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .item-resumen-reserva .etiqueta-resumen {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .btn-otra-prueba {
+  background: #f1f5f9 !important;
+  border: 1.5px solid #cbd5e1 !important;
+  color: #334155 !important;
+}
+
+[data-theme="claro"] .btn-otra-prueba:hover {
+  background: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* ── 10. ENCUÉNTRANOS ──────────────────────────────── */
+[data-theme="claro"] .encuentranos-container {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .tarjeta-conces {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="claro"] .tarjeta-conces .info {
+  background: #ffffff !important;
+}
+
+[data-theme="claro"] .tarjeta-conces .info h3 {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="claro"] .tarjeta-conces .info p {
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .btn-ver-detalles {
+  color: #315efb !important;
+  border-bottom-color: rgba(49, 94, 251, 0.4) !important;
+}
+
+[data-theme="claro"] .btn-ver-detalles:hover {
+  color: #1d4ed8 !important;
+  border-bottom-color: #1d4ed8 !important;
+}
+
+[data-theme="claro"] .banner-contenido {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  color: #0f172a !important;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-theme="claro"] .banner-info h2 {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .banner-info > p {
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .banner-datos div p,
+[data-theme="claro"] .banner-datos div span {
+  color: #334155 !important;
+}
+
+/* ── 11. BLOG ──────────────────────────────────────── */
+[data-theme="claro"] .blog-page,
+[data-theme="claro"] .blog-container {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* El hero del blog mantiene siempre texto blanco / luminoso con alto contraste sobre la foto de fondo */
+[data-theme="claro"] .intro_texto h1 {
+  color: #ffffff !important;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95), 0 2px 8px rgba(0, 0, 0, 0.9) !important;
+}
+
+[data-theme="claro"] .intro_subtitulo {
+  color: #60a5fa !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 1px 6px rgba(0, 0, 0, 0.9) !important;
+}
+
+[data-theme="claro"] .intro_descripcion {
+  color: #ffffff !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 1px 6px rgba(0, 0, 0, 0.9) !important;
+}
+
+[data-theme="claro"] .bloque_intro_blog {
+  background: #f8fafc !important;
+}
+
+[data-theme="claro"] .blog-card {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="claro"] .blog-card:hover {
+  border-color: #315efb !important;
+  box-shadow: 0 16px 40px rgba(49, 94, 251, 0.12) !important;
+}
+
+[data-theme="claro"] .blog-card__body {
+  background: #ffffff !important;
+}
+
+[data-theme="claro"] .blog-card__tag {
+  color: #315efb !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="claro"] .blog-card__titulo {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="claro"] .blog-card__fecha {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .blog-card__descripcion {
+  color: #475569 !important;
+  line-height: 1.6 !important;
+}
+
+[data-theme="claro"] .blog-card__link {
+  color: #315efb !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="claro"] .blog-card__link:hover {
+  color: #1d4ed8 !important;
+}
+
+[data-theme="claro"] .select_categoria {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+
+[data-theme="claro"] .select_categoria option {
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .categoria_label {
+  color: #475569 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="claro"] .buscador_blog input {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+
+[data-theme="claro"] .buscador_blog input::placeholder {
+  color: #94a3b8 !important;
+}
+
+[data-theme="claro"] .blog-modal__contenido {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2) !important;
+}
+
+[data-theme="claro"] .blog-modal__titulo {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .blog-modal__texto p {
+  color: #334155 !important;
+}
+
+[data-theme="claro"] .blog-modal__cerrar {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* ── 12. MI CUENTA / PANEL DE CLIENTE ──────────────── */
+[data-theme="claro"] .pagina-mi-cuenta,
+[data-theme="claro"] .cuerpo-mi-cuenta {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .cabecera-perfil-cliente {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+}
+
+[data-theme="claro"] .fila-nombre-badge h1 {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .correo-subtexto {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .datos-rapidos-usuario {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .tarjeta-stat-perfil {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+}
+
+[data-theme="claro"] .stat-valor {
+  color: #2563eb !important;
+}
+
+[data-theme="claro"] .stat-etiqueta {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .sidebar-cuenta {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="claro"] .boton-tab-cuenta {
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .boton-tab-cuenta:hover {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .boton-tab-cuenta.activo {
+  background: #eff6ff !important;
+  border-color: #bfdbfe !important;
+  color: #2563eb !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="claro"] .contador-tab {
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .boton-tab-cuenta.activo .contador-tab {
+  background: #2563eb !important;
+  color: #ffffff !important;
+}
+
+[data-theme="claro"] .divisor-sidebar {
+  background: #e2e8f0 !important;
+}
+
+[data-theme="claro"] .seccion-panel-cuenta {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.04) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .encabezado-seccion-panel {
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .encabezado-seccion-panel h2 {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .encabezado-seccion-panel p {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .grupo-input-cuenta label {
+  color: #475569 !important;
+  font-weight: 700 !important;
+}
+
+/* Campos de entrada en Mi Cuenta (Información Personal, Contraseña, etc.) */
+[data-theme="claro"] .campo-input-cuenta {
+  background: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+
+[data-theme="claro"] .campo-input-cuenta:focus-within {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+}
+
+[data-theme="claro"] .campo-input-cuenta .icono-campo {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .campo-input-cuenta input,
+[data-theme="claro"] .campo-input-cuenta select {
+  background: transparent !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .campo-input-cuenta select option {
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Tarjetas de pruebas de manejo agendadas en Mi Cuenta */
+[data-theme="claro"] .tarjeta-prueba-manejo {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+}
+
+[data-theme="claro"] .cabecera-tarjeta-prueba h3 {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .dato-prueba {
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .btn-prueba-secundario {
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #334155 !important;
+}
+
+[data-theme="claro"] .btn-prueba-secundario:hover {
+  background: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* Tarjetas de cotizaciones en Mi Cuenta */
+[data-theme="claro"] .tarjeta-cotizacion-cuenta {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+}
+
+[data-theme="claro"] .top-tarjeta-cotizacion h3 {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .valores-cotizacion-cuerpo {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .fila-valor-cot span {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .fila-valor-cot strong {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .fila-valor-cot.cuota-destacada {
+  border-top-color: #e2e8f0 !important;
+}
+
+/* Motos de interés / favoritas en Mi Cuenta */
+[data-theme="claro"] .tarjeta-moto-favorita {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="claro"] .contenido-favorita {
+  background: #ffffff !important;
+}
+
+[data-theme="claro"] .contenido-favorita h3 {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="claro"] .specs-rapidas {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .precio-fav {
+  color: #2563eb !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="claro"] .btn-fav-principal {
+  background: #2563eb !important;
+  color: #ffffff !important;
+}
+
+[data-theme="claro"] .btn-fav-principal:hover {
+  background: #1d4ed8 !important;
+}
+
+[data-theme="claro"] .btn-fav-secundario {
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #334155 !important;
+}
+
+[data-theme="claro"] .btn-fav-secundario:hover {
+  background: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* Seguridad y Ajustes en Mi Cuenta */
+[data-theme="claro"] .caja-ajuste-cuenta {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .caja-ajuste-cuenta h3 {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="claro"] .subtexto-caja {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .switch-item-cuenta {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .switch-item-cuenta:hover {
+  background: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+}
+
+[data-theme="claro"] .switch-item-cuenta strong {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="claro"] .switch-item-cuenta p {
+  color: #64748b !important;
+}
+
+/* ── 13. DASHBOARD ADMINISTRATIVO ──────────────────── */
+[data-theme="claro"] .contenedor-dashboard {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .barra-lateral {
+  background-color: #ffffff !important;
+  border-right: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .titulo-marca {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .badge-perfil-usuario {
+  background-color: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .avatar-usuario {
+  background-color: #eff6ff !important;
+  color: #2563eb !important;
+}
+
+[data-theme="claro"] .nombre-usuario {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .rol-usuario {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .item-navegacion {
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .item-navegacion:hover {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .item-navegacion.activo {
+  background-color: #eff6ff !important;
+  color: #2563eb !important;
+  font-weight: 700 !important;
+  border: 1px solid #bfdbfe !important;
+  box-shadow: none !important;
+}
+
+[data-theme="claro"] .barra-lateral-inferior {
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .contenido-principal {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .encabezado-superior {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .titulo-encabezado {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .caja-busqueda {
+  background-color: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+
+[data-theme="claro"] .caja-busqueda input {
+  color: #0f172a !important;
+  background: transparent !important;
+}
+
+[data-theme="claro"] .caja-busqueda input::placeholder {
+  color: #94a3b8 !important;
+}
+
+[data-theme="claro"] .icono-busqueda {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .boton-icono-encabezado {
+  background-color: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .cuerpo-pagina {
+  background-color: #f1f5f9 !important;
+}
+
+[data-theme="claro"] .grupo-titulo-seccion h2 {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .grupo-titulo-seccion p {
+  color: #64748b !important;
+}
+
+/* Tarjetas de métricas */
+[data-theme="claro"] .tarjeta-metrica {
+  background-color: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="claro"] .etiqueta-tarjeta {
+  color: #64748b !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="claro"] .valor-tarjeta {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .subtexto-tarjeta {
+  color: #64748b !important;
+}
+
+/* Tabla de Inventario */
+[data-theme="claro"] .contenedor-tabla {
+  background-color: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="claro"] .barra-encabezado-tabla {
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .titulo-encabezado-tabla {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="claro"] .selector-filtro {
+  background-color: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .selector-filtro option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .boton-icono-cuadrado {
+  background-color: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .tabla-inventario th {
+  background-color: #f8fafc !important;
+  color: #475569 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .tabla-inventario td {
+  border-bottom: 1px solid #f1f5f9 !important;
+  color: #1e293b !important;
+}
+
+[data-theme="claro"] .tabla-inventario tr:hover td {
+  background-color: #f8fafc !important;
+}
+
+[data-theme="claro"] .nombre-modelo {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="claro"] .vin-modelo {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .texto-precio {
+  color: #2563eb !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="claro"] .pie-tabla {
+  border-top: 1px solid #e2e8f0 !important;
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .boton-pagina {
+  background-color: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .boton-pagina:hover:not(:disabled) {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .boton-pagina.activo {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  border-color: #2563eb !important;
+}
+
+[data-theme="claro"] .boton-accion {
+  background-color: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .boton-accion:hover {
+  background-color: #eff6ff !important;
+  color: #2563eb !important;
+  border-color: #bfdbfe !important;
+}
+
+[data-theme="claro"] .boton-accion.eliminar:hover {
+  background-color: #fef2f2 !important;
+  color: #dc2626 !important;
+  border-color: #fecaca !important;
+}
+
+/* Pestaña Cotizaciones */
+[data-theme="claro"] .barra-pildoras-filtro {
+  background-color: transparent !important;
+}
+
+[data-theme="claro"] .boton-pildora-filtro {
+  background-color: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .boton-pildora-filtro span {
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .boton-pildora-filtro.activo {
+  background-color: #eff6ff !important;
+  border-color: #bfdbfe !important;
+}
+
+[data-theme="claro"] .boton-pildora-filtro.activo span {
+  color: #2563eb !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="claro"] .badge-contador-pildora {
+  background-color: #f1f5f9 !important;
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .boton-pildora-filtro.activo .badge-contador-pildora {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+[data-theme="claro"] .tarjeta-cotizacion {
+  background-color: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="claro"] .nombre-usuario-cotizacion {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="claro"] .contacto-usuario-cotizacion {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .etiqueta-columna-cotizacion {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .valor-columna-cotizacion {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+/* Pestaña Agenda */
+[data-theme="claro"] .control-segmentado {
+  background-color: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .boton-segmento {
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .boton-segmento.activo {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+[data-theme="claro"] .titulo-divisor-fecha {
+  color: #64748b !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="claro"] .hora-agenda {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="claro"] .duracion-agenda {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .tarjeta-agenda {
+  background-color: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="claro"] .informacion-moto-agenda h4 {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="claro"] .linea-subtexto-agenda {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .parte-inferior-tarjeta-agenda {
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+/* Pestaña Editor de Noticias */
+[data-theme="claro"] .panel-lateral-editor,
+[data-theme="claro"] .formulario-principal-editor {
+  background-color: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="claro"] .encabezado-panel {
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .titulo-panel {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="claro"] .item-tarjeta-articulo {
+  background-color: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .item-tarjeta-articulo:hover {
+  border-color: #315efb !important;
+}
+
+[data-theme="claro"] .item-tarjeta-articulo.seleccionado {
+  background-color: #eff6ff !important;
+  border-color: #bfdbfe !important;
+}
+
+[data-theme="claro"] .texto-titulo-articulo {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="claro"] .fecha-articulo {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .caja-editor-texto {
+  background-color: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+
+[data-theme="claro"] .barra-herramientas-editor {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .boton-barra-herramientas {
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .boton-barra-herramientas:hover {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .area-texto-editor {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Modales del Dashboard */
+[data-theme="claro"] .superposicion-modal {
+  background-color: rgba(15, 23, 42, 0.5) !important;
+  backdrop-filter: blur(6px) !important;
+}
+
+[data-theme="claro"] .contenido-modal {
+  background-color: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  color: #0f172a !important;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-theme="claro"] .encabezado-modal {
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .encabezado-modal h3 {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="claro"] .cerrar-modal {
+  background-color: #f1f5f9 !important;
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .grupo-formulario label {
+  color: #475569 !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="claro"] .grupo-formulario input,
+[data-theme="claro"] .grupo-formulario select,
+[data-theme="claro"] .grupo-formulario textarea {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+
+[data-theme="claro"] .grupo-formulario input:focus,
+[data-theme="claro"] .grupo-formulario select:focus,
+[data-theme="claro"] .grupo-formulario textarea:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+}
+
+[data-theme="claro"] .acciones-modal {
+  border-top: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="claro"] .boton-secundario {
+  background-color: #f1f5f9 !important;
+  border: 1.5px solid #cbd5e1 !important;
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .boton-secundario:hover {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* ── 14. LOGIN ──────────────────────────────────────── */
+
+/* Fondo y layout principal */
+[data-theme="claro"] .pagina-login {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Sección derecha del formulario */
+[data-theme="claro"] .seccion-formulario-login {
+  background: #ffffff !important;
+}
+
+/* Títulos y textos */
+[data-theme="claro"] .contenido-login h2 {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .subtitulo-login {
+  color: #64748b !important;
+}
+
+/* Labels */
+[data-theme="claro"] .grupo-formulario label {
+  color: #475569 !important;
+  font-weight: 700 !important;
+}
+
+/* Input wrapper */
+[data-theme="claro"] .contenedor-input {
+  background: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+
+[data-theme="claro"] .contenedor-input:focus-within {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+}
+
+[data-theme="claro"] .contenedor-input input {
+  color: #0f172a !important;
+  background: transparent !important;
+}
+
+[data-theme="claro"] .contenedor-input input::placeholder {
+  color: #94a3b8 !important;
+}
+
+[data-theme="claro"] .icono-input {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .mostrar-contrasena {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .mostrar-contrasena:hover {
+  color: #0f172a !important;
+}
+
+/* Enlace olvidé contraseña */
+[data-theme="claro"] .olvidado-contrasena a {
+  color: #2563eb !important;
+}
+
+/* Texto de registro */
+[data-theme="claro"] .texto-registro {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .texto-registro a {
+  color: #2563eb !important;
+}
+
+/* ── 15. REGISTRO ──────────────────────────────────── */
+
+/* Fondo general */
+[data-theme="claro"] .registro-page {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Sección derecha del formulario */
+[data-theme="claro"] .registro-form-section {
+  background: #ffffff !important;
+}
+
+/* Títulos */
+[data-theme="claro"] .registro-form-container h2 {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .registro-subtitle {
+  color: #64748b !important;
+}
+
+/* Labels */
+[data-theme="claro"] .registro-field label {
+  color: #475569 !important;
+  font-weight: 700 !important;
+}
+
+/* Inputs wrapper */
+[data-theme="claro"] .registro-input {
+  background: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+
+[data-theme="claro"] .registro-input:focus-within {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+}
+
+[data-theme="claro"] .registro-input > span {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .registro-input input,
+[data-theme="claro"] .registro-input select {
+  color: #0f172a !important;
+  background: transparent !important;
+}
+
+[data-theme="claro"] .registro-input input::placeholder {
+  color: #94a3b8 !important;
+}
+
+[data-theme="claro"] .registro-input select option {
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Botón mostrar contraseña */
+[data-theme="claro"] .password-button {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .password-button:hover {
+  color: #0f172a !important;
+}
+
+/* Tooltip de requisitos de contraseña */
+[data-theme="claro"] .password-requirements {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="claro"] .password-requirements h3 {
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .password-requirement {
+  color: #94a3b8 !important;
+}
+
+[data-theme="claro"] .requirement-dot {
+  color: #cbd5e1 !important;
+}
+
+[data-theme="claro"] .password-requirement.valid {
+  color: #334155 !important;
+}
+
+[data-theme="claro"] .password-requirement.valid .requirement-dot {
+  color: #2563eb !important;
+}
+
+/* Términos y condiciones */
+[data-theme="claro"] .registro-terms {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .registro-terms a {
+  color: #2563eb !important;
+}
+
+/* Link de login */
+[data-theme="claro"] .login-link {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .login-link a {
+  color: #2563eb !important;
+}
+
+/* ── 16. RECUPERAR CONTRASEÑA ──────────────────────── */
+
+/* Fondo general */
+[data-theme="claro"] .pagina-recuperar {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Sección del formulario */
+[data-theme="claro"] .seccion-recuperar {
+  background: #ffffff !important;
+}
+
+/* Títulos */
+[data-theme="claro"] .contenido-recuperar h2 {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .subtitulo-recuperar {
+  color: #64748b !important;
+}
+
+/* Etiqueta selector */
+[data-theme="claro"] .etiqueta-recuperar {
+  color: #475569 !important;
+  font-weight: 700 !important;
+}
+
+/* Botones de método de recuperación */
+[data-theme="claro"] .opcion-metodo {
+  background: #f8fafc !important;
+  border: 1.5px solid #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+[data-theme="claro"] .opcion-metodo:hover {
+  border-color: #2563eb !important;
+  color: #0f172a !important;
+  background: #eff6ff !important;
+}
+
+[data-theme="claro"] .opcion-metodo.activo {
+  border-color: #2563eb !important;
+  background: #eff6ff !important;
+  color: #1e40af !important;
+}
+
+[data-theme="claro"] .radio-dot {
+  border-color: #cbd5e1 !important;
+}
+
+[data-theme="claro"] .radio-dot.activo {
+  border-color: #2563eb !important;
+  background-color: #2563eb !important;
+  box-shadow: inset 0 0 0 2px #ffffff !important;
+}
+
+/* Labels */
+[data-theme="claro"] .grupo-recuperar label {
+  color: #475569 !important;
+  font-weight: 700 !important;
+}
+
+/* Input wrapper */
+[data-theme="claro"] .contenedor-input-recuperar {
+  background: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+
+[data-theme="claro"] .contenedor-input-recuperar:focus-within {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+}
+
+[data-theme="claro"] .icono-input-recuperar {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .contenedor-input-recuperar input {
+  color: #0f172a !important;
+  background: transparent !important;
+}
+
+[data-theme="claro"] .contenedor-input-recuperar input::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Link volver al login */
+[data-theme="claro"] .texto-login-recuperar {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .texto-login-recuperar a {
+  color: #2563eb !important;
+}
+
+/* Pantalla de éxito */
+[data-theme="claro"] .exito-recuperar h2 {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .exito-recuperar p {
+  color: #64748b !important;
+}
+
+[data-theme="claro"] .exito-recuperar strong {
+  color: #0f172a !important;
+}
+
+[data-theme="claro"] .nota-exito-recuperar {
+  color: #94a3b8 !important;
+}
+

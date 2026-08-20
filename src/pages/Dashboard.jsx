@@ -90,16 +90,18 @@ export default function Dashboard() {
     if (guardado) {
       try {
         const parsed = JSON.parse(guardado);
-        if (Array.isArray(parsed) && parsed.length > 0) {
+        if (Array.isArray(parsed) && parsed.length >= 6) {
           return parsed.map((item) => ({
             ...item,
             hora: item.hora || item.time || "10:00 AM",
+            fecha: item.fecha || "Hoy, 24 Oct",
+            periodo: item.periodo || "HOY",
             duracion: item.duracion || "45 min",
             cliente: item.cliente || item.rider || "Cliente Vertex",
             modelo: item.modelo || item.model || "New Himalayan 450",
             asesor: item.asesor || item.advisor || "Asesor Comercial",
             estado: item.estado || item.status || "CONFIRMADO",
-            image: obtenerImagenMoto(item.modelo || item.model)
+            image: item.image || obtenerImagenMoto(item.modelo || item.model)
           }));
         }
       } catch (e) {
@@ -117,6 +119,8 @@ export default function Dashboard() {
   // Filtros
   const [cotizacionFilter, setCotizacionFilter] = useState("TODAS");
   const [agendaPeriod, setAgendaPeriod] = useState("HOY");
+  const [agendaFilterStatus, setAgendaFilterStatus] = useState("TODOS");
+  const [showAgendaFilterBar, setShowAgendaFilterBar] = useState(false);
 
   // Artículo Seleccionado
   const [selectedArticle, setSelectedArticle] = useState(INITIAL_NOTICIAS[0]);
@@ -201,6 +205,37 @@ export default function Dashboard() {
   const filteredCotizaciones = cotizaciones.filter((cot) => {
     if (cotizacionFilter === "TODAS") return true;
     return cot.estado === cotizacionFilter;
+  });
+
+  // Agenda Filtrada por Periodo, Estado y Búsqueda
+  const filteredAgenda = agenda.filter((item) => {
+    // Filtro por periodo
+    let coincidePeriodo = true;
+    if (agendaPeriod === "HOY") {
+      coincidePeriodo = item.periodo === "HOY" || !item.periodo;
+    } else if (agendaPeriod === "SEMANA") {
+      coincidePeriodo = item.periodo === "HOY" || item.periodo === "SEMANA" || !item.periodo;
+    } else if (agendaPeriod === "MES") {
+      coincidePeriodo = true;
+    }
+
+    // Filtro por estado
+    let coincideEstado = true;
+    if (agendaFilterStatus !== "TODOS") {
+      coincideEstado = item.estado === agendaFilterStatus;
+    }
+
+    // Filtro por búsqueda
+    let coincideBusqueda = true;
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
+      coincideBusqueda =
+        (item.cliente || "").toLowerCase().includes(q) ||
+        (item.modelo || "").toLowerCase().includes(q) ||
+        (item.asesor || "").toLowerCase().includes(q);
+    }
+
+    return coincidePeriodo && coincideEstado && coincideBusqueda;
   });
 
   // Paginación
@@ -813,74 +848,143 @@ export default function Dashboard() {
                     </button>
                   </div>
 
-                  <button className="boton-secundario" style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                  <button
+                    className={`boton-secundario ${showAgendaFilterBar || agendaFilterStatus !== "TODOS" ? "activo" : ""}`}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      backgroundColor: agendaFilterStatus !== "TODOS" ? "#2563eb" : undefined,
+                      color: agendaFilterStatus !== "TODOS" ? "#ffffff" : undefined,
+                      borderColor: agendaFilterStatus !== "TODOS" ? "#2563eb" : undefined
+                    }}
+                    onClick={() => setShowAgendaFilterBar(!showAgendaFilterBar)}
+                    title="Filtrar por estado de la cita"
+                  >
                     <Filter size={16} />
-                    <span>FILTRAR</span>
+                    <span>FILTRAR{agendaFilterStatus !== "TODOS" ? `: ${agendaFilterStatus}` : ""}</span>
                   </button>
                 </div>
               </div>
 
-              <div className="titulo-divisor-fecha">24 DE OCTUBRE, 2026</div>
+              {/* Barra de filtros de estado desplegable */}
+              {showAgendaFilterBar && (
+                <div className="barra-pildoras-filtro" style={{ marginTop: "4px", marginBottom: "4px" }}>
+                  <button
+                    className={`boton-pildora-filtro ${agendaFilterStatus === "TODOS" ? "activo" : ""}`}
+                    onClick={() => setAgendaFilterStatus("TODOS")}
+                  >
+                    <span>TODOS LOS ESTADOS</span>
+                    <span className="badge-contador-pildora">
+                      {agenda.filter(i => agendaPeriod === "HOY" ? (i.periodo === "HOY" || !i.periodo) : agendaPeriod === "SEMANA" ? (i.periodo === "HOY" || i.periodo === "SEMANA" || !i.periodo) : true).length}
+                    </span>
+                  </button>
 
-              <div className="linea-tiempo-agenda">
-                {agenda.map((item, index) => (
-                  <div key={item.id} className="fila-item-agenda">
-                    <div className="columna-hora-agenda">
-                      <span className="hora-agenda">{item.hora}</span>
-                      <span className="duracion-agenda">{item.duracion}</span>
-                    </div>
+                  <button
+                    className={`boton-pildora-filtro ${agendaFilterStatus === "CONFIRMADO" ? "activo" : ""}`}
+                    onClick={() => setAgendaFilterStatus("CONFIRMADO")}
+                  >
+                    <span>CONFIRMADO</span>
+                  </button>
 
-                    <div className="envoltorio-punto-linea-tiempo">
-                      <div className={`punto-linea-tiempo ${item.isUpcoming ? "activo" : ""}`}></div>
-                      {index < agenda.length - 1 && <div className="linea-linea-tiempo"></div>}
-                    </div>
+                  <button
+                    className={`boton-pildora-filtro ${agendaFilterStatus === "EN PROCESO" ? "activo" : ""}`}
+                    onClick={() => setAgendaFilterStatus("EN PROCESO")}
+                  >
+                    <span>EN PROCESO</span>
+                  </button>
 
-                    <div className="tarjeta-agenda">
-                      <div className="parte-superior-tarjeta-agenda">
-                        <div className="parte-izquierda-tarjeta-agenda">
-                          <img src={item.image || obtenerImagenMoto(item.modelo)} alt={item.modelo} className="imagen-moto-agenda" />
-                          <div className="informacion-moto-agenda">
-                            <h4>{item.modelo}</h4>
-                            <div className="linea-subtexto-agenda">
-                              <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
-                                <User size={13} /> {item.cliente}
-                              </span>
-                              <span>·</span>
-                              <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
-                                <Briefcase size={13} /> Rep: {item.asesor}
-                              </span>
+                  <button
+                    className={`boton-pildora-filtro ${agendaFilterStatus === "CANCELADO" ? "activo" : ""}`}
+                    onClick={() => setAgendaFilterStatus("CANCELADO")}
+                  >
+                    <span>CANCELADO</span>
+                  </button>
+                </div>
+              )}
+
+              <div className="titulo-divisor-fecha" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                <span>
+                  {agendaPeriod === "HOY" && "HOY · 24 DE OCTUBRE, 2026"}
+                  {agendaPeriod === "SEMANA" && "ESTA SEMANA · 20 AL 26 DE OCTUBRE, 2026"}
+                  {agendaPeriod === "MES" && "OCTUBRE 2026 · VISTA MENSUAL"}
+                </span>
+                <span style={{ fontSize: "0.78rem", fontWeight: 700, color: "var(--color-azul-acento)" }}>
+                  {filteredAgenda.length} {filteredAgenda.length === 1 ? "cita programada" : "citas programadas"}
+                </span>
+              </div>
+
+              {filteredAgenda.length === 0 ? (
+                <div style={{ textAlign: "center", padding: "40px 20px", color: "var(--color-texto-atenuado)" }}>
+                  <Calendar size={42} style={{ opacity: 0.35, marginBottom: "10px" }} />
+                  <p style={{ fontWeight: 600 }}>No hay pruebas de manejo registradas para este periodo o filtro.</p>
+                </div>
+              ) : (
+                <div className="linea-tiempo-agenda">
+                  {filteredAgenda.map((item, index) => (
+                    <div key={item.id} className="fila-item-agenda">
+                      <div className="columna-hora-agenda">
+                        <span className="hora-agenda">{item.hora}</span>
+                        {agendaPeriod !== "HOY" && item.fecha && (
+                          <span style={{ fontSize: "0.72rem", color: "var(--color-azul-acento)", fontWeight: 700 }}>
+                            {item.fecha}
+                          </span>
+                        )}
+                        <span className="duracion-agenda">{item.duracion}</span>
+                      </div>
+
+                      <div className="envoltorio-punto-linea-tiempo">
+                        <div className={`punto-linea-tiempo ${item.isUpcoming ? "activo" : ""}`}></div>
+                        {index < filteredAgenda.length - 1 && <div className="linea-linea-tiempo"></div>}
+                      </div>
+
+                      <div className="tarjeta-agenda">
+                        <div className="parte-superior-tarjeta-agenda">
+                          <div className="parte-izquierda-tarjeta-agenda">
+                            <img src={item.image || obtenerImagenMoto(item.modelo)} alt={item.modelo} className="imagen-moto-agenda" />
+                            <div className="informacion-moto-agenda">
+                              <h4>{item.modelo}</h4>
+                              <div className="linea-subtexto-agenda">
+                                <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
+                                  <User size={13} /> {item.cliente}
+                                </span>
+                                <span>·</span>
+                                <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
+                                  <Briefcase size={13} /> Rep: {item.asesor}
+                                </span>
+                              </div>
                             </div>
+                          </div>
+
+                          <div className={`badge-estado-agenda ${item.isUpcoming ? "proximo" : ""}`}>
+                            {item.isUpcoming && <span style={{ color: "#3b82f6" }}>●</span>}
+                            <span>{item.estado}</span>
                           </div>
                         </div>
 
-                        <div className={`badge-estado-agenda ${item.isUpcoming ? "proximo" : ""}`}>
-                          {item.isUpcoming && <span style={{ color: "#3b82f6" }}>●</span>}
-                          <span>{item.estado}</span>
+                        <div className="parte-inferior-tarjeta-agenda">
+                          <button
+                            className="boton-enlace-accion"
+                            onClick={() => showToast(`Cita de ${item.cliente} reprogramada para otra fecha.`)}
+                          >
+                            REPROGRAMAR
+                          </button>
+                          <button
+                            className="boton-enlace-accion"
+                            style={{ color: "#f87171" }}
+                            onClick={() => {
+                              setAgenda(agenda.filter((a) => a.id !== item.id));
+                              showToast(`Cita de ${item.cliente} cancelada.`);
+                            }}
+                          >
+                            CANCELAR
+                          </button>
                         </div>
                       </div>
-
-                      <div className="parte-inferior-tarjeta-agenda">
-                        <button
-                          className="boton-enlace-accion"
-                          onClick={() => showToast(`Cita de ${item.cliente} reprogramada.`)}
-                        >
-                          REPROGRAMAR
-                        </button>
-                        <button
-                          className="boton-enlace-accion"
-                          style={{ color: "#f87171" }}
-                          onClick={() => {
-                            setAgenda(agenda.filter((a) => a.id !== item.id));
-                            showToast(`Cita cancelada.`);
-                          }}
-                        >
-                          CANCELAR
-                        </button>
-                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
             </>
           )}
 

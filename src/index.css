@@ -1,8 +1,15 @@
+@import "./styles/temaClaro.css";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+}
+
+/* Transición suave global entre temas */
+body, .app, .navbar, .quick-links, .dashboard-contenedor, .barra-lateral, .encabezado-superior, .motos-page, .agendar-page, .blog-page, .mi-cuenta-contenedor, .encuentranos-container {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* CUSTOM DARK SCROLLBAR - ELIMINA SCROLLBARS BLANCOS Y MEJORA EL AJUSTE A LA PANTALLA */
