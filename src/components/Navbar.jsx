@@ -12,6 +12,7 @@ import logo from "../assets/logo.png";   // Logo de Vertex Motors
 
 function Navbar() {
   return (
+<<<<<<< Updated upstream
     /* Elemento semántico <header> que envuelve toda la barra */
     <header className="barra-navegacion">
 
@@ -42,9 +43,51 @@ function Navbar() {
             Redirige al formulario de login (/login)
         ──────────────────────────────────────────────────── */}
         <Link to="/login" className="login-barra-navegacion">
-          Iniciar sesión
+=======
+    <header className="navbar">
+      <div className="navbar-container">
+        {/* ==================================================
+            LOGO
+        ================================================== */}
+
+        <Link to="/" className="navbar-logo">
+          <img src={logo} alt="Vertex Moto" />
         </Link>
 
+        {/* ==================================================
+            NAVEGACIÓN
+        ================================================== */}
+
+        <nav className="navbar-links">
+          {/* INICIO */}
+
+          <Link to="/">Inicio</Link>
+
+          {/* MOTOS */}
+
+          <Link to="/motos">Motos</Link>
+
+          {/* ENCUÉNTRANOS */}
+
+          <a href="/encuentranos">Encuéntranos</a>
+
+          {/* BLOG */}
+
+          <Link to="/blog">Blog</Link>
+
+          {/* AGENDAR PRUEBA */}
+
+          <Link to="/agendar-prueba">Agendar prueba</Link>
+        </nav>
+
+        {/* ==================================================
+            INICIAR SESIÓN
+        ================================================== */}
+
+        <Link to="/login" className="navbar-login">
+>>>>>>> Stashed changes
+          Iniciar sesión
+        </Link>
       </div>
     </header>
   );
