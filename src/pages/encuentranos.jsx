@@ -19,9 +19,11 @@ function Encuentranos() {
       direccion: "Calle 100 #15-20 Bogotá Norte",
       horario: "Lunes - Sábado (8:00 AM - 6:00 PM)",
       telefono: "+57 601 555 0192",
-      imagen: "https://upload.wikimedia.org/wikipedia/commons/7/70/Autopista_Norte_con_calle_100_TransMilenio.JPG",
-      descripcion: "Sede principal en la capital con exhibición completa de modelos y taller especializado.",
-      mapsUrl: "https://maps.google.com/?q=Calle+100+#15-20+Bogota"
+      imagen:
+        "https://upload.wikimedia.org/wikipedia/commons/7/70/Autopista_Norte_con_calle_100_TransMilenio.JPG",
+      descripcion:
+        "Sede principal en la capital con exhibición completa de modelos y taller especializado.",
+      mapsUrl: "https://maps.google.com/?q=Calle+100+#15-20+Bogota",
     },
     {
       id: 2,
@@ -30,9 +32,11 @@ function Encuentranos() {
       direccion: "Avenida El Poblado Medellín",
       horario: "Lunes - Sábado (8:30 AM - 6:30 PM)",
       telefono: "+57 604 444 8821",
-      imagen: "https://media.cnn.com/api/v1/images/stellar/prod/cnne-1237032-03-time-out-worlds-best-cities-2022-medellin.jpg?c=original",
-      descripcion: "Ubicados en el corazón del Poblado, espacio de prueba de ruta y boutique de accesorios.",
-      mapsUrl: "https://maps.google.com/?q=Avenida+El+Poblado+Medellin"
+      imagen:
+        "https://media.cnn.com/api/v1/images/stellar/prod/cnne-1237032-03-time-out-worlds-best-cities-2022-medellin.jpg?c=original",
+      descripcion:
+        "Ubicados en el corazón del Poblado, espacio de prueba de ruta y boutique de accesorios.",
+      mapsUrl: "https://maps.google.com/?q=Avenida+El+Poblado+Medellin",
     },
     {
       id: 3,
@@ -41,9 +45,11 @@ function Encuentranos() {
       direccion: "Carrera 5 #22-18 Cali",
       horario: "Lunes - Sábado (8:00 AM - 6:00 PM)",
       telefono: "+57 602 333 1245",
-      imagen: "https://cdn.getyourguide.com/img/location/5a085e58892a4.jpeg/99.jpg",
-      descripcion: "Servicio posventa certificado, venta de repuestos originales y asesores dedicados.",
-      mapsUrl: "https://maps.google.com/?q=Carrera+5+#22-18+Cali"
+      imagen:
+        "https://cdn.getyourguide.com/img/location/5a085e58892a4.jpeg/99.jpg",
+      descripcion:
+        "Servicio posventa certificado, venta de repuestos originales y asesores dedicados.",
+      mapsUrl: "https://maps.google.com/?q=Carrera+5+#22-18+Cali",
     },
     {
       id: 4,
@@ -52,9 +58,11 @@ function Encuentranos() {
       direccion: "Carrera 53 #76-115 Barranquilla",
       horario: "Lunes - Sábado (8:00 AM - 5:30 PM)",
       telefono: "+57 605 385 9000",
-      imagen: "https://cdn-blog.arriendo.com/co/blog/wp-content/uploads/2022/02/Razones-para-vivir-en-Barranquilla-1400x935.jpg",
-      descripcion: "Atención personalizada para la región Caribe con zona VIP de entrega.",
-      mapsUrl: "https://maps.google.com/?q=Carrera+53+#76-115+Barranquilla"
+      imagen:
+        "https://cdn-blog.arriendo.com/co/blog/wp-content/uploads/2022/02/Razones-para-vivir-en-Barranquilla-1400x935.jpg",
+      descripcion:
+        "Atención personalizada para la región Caribe con zona VIP de entrega.",
+      mapsUrl: "https://maps.google.com/?q=Carrera+53+#76-115+Barranquilla",
     },
     {
       id: 5,
@@ -63,9 +71,11 @@ function Encuentranos() {
       direccion: "Carrera 27 #45-12 Bucaramanga",
       horario: "Lunes - Sábado (8:00 AM - 6:00 PM)",
       telefono: "+57 607 630 4411",
-      imagen: "https://encrypted-tbn0.gstatic.com/images/q=tbn:ANd9GcSX_-p_troOH8wll9XI-97l3rrOSp98XvjKlrpHJWA2TuqhD9kvH710zgc&s=10",
-      descripcion: "Centro de mantenimiento integral y venta de motos de media y alta cilindrada.",
-      mapsUrl: "https://maps.google.com/?q=Carrera+27+#45-12+Bucaramanga"
+      imagen:
+        "https://grupodomus.com.co/wp-content/uploads/2023/01/Razones-para-vivir-en-la-ciudad-bonita_Bucaramanga.jpg",
+      descripcion:
+        "Centro de mantenimiento integral y venta de motos de media y alta cilindrada.",
+      mapsUrl: "https://maps.google.com/?q=Carrera+27+#45-12+Bucaramanga",
     },
     {
       id: 6,
@@ -74,10 +84,12 @@ function Encuentranos() {
       direccion: "Avenida 30 de Agosto #40-25 Pereira",
       horario: "Lunes - Sábado (8:00 AM - 6:00 PM)",
       telefono: "+57 606 321 7788",
-      imagen: "https://www.semana.com/resizer/FMwD006VZT9DmxOhvLb_aIDHats=/arc-anglerfish-arc2-prod-semana/public/NJLMN3XLA5AE5K3MIMZWJ6L7MU.png",
-      descripcion: "Punto estratégico del Eje Cafetero con Test Drive permanente.",
-      mapsUrl: "https://maps.google.com/?q=Avenida+30+de+Agosto+#40-25+Pereira"
-    }
+      imagen:
+        "https://www.semana.com/resizer/FMwD006VZT9DmxOhvLb_aIDHats=/arc-anglerfish-arc2-prod-semana/public/NJLMN3XLA5AE5K3MIMZWJ6L7MU.png",
+      descripcion:
+        "Punto estratégico del Eje Cafetero con Test Drive permanente.",
+      mapsUrl: "https://maps.google.com/?q=Avenida+30+de+Agosto+#40-25+Pereira",
+    },
   ];
 
   return (
@@ -90,7 +102,7 @@ function Encuentranos() {
         =================================================== */}
         <section className="hero">
           <img
-            src={heroMotos}
+            src="/imagen_encuentranos.jpg"
             alt="Motocicleta Vertex"
             className="hero-img"
           />
@@ -100,7 +112,8 @@ function Encuentranos() {
             <span>VERTEX COLOMBIA</span>
             <h1>Puntos de Venta y Talleres Autorizados</h1>
             <p>
-              Encuentra el concesionario oficial más cercano y vive la experiencia Vertex.
+              Encuentra el concesionario oficial más cercano y vive la
+              experiencia Vertex.
             </p>
             <a href="#concesionarios" className="hero-btn">
               Encontrar Agencia
@@ -136,13 +149,13 @@ function Encuentranos() {
                 MODAL / BANNER DE DETALLES (DINÁMICO)
             =================================================== */}
             {concesionarioActivo && (
-              <div 
-                className="banner-detalles activo" 
+              <div
+                className="banner-detalles activo"
                 id="banner-detalles"
                 onClick={() => setConcesionarioActivo(null)}
               >
-                <div 
-                  className="banner-contenido" 
+                <div
+                  className="banner-contenido"
                   onClick={(e) => e.stopPropagation()}
                 >
                   {/* BOTÓN CERRAR */}
@@ -168,7 +181,9 @@ function Encuentranos() {
                   <div className="banner-info">
                     <span className="banner-etiqueta">VERTEX MOTOS</span>
                     <h2 id="banner-nombre">{concesionarioActivo.nombre}</h2>
-                    <p id="banner-descripcion">{concesionarioActivo.descripcion}</p>
+                    <p id="banner-descripcion">
+                      {concesionarioActivo.descripcion}
+                    </p>
 
                     {/* DATOS */}
                     <div className="banner-datos">
@@ -176,7 +191,9 @@ function Encuentranos() {
                         <MapPin size={18} color="#2d5bff" />
                         <div>
                           <strong>Dirección</strong>
-                          <span id="banner-direccion">{concesionarioActivo.direccion}</span>
+                          <span id="banner-direccion">
+                            {concesionarioActivo.direccion}
+                          </span>
                         </div>
                       </div>
 
@@ -184,7 +201,9 @@ function Encuentranos() {
                         <Clock size={18} color="#2d5bff" />
                         <div>
                           <strong>Horario</strong>
-                          <span id="banner-horario">{concesionarioActivo.horario}</span>
+                          <span id="banner-horario">
+                            {concesionarioActivo.horario}
+                          </span>
                         </div>
                       </div>
 
@@ -192,7 +211,9 @@ function Encuentranos() {
                         <Phone size={18} color="#2d5bff" />
                         <div>
                           <strong>Teléfono</strong>
-                          <span id="banner-telefono">{concesionarioActivo.telefono}</span>
+                          <span id="banner-telefono">
+                            {concesionarioActivo.telefono}
+                          </span>
                         </div>
                       </div>
                     </div>
