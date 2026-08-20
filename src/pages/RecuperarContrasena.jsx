@@ -17,6 +17,7 @@
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Mail, Phone, Check, ArrowLeft } from "lucide-react";
 import "./RecuperarContrasena.css";
 
 function RecuperarContrasena() {
@@ -95,7 +96,7 @@ function RecuperarContrasena() {
 
         {/* Enlace para volver al login */}
         <Link to="/login" className="volver-recuperar">
-          ← Volver al inicio
+          <ArrowLeft size={16} /> Volver al inicio
         </Link>
 
         <div className="contenido-recuperar">
@@ -125,12 +126,10 @@ function RecuperarContrasena() {
                   className={`opcion-metodo ${metodo === "correo" ? "activo" : ""}`}
                   onClick={() => { setMetodo("correo"); setValor(""); setError(""); }}
                 >
-                  <span className="icono-metodo">✉</span>
+                  <span className="icono-metodo"><Mail size={16} /></span>
                   Correo electrónico
                   {/* Radio visual que indica si está seleccionado */}
-                  <span className="radio-metodo">
-                    {metodo === "correo" ? "🔵" : "⚪"}
-                  </span>
+                  <span className={`radio-dot ${metodo === "correo" ? "activo" : ""}`}></span>
                 </button>
 
                 {/* Botón: teléfono */}
@@ -139,11 +138,9 @@ function RecuperarContrasena() {
                   className={`opcion-metodo ${metodo === "telefono" ? "activo" : ""}`}
                   onClick={() => { setMetodo("telefono"); setValor(""); setError(""); }}
                 >
-                  <span className="icono-metodo">📞</span>
+                  <span className="icono-metodo"><Phone size={16} /></span>
                   Teléfono
-                  <span className="radio-metodo">
-                    {metodo === "telefono" ? "🔵" : "⚪"}
-                  </span>
+                  <span className={`radio-dot ${metodo === "telefono" ? "activo" : ""}`}></span>
                 </button>
 
               </div>
@@ -161,7 +158,7 @@ function RecuperarContrasena() {
 
                     {/* Ícono dinámico según el método */}
                     <span className="icono-input-recuperar">
-                      {metodo === "correo" ? "✉" : "📞"}
+                      {metodo === "correo" ? <Mail size={16} /> : <Phone size={16} />}
                     </span>
 
                     {/* Input dinámico: cambia entre email y tel */}
@@ -202,7 +199,9 @@ function RecuperarContrasena() {
             <div className="exito-recuperar">
 
               {/* Ícono de confirmación (check) */}
-              <div className="icono-exito-recuperar">✓</div>
+              <div className="icono-exito-recuperar">
+                <Check size={32} strokeWidth={2.5} />
+              </div>
 
               <h2>¡Instrucciones enviadas!</h2>
 

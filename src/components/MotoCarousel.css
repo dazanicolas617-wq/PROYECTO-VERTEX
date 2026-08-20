@@ -305,6 +305,10 @@
 
   height: 58px;
 
+  padding: 0;
+
+  margin: 0;
+
   background-color: rgba(0, 0, 0, 0.55);
 
   color: #ffffff;
@@ -312,8 +316,6 @@
   border: 2px solid rgba(255, 255, 255, 0.35);
 
   border-radius: 50%;
-
-  font-size: 48px;
 
   display: flex;
 
@@ -324,10 +326,18 @@
 
   z-index: 10;
 
+  outline: none;
+
   transition:
     background-color 0.3s ease,
     border-color 0.3s ease,
     transform 0.3s ease;
+}
+
+.flecha-deslizador svg {
+  display: block;
+  stroke: #ffffff;
+  pointer-events: none;
 }
 
 .flecha-deslizador:hover {
@@ -387,8 +397,11 @@
   .flecha-deslizador {
     width: 44px;
     height: 44px;
+  }
 
-    font-size: 36px;
+  .flecha-deslizador svg {
+    width: 22px;
+    height: 22px;
   }
 
   .flecha-izquierda {

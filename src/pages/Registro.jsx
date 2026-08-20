@@ -23,6 +23,7 @@
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { User, Mail, Phone, Lock, Eye, EyeOff, Check, Circle, ArrowRight } from "lucide-react";
 import "./Registro.css";
 
 function Registro() {
@@ -237,7 +238,7 @@ function Registro() {
 
                 <div className="registro-input">
 
-                  <span>👤</span>
+                  <span><User size={17} /></span>
 
                   <input
                     type="text"
@@ -264,7 +265,7 @@ function Registro() {
 
                 <div className="registro-input">
 
-                  <span>👤</span>
+                  <span><User size={17} /></span>
 
                   <input
                     type="text"
@@ -296,7 +297,7 @@ function Registro() {
 
               <div className="registro-input">
 
-                <span>✉</span>
+                <span><Mail size={17} /></span>
 
                 <input
                   type="email"
@@ -325,7 +326,7 @@ function Registro() {
 
               <div className="registro-input">
 
-                <span>📞</span>
+                <span><Phone size={17} /></span>
 
                 <input
                   type="tel"
@@ -451,7 +452,7 @@ function Registro() {
 
                 <div className="registro-input">
 
-                  <span>🔒</span>
+                  <span><Lock size={17} /></span>
 
                   {/* Alterna entre "text" y "password" según mostrarPassword */}
                   <input
@@ -476,7 +477,7 @@ function Registro() {
                       )
                     }
                   >
-                    {mostrarPassword ? "◉" : "◉"}
+                    {mostrarPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                   </button>
 
                 </div>
@@ -512,9 +513,11 @@ function Registro() {
                       >
 
                         <span className="requirement-dot">
-                          {passwordValidations.length
-                            ? "●"          // Punto lleno si cumple
-                            : "○"}        // Punto vacío si no cumple
+                          {passwordValidations.length ? (
+                            <Check size={12} strokeWidth={3} />
+                          ) : (
+                            <Circle size={8} fill="currentColor" />
+                          )}
                         </span>
 
                         Mínimo 10 caracteres
@@ -532,9 +535,11 @@ function Registro() {
                       >
 
                         <span className="requirement-dot">
-                          {passwordValidations.uppercase
-                            ? "●"
-                            : "○"}
+                          {passwordValidations.uppercase ? (
+                            <Check size={12} strokeWidth={3} />
+                          ) : (
+                            <Circle size={8} fill="currentColor" />
+                          )}
                         </span>
 
                         Una letra mayúscula
@@ -552,9 +557,11 @@ function Registro() {
                       >
 
                         <span className="requirement-dot">
-                          {passwordValidations.lowercase
-                            ? "●"
-                            : "○"}
+                          {passwordValidations.lowercase ? (
+                            <Check size={12} strokeWidth={3} />
+                          ) : (
+                            <Circle size={8} fill="currentColor" />
+                          )}
                         </span>
 
                         Una letra minúscula
@@ -572,9 +579,11 @@ function Registro() {
                       >
 
                         <span className="requirement-dot">
-                          {passwordValidations.number
-                            ? "●"
-                            : "○"}
+                          {passwordValidations.number ? (
+                            <Check size={12} strokeWidth={3} />
+                          ) : (
+                            <Circle size={8} fill="currentColor" />
+                          )}
                         </span>
 
                         Al menos un número
@@ -592,9 +601,11 @@ function Registro() {
                       >
 
                         <span className="requirement-dot">
-                          {passwordValidations.noSpaces
-                            ? "●"
-                            : "○"}
+                          {passwordValidations.noSpaces ? (
+                            <Check size={12} strokeWidth={3} />
+                          ) : (
+                            <Circle size={8} fill="currentColor" />
+                          )}
                         </span>
 
                         Sin espacios
@@ -618,7 +629,7 @@ function Registro() {
 
                 <div className="registro-input">
 
-                  <span>🔒</span>
+                  <span><Lock size={17} /></span>
 
                   <input
                     type={
@@ -642,7 +653,7 @@ function Registro() {
                       )
                     }
                   >
-                    ◉
+                    {mostrarConfirmar ? <EyeOff size={18} /> : <Eye size={18} />}
                   </button>
 
                 </div>
@@ -708,7 +719,7 @@ function Registro() {
               className="registro-submit"
             >
               CREAR CUENTA
-              <span>→</span>
+              <ArrowRight size={18} style={{ marginLeft: 8 }} />
             </button>
 
 

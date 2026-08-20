@@ -16,6 +16,7 @@
 ===================================================== */
 
 import { useNavigate } from "react-router-dom";
+import { Calendar, X } from "lucide-react";
 import "./MotoDetails.css";
 
 function MotoDetails({ moto, onClose }) {
@@ -62,8 +63,9 @@ function MotoDetails({ moto, onClose }) {
         <button
           className="moto-close"
           onClick={onClose}
+          aria-label="Cerrar modal"
         >
-          ×
+          <X size={18} />
         </button>
 
         {/* Cuerpo con scroll independiente para no desbordar el modal */}
@@ -115,7 +117,8 @@ function MotoDetails({ moto, onClose }) {
               modal y navega a la página de agendamiento
           ──────────────────────────────────────────────── */}
           <button className="modal-test-button" onClick={handleAgendarPrueba}>
-            📅 Agendar prueba de manejo
+            <Calendar size={18} />
+            <span>Agendar prueba de manejo</span>
           </button>
 
         </div>

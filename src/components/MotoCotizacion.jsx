@@ -15,6 +15,7 @@
 ===================================================== */
 
 import { useState } from "react";
+import { X, Check } from "lucide-react";
 import "./MotoCotizacion.css";
 
 function MotoCotizacion({ moto, onClose }) {
@@ -325,8 +326,9 @@ function MotoCotizacion({ moto, onClose }) {
         <button
           className="cotizacion-close"
           onClick={onClose}
+          aria-label="Cerrar modal"
         >
-          ×
+          <X size={18} />
         </button>
 
         <div className="cotizacion-body">
@@ -631,7 +633,7 @@ function MotoCotizacion({ moto, onClose }) {
 
               {/* Ícono de confirmación (check) */}
               <div className="exito-icono">
-                ✓
+                <Check size={28} strokeWidth={2.5} />
               </div>
 
               <span className="exito-label">

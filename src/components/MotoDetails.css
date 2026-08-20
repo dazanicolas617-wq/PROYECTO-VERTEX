@@ -48,8 +48,9 @@
   border-radius: 50%;
   background: #242424;
   color: #ffffff;
-  font-size: 24px;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   z-index: 10;
   transition: background 0.2s ease;
@@ -170,6 +171,10 @@
 }
 
 .modal-test-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   background: #2f5cff;
   color: white;
   border: none;

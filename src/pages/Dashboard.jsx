@@ -17,6 +17,7 @@ import {
   ChevronLeft,
   ChevronRight,
   User,
+  Briefcase,
   Clock,
   CheckCircle,
   XCircle,
@@ -796,9 +797,13 @@ export default function Dashboard() {
                           <div className="informacion-moto-agenda">
                             <h4>{item.modelo}</h4>
                             <div className="linea-subtexto-agenda">
-                              <span>👤 {item.cliente}</span>
+                              <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
+                                <User size={13} /> {item.cliente}
+                              </span>
                               <span>·</span>
-                              <span>💼 Rep: {item.asesor}</span>
+                              <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
+                                <Briefcase size={13} /> Rep: {item.asesor}
+                              </span>
                             </div>
                           </div>
                         </div>

@@ -1,179 +1,156 @@
 /* =====================================================
    MOTOCAROUSEL.JSX — CARRUSEL DE MOTOS DESTACADAS
-   Muestra un slide de imagen de fondo a pantalla completa
-   con el nombre y descripción de la moto activa.
-   El usuario puede navegar entre motos usando las
-   flechas izquierda/derecha.
-
-   Lógica:
-   - El estado "current" guarda el índice de la moto activa
-   - previous() retrocede un índice (circular)
-   - next() avanza un índice (circular)
+   Muestra un carrusel de diapositivas con imagen de fondo,
+   título, eslogan y botón de exploración para cada moto.
+   Permite navegar usando las flechas izquierda y derecha.
 ===================================================== */
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./MotoCarousel.css";
 
 // Imágenes de las motos del carrusel importadas como módulos
 import Moto1 from "../assets/Moto1.jpg";
 import Moto2 from "../assets/Moto2.jpg";
 import Moto3 from "../assets/Moto3.jpg";
-import Moto4 from "../assets/Moto4.jpg"; // ← Importación restaurada (faltaba)
-
+import Moto4 from "../assets/Moto4.jpg";
 
 /* ── DATOS DEL CARRUSEL ──────────────────────────────────
-   Array de objetos, cada uno con la imagen, nombre y
-   descripción de una moto destacada para mostrar en portada.
+   Array de objetos con imagen, marca y eslogan de cada moto.
 ──────────────────────────────────────────────────────────── */
-
 const motos = [
   {
-    image: Moto1,
-    name: "Harley Davidson",
-    description: "Pure Power - Pure Presence - Pure Style"
+    imagen: Moto1,
+    alt: "Harley Davidson",
+    marca: "HARLEY DAVIDSON",
+    eslogan: "PURE POWER - PURE PRESENCE - PURE STYLE",
   },
-
   {
-    image: Moto2,
-    name: "Motos Vertex",
-    description: "Potencia - Diseño - Libertad"
+    imagen: Moto2,
+    alt: "Motos Vertex",
+    marca: "MOTOS VERTEX",
+    eslogan: "POTENCIA - DISEÑO - LIBERTAD",
   },
-
   {
-    image: Moto3,
-    name: "Vertex Adventure",
-    description: "Explora nuevos caminos"
+    imagen: Moto3,
+    alt: "Vertex Adventure",
+    marca: "VERTEX ADVENTURE",
+    eslogan: "EXPLORA NUEVOS CAMINOS",
   },
-
   {
-    image: Moto4,
-    name: "Vertex Classic",
-    description: "Estilo que nunca pasa de moda"
-  }
+    imagen: Moto4,
+    alt: "Vertex Classic",
+    marca: "VERTEX CLASSIC",
+    eslogan: "ESTILO QUE NUNCA PASA DE MODA",
+  },
 ];
 
-
 function MotoCarousel() {
-
   /* Índice de la moto que se está mostrando actualmente */
-  const [current, setCurrent] = useState(0);
+  const [diapositivaActual, setDiapositivaActual] = useState(0);
 
-
-  /* ── NAVEGAR HACIA ATRÁS ─────────────────────────────
-     Si estamos en el primer elemento (0), salta al último.
-     De lo contrario, retrocede 1 posición.
-  ──────────────────────────────────────────────────────── */
-  const previous = () => {
-
-    setCurrent(
-      current === 0
-        ? motos.length - 1   // Vuelve al último si está en el primero
-        : current - 1
-    );
-
+  /* ── NAVEGAR HACIA ATRÁS (CIRCULAR) ─────────────────── */
+  const mostrarDiapositivaAnterior = () => {
+    setDiapositivaActual((prev) => (prev === 0 ? motos.length - 1 : prev - 1));
   };
 
-
-  /* ── NAVEGAR HACIA ADELANTE ──────────────────────────
-     Si estamos en el último elemento, vuelve al primero.
-     De lo contrario, avanza 1 posición.
-  ──────────────────────────────────────────────────────── */
-  const next = () => {
-
-    setCurrent(
-      current === motos.length - 1
-        ? 0                  // Vuelve al primero si está en el último
-        : current + 1
-    );
-
+  /* ── NAVEGAR HACIA ADELANTE (CIRCULAR) ────────────────── */
+  const mostrarDiapositivaSiguiente = () => {
+    setDiapositivaActual((prev) => (prev === motos.length - 1 ? 0 : prev + 1));
   };
-
-
-  /* Objeto de la moto activa según el índice actual */
-  const moto = motos[current];
-
 
   return (
-
-    <section
-      className="moto-carousel"
-      id="motos"
-    >
-
-      {/* ── TÍTULO DE SECCIÓN ───────────────────────────
-          Líneas decorativas a los lados del título
-      ──────────────────────────────────────────────────── */}
-      <div className="section-title">
-
-        <span></span>
-
-        <h2>Motos Vertex Colombia</h2>
-
-        <span></span>
-
-      </div>
-
-
-      {/* ── SLIDE DE FONDO ──────────────────────────────
-          La imagen de fondo se aplica inline con un
-          degradado oscuro para garantizar legibilidad.
-      ──────────────────────────────────────────────────── */}
-      <div
-        className="moto-slide"
-        style={{
-          backgroundImage: `
-            linear-gradient(
-              rgba(0,0,0,0.35),
-              rgba(0,0,0,0.75)
-            ),
-            url(${moto.image})
-          `
-        }}
-      >
-
-        {/* ── FLECHA IZQUIERDA — navega a la moto anterior */}
-        <button
-          className="carousel-arrow left"
-          aria-label="Anterior"
-          onClick={previous}          // ← Función correcta
-        >
-          <span>‹</span>
-        </button>
-
-
-        {/* ── INFORMACIÓN DE LA MOTO ACTIVA ─────────────── */}
-        <div className="moto-info">
-
-          <h2>
-            {moto.name}
-          </h2>
-
-          <p>
-            {moto.description}
-          </p>
-
-          {/* Botón decorativo — actualmente sin funcionalidad asignada */}
-          <button className="explore-button">
-            EXPLORA
-          </button>
-
+    <section id="motos">
+      {/* ── TÍTULO DE SECCIÓN ─────────────────────────── */}
+      <div className="contenedor_titulo">
+        <div className="titulo">
+          <span className="linea_titulo"></span>
+          <h2>Motos Vertex Colombia</h2>
+          <span className="linea_titulo"></span>
         </div>
-
-
-        {/* ── FLECHA DERECHA — navega a la moto siguiente */}
-        <button
-          className="carousel-arrow right"
-          aria-label="Siguiente"
-          onClick={next}              // ← Función correcta
-        >
-          <span>›</span>
-        </button>
-
       </div>
 
-    </section>   // ← Cierre correcto del <section>
+      {/* ── SECCIÓN SHOWCASE DE MOTOS (DESLIZADOR) ─────── */}
+      <div className="seccion_motos_deslizador">
+        {motos.map((moto, indice) => (
+          <div
+            className={`diapositiva_moto ${
+              indice === diapositivaActual ? "activa" : ""
+            }`}
+            key={moto.marca}
+          >
+            {/* Imagen de fondo */}
+            <img
+              src={moto.imagen}
+              alt={moto.alt}
+              className="fondo_diapositiva"
+            />
 
+            {/* Capa con gradiente oscuro sobre la imagen */}
+            <div className="capa_diapositiva"></div>
+
+            {/* Contenido textual y botón */}
+            <div className="contenido_diapositiva">
+              <div className="marca_diapositiva">
+                <h2 className="marca_moto">{moto.marca}</h2>
+                <p className="eslogan_diapositiva">{moto.eslogan}</p>
+              </div>
+
+              <Link to="/motos" className="boton_explorar">
+                Explora
+              </Link>
+
+              <p className="aviso_diapositiva">
+                *Algunas características y accesorios mostrados en la imagen
+                pueden no hacer parte del equipamiento estándar de la
+                motocicleta.
+              </p>
+            </div>
+          </div>
+        ))}
+
+        {/* ── FLECHA IZQUIERDA ── */}
+        <button
+          className="flecha-deslizador flecha-izquierda"
+          aria-label="Anterior"
+          onClick={mostrarDiapositivaAnterior}
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+
+        {/* ── FLECHA DERECHA ── */}
+        <button
+          className="flecha-deslizador flecha-derecha"
+          aria-label="Siguiente"
+          onClick={mostrarDiapositivaSiguiente}
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+      </div>
+    </section>
   );
 }
 
-export default MotoCarousel;   // ← Nombre correcto del componente
+export default MotoCarousel;
