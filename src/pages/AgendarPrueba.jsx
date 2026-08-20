@@ -20,6 +20,7 @@ import {
   ShieldCheck,
   ArrowRight
 } from "lucide-react";
+import Moto8 from "../assets/motos/Moto8.jpg";
 import "./AgendarPrueba.css";
 
 function AgendarPrueba() {
@@ -30,7 +31,7 @@ function AgendarPrueba() {
 
   // Estado del formulario de agendamiento
   const [form, setForm] = useState({
-    moto: "Harley Davidson Iron 883",
+    moto: "New Himalayan 450",
     sede: "Sede Bogotá Norte (Calle 127 # 19-45)",
     fecha: "",
     hora: "10:30 AM",
@@ -131,7 +132,7 @@ function AgendarPrueba() {
 
         <div className="hero-image">
           <img
-            src="/moto-prueba.jpg"
+            src={Moto8}
             alt="Motocicleta para prueba de manejo"
           />
         </div>
@@ -240,13 +241,18 @@ function AgendarPrueba() {
                     onChange={handleChange}
                     required
                   >
-                    <option value="Harley Davidson Iron 883">Harley Davidson Iron 883 — $ 48.900.000 COP</option>
-                    <option value="Vertex Adventure 650">Vertex Adventure 650 — $ 34.500.000 COP</option>
-                    <option value="Vertex Classic 350">Vertex Classic 350 — $ 18.990.000 COP</option>
-                    <option value="Royal Enfield Meteor 650">Royal Enfield Meteor 650 — $ 32.000.000 COP</option>
-                    <option value="Scram 411">Scram 411 — $ 21.500.000 COP</option>
-                    <option value="Interceptor 650">Interceptor 650 — $ 31.900.000 COP</option>
-                    <option value="Continental GT 650">Continental GT 650 — $ 33.400.000 COP</option>
+                    <option value="Meteor 350">Meteor 350 — $ 18.990.000 COP</option>
+                    <option value="HNTR 350">HNTR 350 — $ 17.990.000 COP</option>
+                    <option value="Classic 350">Classic 350 — $ 18.990.000 COP</option>
+                    <option value="Super Meteor 650">Super Meteor 650 — $ 32.990.000 COP</option>
+                    <option value="Interceptor 650">Interceptor 650 — $ 31.990.000 COP</option>
+                    <option value="Shotgun 650">Shotgun 650 — $ 32.990.000 COP</option>
+                    <option value="GRR 450">GRR 450 — $ 23.990.000 COP</option>
+                    <option value="New Himalayan 450">New Himalayan 450 — $ 25.990.000 COP</option>
+                    <option value="Bear 650">Bear 650 — $ 29.990.000 COP</option>
+                    <option value="Scram 411">Scram 411 — $ 21.990.000 COP</option>
+                    <option value="Himalayan 411">Himalayan 411 — $ 22.990.000 COP</option>
+                    <option value="KTM Adventure 390">KTM Adventure 390 — $ 26.990.000 COP</option>
                   </select>
                 </div>
               </div>

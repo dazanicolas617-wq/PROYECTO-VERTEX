@@ -33,19 +33,15 @@ function PieDePagina() {
 
           {/* Categorías del catálogo de motos */}
           <Link to="/motos">
-            Doble Propósito
-          </Link>
-
-          <Link to="/motos">
             Enduro
           </Link>
 
           <Link to="/motos">
-            Scooters
+            Doble Propósito
           </Link>
 
           <Link to="/motos">
-            Naked
+            Clásicas
           </Link>
 
         </div>

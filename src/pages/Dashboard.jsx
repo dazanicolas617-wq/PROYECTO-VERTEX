@@ -33,7 +33,8 @@ import {
   INITIAL_INVENTORY,
   INITIAL_COTIZACIONES,
   INITIAL_AGENDA,
-  INITIAL_NOTICIAS
+  INITIAL_NOTICIAS,
+  obtenerImagenMoto
 } from "../data/datosIniciales";
 
 import "./Dashboard.css";
@@ -54,12 +55,23 @@ export default function Dashboard() {
 
   // Estado con persistencia en LocalStorage
   const [inventory, setInventory] = useState(() => {
+    const normalizarCategoria = (cat) => {
+      const c = (cat || "").toLowerCase();
+      if (c.includes("enduro") || c.includes("roadster")) return "Enduro";
+      if (c.includes("doble") || c.includes("adventure") || c.includes("scrambler")) return "Doble Propósito";
+      if (c.includes("clásic") || c.includes("clasic") || c.includes("cruiser") || c.includes("custom")) return "Clásicas";
+      return cat || "Enduro";
+    };
+
     const guardado = localStorage.getItem("vertex_inventory");
     if (guardado) {
       try {
         const parsed = JSON.parse(guardado);
         if (Array.isArray(parsed) && parsed.length >= 12 && parsed[0].price > 1000000) {
-          return parsed;
+          return parsed.map((item) => ({
+            ...item,
+            category: normalizarCategoria(item.category)
+          }));
         }
       } catch (e) {
         console.error(e);
@@ -75,7 +87,26 @@ export default function Dashboard() {
 
   const [agenda, setAgenda] = useState(() => {
     const guardado = localStorage.getItem("vertex_agenda");
-    return guardado ? JSON.parse(guardado) : INITIAL_AGENDA;
+    if (guardado) {
+      try {
+        const parsed = JSON.parse(guardado);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed.map((item) => ({
+            ...item,
+            hora: item.hora || item.time || "10:00 AM",
+            duracion: item.duracion || "45 min",
+            cliente: item.cliente || item.rider || "Cliente Vertex",
+            modelo: item.modelo || item.model || "New Himalayan 450",
+            asesor: item.asesor || item.advisor || "Asesor Comercial",
+            estado: item.estado || item.status || "CONFIRMADO",
+            image: obtenerImagenMoto(item.modelo || item.model)
+          }));
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    return INITIAL_AGENDA;
   });
 
   const [noticias, setNoticias] = useState(() => {
@@ -109,7 +140,7 @@ export default function Dashboard() {
   const [formData, setFormData] = useState({
     model: "",
     vin: "",
-    category: "Aventura",
+    category: "Enduro",
     price: "",
     stock: "",
     status: "ACTIVO",
@@ -147,9 +178,21 @@ export default function Dashboard() {
       item.vin.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.category.toLowerCase().includes(searchQuery.toLowerCase());
 
-    const coincideCategoria =
-      selectedCategory === "Todas las Categorías" ||
-      item.category.toLowerCase() === selectedCategory.toLowerCase();
+    const catItem = (item.category || "").toLowerCase().trim();
+    const catFiltro = selectedCategory.toLowerCase().trim();
+
+    let coincideCategoria = false;
+    if (selectedCategory === "Todas las Categorías") {
+      coincideCategoria = true;
+    } else if (catFiltro.includes("enduro")) {
+      coincideCategoria = catItem.includes("enduro") || catItem.includes("roadster");
+    } else if (catFiltro.includes("doble") || catFiltro.includes("proposito") || catFiltro.includes("propósito")) {
+      coincideCategoria = catItem.includes("doble") || catItem.includes("adventure") || catItem.includes("scrambler");
+    } else if (catFiltro.includes("clasic") || catFiltro.includes("clásic")) {
+      coincideCategoria = catItem.includes("clasic") || catItem.includes("clásic") || catItem.includes("cruiser") || catItem.includes("custom");
+    } else {
+      coincideCategoria = catItem === catFiltro;
+    }
 
     return coincideBusqueda && coincideCategoria;
   });
@@ -173,8 +216,8 @@ export default function Dashboard() {
     setFormData({
       model: "",
       vin: `RM${Math.floor(100 + Math.random() * 900)}X${Math.random().toString(36).substring(2, 7).toUpperCase()}`,
-      category: "Aventura",
-      price: "5499",
+      category: "Enduro",
+      price: "18990000",
       stock: "10",
       status: "ACTIVO",
       image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=150&auto=format&fit=crop&q=80"
@@ -480,7 +523,7 @@ export default function Dashboard() {
                   <FileText size={42} className="icono-marca-agua-tarjeta" />
                 </div>
 
-                <div className="tarjeta-metrica destacada">
+                <div className="tarjeta-metrica">
                   <div className="informacion-tarjeta">
                     <span className="etiqueta-tarjeta">PRUEBAS PROGRAMADAS HOY</span>
                     <div className="fila-valor-tarjeta">
@@ -510,10 +553,9 @@ export default function Dashboard() {
                       }}
                     >
                       <option value="Todas las Categorías">Todas las Categorías</option>
-                      <option value="Aventura">Aventura</option>
-                      <option value="Crucero">Crucero</option>
-                      <option value="Naked">Naked</option>
-                      <option value="Deportiva">Deportiva</option>
+                      <option value="Enduro">Enduro</option>
+                      <option value="Doble Propósito">Doble Propósito</option>
+                      <option value="Clásicas">Clásicas</option>
                     </select>
 
                     <button
@@ -796,7 +838,7 @@ export default function Dashboard() {
                     <div className="tarjeta-agenda">
                       <div className="parte-superior-tarjeta-agenda">
                         <div className="parte-izquierda-tarjeta-agenda">
-                          <img src={item.image} alt={item.modelo} className="imagen-moto-agenda" />
+                          <img src={item.image || obtenerImagenMoto(item.modelo)} alt={item.modelo} className="imagen-moto-agenda" />
                           <div className="informacion-moto-agenda">
                             <h4>{item.modelo}</h4>
                             <div className="linea-subtexto-agenda">
@@ -1027,10 +1069,9 @@ export default function Dashboard() {
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                   >
-                    <option value="Aventura">Aventura</option>
-                    <option value="Crucero">Crucero</option>
-                    <option value="Naked">Naked</option>
-                    <option value="Deportiva">Deportiva</option>
+                    <option value="Enduro">Enduro</option>
+                    <option value="Doble Propósito">Doble Propósito</option>
+                    <option value="Clásicas">Clásicas</option>
                   </select>
                 </div>
                 <div className="grupo-formulario">
@@ -1112,10 +1153,9 @@ export default function Dashboard() {
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                   >
-                    <option value="Aventura">Aventura</option>
-                    <option value="Crucero">Crucero</option>
-                    <option value="Naked">Naked</option>
-                    <option value="Deportiva">Deportiva</option>
+                    <option value="Enduro">Enduro</option>
+                    <option value="Doble Propósito">Doble Propósito</option>
+                    <option value="Clásicas">Clásicas</option>
                   </select>
                 </div>
                 <div className="grupo-formulario">
