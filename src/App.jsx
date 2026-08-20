@@ -26,7 +26,7 @@ import MiCuenta from "./pages/MiCuenta";                       // Panel de clien
 import Dashboard from "./pages/Dashboard";                   // Panel de administración
 
 import "./App.css";
-
+import Encuentranos from "./pages/encuentranos";
 
 /* =====================================================
    PÁGINA PRINCIPAL (HOME)
@@ -41,13 +41,11 @@ function Home() {
       <Navbar />
 
       <main>
-
         {/* =========================
             HERO — Sección de bienvenida con imagen de fondo
         ========================= */}
 
         <Hero />
-
 
         {/* =========================
             CARRUSEL DE MOTOS — Muestra modelos destacados con flechas de navegación
@@ -55,13 +53,11 @@ function Home() {
 
         <MotoCarousel />
 
-
         {/* =========================
             NOTICIAS — Carrusel paginado con las últimas novedades
         ========================= */}
 
         <NewsCarousel />
-
 
         {/* =========================
             ENLACES RÁPIDOS — Dos tarjetas de acceso rápido (Agendar prueba / Encuéntranos)
@@ -69,19 +65,18 @@ function Home() {
 
         {/* Contenedor que alinea las dos tarjetas en fila */}
         <section className="quick-links quick-links--double">
-
           <div className="quick-links-grid">
+<<<<<<< Updated upstream
 
             {/* Tarjeta: Agendar prueba de manejo */}
+=======
+>>>>>>> Stashed changes
             <QuickActions />
 
             {/* Tarjeta: Encuéntranos / Puntos de venta */}
             <QuickActionsEncuentranos />
-
           </div>
-
         </section>
-
       </main>
 
       {/* Pie de página con links, redes y copyright */}
@@ -89,7 +84,6 @@ function Home() {
     </>
   );
 }
-
 
 /* =====================================================
    APP — CONFIGURACIÓN PRINCIPAL DE RUTAS
@@ -101,11 +95,8 @@ function Home() {
 function App() {
   return (
     <BrowserRouter>
-
       <div className="app">
-
         <Routes>
-
           {/* =================================================
               ADMIN / DASHBOARD — Panel de administración
               Accesible desde /dashboard o /admin
@@ -126,11 +117,7 @@ function App() {
               INICIO — Página principal con hero y carrusel
           ================================================= */}
 
-          <Route
-            path="/"
-            element={<Home />}
-          />
-
+          <Route path="/" element={<Home />} />
 
           {/* =================================================
               MOTOS — Catálogo de motocicletas con filtros
@@ -151,7 +138,6 @@ function App() {
             }
           />
 
-
           {/* =================================================
               AGENDAR PRUEBA — Formulario para reservar prueba de manejo
           ================================================= */}
@@ -171,7 +157,6 @@ function App() {
             }
           />
 
-
           {/* =================================================
               INICIAR SESIÓN — Formulario de login con validaciones
           ================================================= */}
@@ -189,7 +174,6 @@ function App() {
             }
           />
 
-
           {/* =================================================
               CREAR CUENTA — Formulario de registro con requisitos de contraseña
           ================================================= */}
@@ -206,7 +190,16 @@ function App() {
               </>
             }
           />
+          {/* =================================================
+              ENCUENTRANOS
+          ================================================= */}
 
+          <Route 
+            path="/encuentranos" 
+            element={
+              <Encuentranos />
+            }
+          />
 
           {/* =================================================
               RECUPERAR CONTRASEÑA — Envío por correo o teléfono
@@ -265,11 +258,7 @@ function App() {
               BLOG — Página de noticias y artículos
           ========================= */}
 
-          <Route
-            path="/blog"
-            element={<Blog />}
-          />
-
+          <Route path="/blog" element={<Blog />} />
 
           {/* =================================================
               PÁGINA NO ENCONTRADA (404) — Ruta comodín "*"
@@ -296,21 +285,15 @@ function App() {
                 >
                   <h1>404</h1>
 
-                  <p>
-                    Página no encontrada
-                  </p>
+                  <p>Página no encontrada</p>
                 </main>
 
                 <Footer />
               </>
             }
-
           />
-
         </Routes>
-
       </div>
-
     </BrowserRouter>
   );
 }
