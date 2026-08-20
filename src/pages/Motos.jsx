@@ -62,7 +62,7 @@ const motos = [
     imagen: Moto1,
     precio: "$18.990.000 COP",
     precioNumero: 18990000,
-    categoria: "Cruiser",
+    categoria: "Clásicas",
     cilindrada: "349 cc",
     cilindradaNumero: 349,
     descripcion:
@@ -75,7 +75,7 @@ const motos = [
     imagen: Moto2,
     precio: "$17.990.000 COP",
     precioNumero: 17990000,
-    categoria: "Roadster",
+    categoria: "Enduro",
     cilindrada: "349 cc",
     cilindradaNumero: 349,
     descripcion:
@@ -88,7 +88,7 @@ const motos = [
     imagen: Moto3,
     precio: "$18.990.000 COP",
     precioNumero: 18990000,
-    categoria: "Clásica",
+    categoria: "Clásicas",
     cilindrada: "349 cc",
     cilindradaNumero: 349,
     descripcion:
@@ -101,7 +101,7 @@ const motos = [
     imagen: Moto4,
     precio: "$32.990.000 COP",
     precioNumero: 32990000,
-    categoria: "Cruiser",
+    categoria: "Clásicas",
     cilindrada: "648 cc",
     cilindradaNumero: 648,
     descripcion:
@@ -114,7 +114,7 @@ const motos = [
     imagen: Moto5,
     precio: "$31.990.000 COP",
     precioNumero: 31990000,
-    categoria: "Roadster",
+    categoria: "Enduro",
     cilindrada: "648 cc",
     cilindradaNumero: 648,
     descripcion:
@@ -127,7 +127,7 @@ const motos = [
     imagen: Moto6,
     precio: "$32.990.000 COP",
     precioNumero: 32990000,
-    categoria: "Custom",
+    categoria: "Enduro",
     cilindrada: "648 cc",
     cilindradaNumero: 648,
     descripcion:
@@ -140,7 +140,7 @@ const motos = [
     imagen: Moto7,
     precio: "$23.990.000 COP",
     precioNumero: 23990000,
-    categoria: "Adventure",
+    categoria: "Doble Propósito",
     cilindrada: "452 cc",
     cilindradaNumero: 452,
     descripcion:
@@ -153,7 +153,7 @@ const motos = [
     imagen: Moto8,
     precio: "$25.990.000 COP",
     precioNumero: 25990000,
-    categoria: "Adventure",
+    categoria: "Doble Propósito",
     cilindrada: "452 cc",
     cilindradaNumero: 452,
     descripcion:
@@ -166,7 +166,7 @@ const motos = [
     imagen: Moto9,
     precio: "$29.990.000 COP",
     precioNumero: 29990000,
-    categoria: "Scrambler",
+    categoria: "Doble Propósito",
     cilindrada: "648 cc",
     cilindradaNumero: 648,
     descripcion:
@@ -179,7 +179,7 @@ const motos = [
     imagen: Moto10,
     precio: "$21.990.000 COP",
     precioNumero: 21990000,
-    categoria: "Scrambler",
+    categoria: "Doble Propósito",
     cilindrada: "411 cc",
     cilindradaNumero: 411,
     descripcion:
@@ -192,7 +192,7 @@ const motos = [
     imagen: Moto11,
     precio: "$22.990.000 COP",
     precioNumero: 22990000,
-    categoria: "Adventure",
+    categoria: "Doble Propósito",
     cilindrada: "411 cc",
     cilindradaNumero: 411,
     descripcion:
@@ -205,7 +205,7 @@ const motos = [
     imagen: Moto12,
     precio: "$26.990.000 COP",
     precioNumero: 26990000,
-    categoria: "Adventure",
+    categoria: "Doble Propósito",
     cilindrada: "373 cc",
     cilindradaNumero: 373,
     descripcion:

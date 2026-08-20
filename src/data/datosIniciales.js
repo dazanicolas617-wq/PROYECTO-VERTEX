@@ -29,7 +29,7 @@ export const INITIAL_INVENTORY = [
     id: 1,
     model: "Meteor 350",
     vin: "VX350M101A",
-    category: "Cruiser",
+    category: "Clásicas",
     price: 18990000,
     stock: 10,
     status: "ACTIVO",
@@ -39,7 +39,7 @@ export const INITIAL_INVENTORY = [
     id: 2,
     model: "HNTR 350",
     vin: "VX350H102B",
-    category: "Roadster",
+    category: "Enduro",
     price: 17990000,
     stock: 6,
     status: "ACTIVO",
@@ -49,7 +49,7 @@ export const INITIAL_INVENTORY = [
     id: 3,
     model: "Classic 350",
     vin: "VX350C103C",
-    category: "Clásica",
+    category: "Clásicas",
     price: 18990000,
     stock: 4,
     status: "STOCK BAJO",
@@ -59,7 +59,7 @@ export const INITIAL_INVENTORY = [
     id: 4,
     model: "Super Meteor 650",
     vin: "VX650S104D",
-    category: "Cruiser",
+    category: "Clásicas",
     price: 32990000,
     stock: 8,
     status: "ACTIVO",
@@ -69,7 +69,7 @@ export const INITIAL_INVENTORY = [
     id: 5,
     model: "Interceptor 650",
     vin: "VX650I105E",
-    category: "Roadster",
+    category: "Enduro",
     price: 31990000,
     stock: 5,
     status: "ACTIVO",
@@ -79,7 +79,7 @@ export const INITIAL_INVENTORY = [
     id: 6,
     model: "Shotgun 650",
     vin: "VX650G106F",
-    category: "Custom",
+    category: "Enduro",
     price: 32990000,
     stock: 3,
     status: "STOCK BAJO",
@@ -89,7 +89,7 @@ export const INITIAL_INVENTORY = [
     id: 7,
     model: "GRR 450",
     vin: "VX450G107G",
-    category: "Adventure",
+    category: "Doble Propósito",
     price: 23990000,
     stock: 7,
     status: "ACTIVO",
@@ -99,7 +99,7 @@ export const INITIAL_INVENTORY = [
     id: 8,
     model: "New Himalayan 450",
     vin: "VX450H108H",
-    category: "Adventure",
+    category: "Doble Propósito",
     price: 25990000,
     stock: 12,
     status: "ACTIVO",
@@ -109,7 +109,7 @@ export const INITIAL_INVENTORY = [
     id: 9,
     model: "Bear 650",
     vin: "VX650B109I",
-    category: "Scrambler",
+    category: "Doble Propósito",
     price: 29990000,
     stock: 9,
     status: "ACTIVO",
@@ -119,7 +119,7 @@ export const INITIAL_INVENTORY = [
     id: 10,
     model: "Scram 411",
     vin: "VX411S110J",
-    category: "Scrambler",
+    category: "Doble Propósito",
     price: 21990000,
     stock: 14,
     status: "ACTIVO",
@@ -129,7 +129,7 @@ export const INITIAL_INVENTORY = [
     id: 11,
     model: "Himalayan 411",
     vin: "VX411H111K",
-    category: "Adventure",
+    category: "Doble Propósito",
     price: 22990000,
     stock: 2,
     status: "STOCK BAJO",
@@ -139,7 +139,7 @@ export const INITIAL_INVENTORY = [
     id: 12,
     model: "KTM Adventure 390",
     vin: "VX390K112L",
-    category: "Adventure",
+    category: "Doble Propósito",
     price: 26990000,
     stock: 0,
     status: "AGOTADO",
@@ -220,58 +220,116 @@ export const INITIAL_COTIZACIONES = [
 ];
 
 /* =====================================================
+   MAPA DE IMÁGENES DE MOTOS Y FUNCIÓN DE RESOLUCIÓN
+===================================================== */
+export const MAPA_IMAGENES_MOTOS = {
+  "Meteor 350": Moto1,
+  "HNTR 350": Moto2,
+  "Classic 350": Moto3,
+  "Super Meteor 650": Moto4,
+  "Interceptor 650": Moto5,
+  "Shotgun 650": Moto6,
+  "GRR 450": Moto7,
+  "New Himalayan 450": Moto8,
+  "Bear 650": Moto9,
+  "Scram 411": Moto10,
+  "Himalayan 411": Moto11,
+  "KTM Adventure 390": Moto12
+};
+
+export const obtenerImagenMoto = (nombreModelo) => {
+  if (!nombreModelo) return Moto8;
+  const normalizado = nombreModelo.toLowerCase().trim();
+  if (normalizado.includes("meteor 350")) return Moto1;
+  if (normalizado.includes("hntr")) return Moto2;
+  if (normalizado.includes("classic")) return Moto3;
+  if (normalizado.includes("super meteor")) return Moto4;
+  if (normalizado.includes("interceptor")) return Moto5;
+  if (normalizado.includes("shotgun")) return Moto6;
+  if (normalizado.includes("grr")) return Moto7;
+  if (normalizado.includes("new himalayan")) return Moto8;
+  if (normalizado.includes("bear")) return Moto9;
+  if (normalizado.includes("scram")) return Moto10;
+  if (normalizado.includes("himalayan")) return Moto11;
+  if (normalizado.includes("ktm") || normalizado.includes("adventure 390")) return Moto12;
+  return Moto8;
+};
+
+/* =====================================================
    AGENDA DE PRUEBAS DE MANEJO
 ===================================================== */
 export const INITIAL_AGENDA = [
   {
     id: 1,
-    time: "09:00 AM",
-    rider: "Lucas Vance",
-    type: "VIP",
-    model: "New Himalayan 450",
-    advisor: "Marcus Thorne",
-    status: "CONFIRMADO",
-    statusText: "CONFIRMADO"
+    hora: "09:00 AM",
+    duracion: "45 min",
+    cliente: "Lucas Vance",
+    tipo: "VIP",
+    modelo: "New Himalayan 450",
+    asesor: "Marcus Thorne",
+    estado: "CONFIRMADO",
+    isUpcoming: true,
+    image: Moto8
   },
   {
     id: 2,
-    time: "10:30 AM",
-    rider: "Diana Prince",
-    type: "REGULAR",
-    model: "Super Meteor 650",
-    advisor: "Elena Rostova",
-    status: "EN PROCESO",
-    statusText: "EN PROCESO"
+    hora: "10:30 AM",
+    duracion: "45 min",
+    cliente: "Diana Prince",
+    tipo: "REGULAR",
+    modelo: "Super Meteor 650",
+    asesor: "Elena Rostova",
+    estado: "EN PROCESO",
+    isUpcoming: false,
+    image: Moto4
   },
   {
     id: 3,
-    time: "01:00 PM",
-    rider: "Arthur Pendelton",
-    type: "NUEVO",
-    model: "Classic 350",
-    advisor: "Marcus Thorne",
-    status: "CANCELADO",
-    statusText: "CANCELADO"
+    hora: "01:00 PM",
+    duracion: "30 min",
+    cliente: "Arthur Pendelton",
+    tipo: "NUEVO",
+    modelo: "Classic 350",
+    asesor: "Marcus Thorne",
+    estado: "CANCELADO",
+    isUpcoming: false,
+    image: Moto3
   },
   {
     id: 4,
-    time: "02:30 PM",
-    rider: "Gwen Stacy",
-    type: "VIP",
-    model: "HNTR 350",
-    advisor: "Elena Rostova",
-    status: "CONFIRMADO",
-    statusText: "CONFIRMADO"
+    hora: "02:30 PM",
+    duracion: "45 min",
+    cliente: "Gwen Stacy",
+    tipo: "VIP",
+    modelo: "HNTR 350",
+    asesor: "Elena Rostova",
+    estado: "CONFIRMADO",
+    isUpcoming: false,
+    image: Moto2
   },
   {
     id: 5,
-    time: "04:00 PM",
-    rider: "Bruce Wayne",
-    type: "VIP",
-    model: "Continental GT 650",
-    advisor: "Marcus Thorne",
-    status: "CONFIRMADO",
-    statusText: "CONFIRMADO"
+    hora: "04:00 PM",
+    duracion: "45 min",
+    cliente: "Bruce Wayne",
+    tipo: "VIP",
+    modelo: "Interceptor 650",
+    asesor: "Marcus Thorne",
+    estado: "CONFIRMADO",
+    isUpcoming: false,
+    image: Moto5
+  },
+  {
+    id: 6,
+    hora: "05:30 PM",
+    duracion: "45 min",
+    cliente: "Mateo Silva",
+    tipo: "VIP",
+    modelo: "Meteor 350",
+    asesor: "Elena Rostova",
+    estado: "CONFIRMADO",
+    isUpcoming: false,
+    image: Moto1
   }
 ];
 

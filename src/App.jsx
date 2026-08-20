@@ -25,24 +25,26 @@ import "./App.css";
 
 /* =====================================================
    SECCIÓN DE ACCIONES RÁPIDAS INTELIGENTE
-   - Oculta en: Login, Registro, Recuperar contraseña y Dashboard.
+   - Oculta en: Login, Registro, Recuperar contraseña, Mi Cuenta y Dashboard.
    - En /encuentranos: Solo muestra "Agendar prueba".
    - En /agendar-prueba: Solo muestra "Encuéntranos".
-   - En el resto de páginas (Inicio, Motos, Blog, Mi Cuenta): Muestra ambas.
+   - En el resto de páginas (Inicio, Motos, Blog): Muestra ambas.
 ===================================================== */
 function SeccionAccionesGlobales() {
   const location = useLocation();
   const ruta = location.pathname.toLowerCase();
 
-  // Ocultar completamente en pantallas de autenticación y panel admin
-  const ocultarEnAuth =
+  // Ocultar completamente en pantallas de autenticación, perfil de cuenta y panel admin
+  const ocultarEnRutas =
     ruta.includes("login") ||
     ruta.includes("registro") ||
     ruta.includes("recuperar") ||
+    ruta.includes("mi-cuenta") ||
+    ruta.includes("cuenta") ||
     ruta.includes("dashboard") ||
     ruta.includes("admin");
 
-  if (ocultarEnAuth) {
+  if (ocultarEnRutas) {
     return null;
   }
 
