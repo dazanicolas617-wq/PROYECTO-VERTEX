@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* CUSTOM DARK SCROLLBAR - ELIMINA SCROLLBARS BLANCOS Y MEJORA EL AJUSTE A LA PANTALLA */
@@ -31,8 +32,12 @@
 
 body {
   background: #000;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: white;
+}
+
+button, input, select, textarea, optgroup {
+  font-family: 'Montserrat', sans-serif;
 }
 
 .content {
