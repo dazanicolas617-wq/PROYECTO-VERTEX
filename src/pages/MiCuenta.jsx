@@ -129,7 +129,7 @@ function MiCuenta() {
   ]);
 
   // Cotizaciones solicitadas
-  const [cotizaciones, setCotizaciones] = useState([
+  const [cotizaciones] = useState([
     {
       id: "COT-7841",
       modelo: "Harley Davidson Fat Bob",
@@ -153,7 +153,7 @@ function MiCuenta() {
   ]);
 
   // Motos guardadas / favoritas
-  const [motosFavoritas, setMotosFavoritas] = useState([
+  const [motosFavoritas] = useState([
     {
       id: 1,
       nombre: "Harley Davidson Custom",

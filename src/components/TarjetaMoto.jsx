@@ -1,5 +1,5 @@
 /* =====================================================
-   MOTOCARD.JSX — TARJETA DE MOTOCICLETA
+   TARJETAMOTO.JSX — TARJETA DE MOTOCICLETA
    Componente de presentación que muestra la información
    básica de una moto dentro del catálogo:
      - Imagen con degradado inferior
@@ -16,9 +16,9 @@
                  en "COTIZACIÓN" — abre el modal de cotización
 ===================================================== */
 
-import "./MotoCard.css";
+import "./TarjetaMoto.css";
 
-function MotoCard({ moto, onVerMas, onCotizar }) {
+function TarjetaMoto({ moto, onVerMas, onCotizar }) {
   return (
     /* <article> es el elemento semántico correcto para
        una unidad de contenido independiente como una tarjeta */
@@ -79,4 +79,4 @@ function MotoCard({ moto, onVerMas, onCotizar }) {
   );
 }
 
-export default MotoCard;
+export default TarjetaMoto;

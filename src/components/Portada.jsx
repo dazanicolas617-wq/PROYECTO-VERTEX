@@ -1,15 +1,15 @@
 /* =====================================================
-   HERO.JSX — SECCIÓN PRINCIPAL DE BIENVENIDA
+   PORTADA.JSX — SECCIÓN PRINCIPAL DE BIENVENIDA
    Muestra una imagen de fondo con degradado oscuro,
    el título de la empresa, una descripción breve
    y un botón de llamada a la acción.
 ===================================================== */
 
-import "./Hero.css";
+import "./Portada.css";
 
 import heroImage from "../assets/hero-motos.jpg"; // Imagen de fondo del hero
 
-function Hero() {
+function Portada() {
   return (
     /* Sección que ocupa el 80% del alto de la pantalla.
        La imagen de fondo se aplica vía style inline para
@@ -55,4 +55,4 @@ function Hero() {
   );
 }
 
-export default Hero;
+export default Portada;

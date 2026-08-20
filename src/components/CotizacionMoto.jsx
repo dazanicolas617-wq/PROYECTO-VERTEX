@@ -1,6 +1,6 @@
 /* =====================================================
-   MOTOCOTIZACION.JSX — MODAL DE COTIZACIÓN
-   Se abre al hacer clic en "COTIZACIÓN" en una MotoCard.
+   COTIZACIONMOTO.JSX — MODAL DE COTIZACIÓN
+   Se abre al hacer clic en "COTIZACIÓN" en una TarjetaMoto.
    Permite al usuario ingresar sus datos personales y
    financieros para solicitar una cotización de crédito.
 
@@ -16,9 +16,9 @@
 
 import { useState } from "react";
 import { X, Check } from "lucide-react";
-import "./MotoCotizacion.css";
+import "./CotizacionMoto.css";
 
-function MotoCotizacion({ moto, onClose }) {
+function CotizacionMoto({ moto, onClose }) {
 
   /* ── ESTADOS DEL FORMULARIO ──────────────────────────────
      Cada campo del formulario tiene su propio estado.
@@ -718,4 +718,4 @@ function MotoCotizacion({ moto, onClose }) {
 
 }
 
-export default MotoCotizacion;
+export default CotizacionMoto;

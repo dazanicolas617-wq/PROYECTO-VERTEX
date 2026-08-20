@@ -1,5 +1,5 @@
 /* =====================================================
-   NAVBAR.JSX — BARRA DE NAVEGACIÓN SUPERIOR
+   BARRANAVEGACION.JSX — BARRA DE NAVEGACIÓN SUPERIOR
    Muestra el logo, los enlaces de navegación y:
    - Si el usuario NO ha iniciado sesión: Botón "Iniciar sesión"
    - Si el usuario YA inició sesión: Avatar interactivo con
@@ -9,10 +9,10 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { User, LogOut, LayoutDashboard } from "lucide-react";
-import "./Navbar.css";
+import "./BarraNavegacion.css";
 import logo from "../assets/logo.png";
 
-function Navbar() {
+function BarraNavegacion() {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -85,7 +85,7 @@ function Navbar() {
       <div className="contenedor-barra-navegacion">
         {/* ── LOGO ───────────────────────────────────────── */}
         <Link to="/" className="logo-barra-navegacion">
-          <img src={logo} alt="Vertex Motors" />
+          <img src={logo} alt="Vertex Motors" decoding="async" />
         </Link>
 
         {/* ── ENLACES DE NAVEGACIÓN ──────────────────────── */}
@@ -173,4 +173,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default BarraNavegacion;

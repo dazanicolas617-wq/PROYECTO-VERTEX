@@ -1,5 +1,5 @@
 /* =====================================================
-   FOOTER.JSX — PIE DE PÁGINA
+   PIEDEPAGINA.JSX — PIE DE PÁGINA
    Muestra cuatro columnas de enlaces organizadas por
    categoría, una sección de redes sociales con iconos
    y la barra inferior con copyright y políticas legales.
@@ -12,9 +12,9 @@
 ===================================================== */
 
 import { Link } from "react-router-dom";
-import "./Footer.css";
+import "./PieDePagina.css";
 
-function Footer() {
+function PieDePagina() {
 
   return (
 
@@ -244,4 +244,4 @@ function Footer() {
 }
 
 
-export default Footer;
+export default PieDePagina;

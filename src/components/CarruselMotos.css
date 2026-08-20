@@ -230,44 +230,32 @@
    ══════════════════════════════════════════════════════════ */
 
 .boton_explorar {
+  background-color: #315efb;
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
-
-  padding: 0.8rem 3rem;
-
-  background-color: #ffffff;
-  color: #000000;
-
-  font-family: "Montserrat", sans-serif;
-
-  font-weight: 800;
-  font-size: 1.1rem;
-
-  text-transform: uppercase;
-
+  width: 11rem;
+  height: 2.8rem;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  font-size: 0.95rem;
+  letter-spacing: 0.05rem;
   text-decoration: none;
-
-  letter-spacing: 0.1rem;
-
-  border-radius: 4px;
-
+  font-family: "Montserrat", sans-serif;
   transition:
-    background-color 0.3s ease,
-    transform 0.2s ease,
-    box-shadow 0.3s ease;
-
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+  box-shadow: 0 4px 16px rgba(45, 91, 255, 0.4);
+  margin-top: 0.5rem;
 }
 
 .boton_explorar:hover {
-  background-color: var(--color-boton);
-  color: #ffffff;
-
-  transform: scale(1.05);
-
-  box-shadow: 0 6px 20px rgba(45, 91, 255, 0.4);
+  background-color: #ffffff;
+  color: #000000;
+  transform: translateY(-3px);
 }
 
 /* ══════════════════════════════════════════════════════════

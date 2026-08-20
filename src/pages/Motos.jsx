@@ -18,9 +18,9 @@
 
 import { useState } from "react";
 
-import MotoCard from "../components/MotoCard";           // Tarjeta de presentación de cada moto
-import MotoDetails from "../components/MotoDetails";     // Modal con detalles completos
-import MotoCotizacion from "../components/MotoCotizacion"; // Modal de formulario de cotización
+import TarjetaMoto from "../components/TarjetaMoto";           // Tarjeta de presentación de cada moto
+import DetallesMoto from "../components/DetallesMoto";         // Modal con detalles completos
+import CotizacionMoto from "../components/CotizacionMoto";     // Modal de formulario de cotización
 
 import "./Motos.css";
 
@@ -479,7 +479,7 @@ function Motos() {
             .slice(0, 6)              // Solo las primeras 6 motos
             .map((moto) => (
 
-              <MotoCard
+              <TarjetaMoto
                 key={moto.id}
                 moto={moto}
                 onVerMas={abrirDetalles}      // Abre el modal de detalles
@@ -511,7 +511,7 @@ function Motos() {
             .slice(6, 12)             // Motos del índice 6 al 11
             .map((moto) => (
 
-              <MotoCard
+              <TarjetaMoto
                 key={moto.id}
                 moto={moto}
                 onVerMas={abrirDetalles}
@@ -534,7 +534,7 @@ function Motos() {
 
       {motoSeleccionada && (
 
-        <MotoDetails
+        <DetallesMoto
           moto={motoSeleccionada}
           onClose={() =>
             setMotoSeleccionada(null)    // Cierra el modal
@@ -552,7 +552,7 @@ function Motos() {
 
       {motoCotizacion && (
 
-        <MotoCotizacion
+        <CotizacionMoto
           moto={motoCotizacion}
           onClose={() =>
             setMotoCotizacion(null)      // Cierra el modal
