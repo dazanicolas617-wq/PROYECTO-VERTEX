@@ -1,137 +1,235 @@
+/* =====================================================
+   ACCIONESRAPIDAS.CSS — ESTILOS DE ACCESO RÁPIDO PREMIUM
+   Diseño de tarjetas de acción con bordes de luz,
+   efecto glassmorphism y micro-interacciones.
+===================================================== */
+
 .quick-links {
   width: 100%;
-  background: #000;
-  padding: 70px 0;
+  background: #000000;
+  padding: 60px 0 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+.quick-links::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 1px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 80%);
 }
 
 .quick-links-grid {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 0 70px;
+  padding: 0 40px;
   display: grid;
-  gap: 36px;
-}
-
-.quick-links--double .quick-links-grid {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  box-sizing: border-box;
 }
 
 .quick-links--single .quick-links-grid {
-  max-width: 1000px;
   grid-template-columns: 1fr;
+  max-width: 750px;
 }
 
-.quick-link-card {
+.quick-links--double .quick-links-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ── TARJETA PRINCIPAL ────────────────────────────── */
+.tarjeta-accion-rapida {
   position: relative;
-
-  height: 185px;
-
-  background: #1c1c1c;
-
-  border-radius: 12px;
-
-  padding: 35px;
-
+  min-height: 240px;
+  background: linear-gradient(145deg, #131722 0%, #0c0e14 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 32px 36px;
   display: flex;
-  align-items: flex-end;
-
-  color: #fff;
+  flex-direction: column;
+  justify-content: space-between;
   text-decoration: none;
+  color: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
 
+/* Efecto glow de fondo al interactuar */
+.tarjeta-accion-glow {
+  position: absolute;
+  top: -40%;
+  right: -40%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(45, 91, 255, 0.25) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0;
+}
+
+.tarjeta-accion-rapida:hover {
+  transform: translateY(-6px);
+  border-color: rgba(59, 130, 246, 0.45);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.8), 0 0 25px rgba(45, 91, 255, 0.18);
+  background: linear-gradient(145deg, #161c2b 0%, #0d1018 100%);
+}
+
+.tarjeta-accion-rapida:hover .tarjeta-accion-glow {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* ── CABECERA ─────────────────────────────────────── */
+.tarjeta-accion-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tarjeta-accion-icono-caja {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(45, 91, 255, 0.12);
+  border: 1px solid rgba(45, 91, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
   transition: all 0.3s ease;
 }
 
-.quick-link-card:hover {
-  background: #242424;
-  transform: translateY(-5px);
+.tarjeta-accion-rapida:hover .tarjeta-accion-icono-caja {
+  background: #2d5bff;
+  color: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 0 20px rgba(45, 91, 255, 0.5);
+  transform: rotate(-4deg) scale(1.05);
 }
 
-.quick-link-icon {
-  position: absolute;
-
-  top: 35px;
-  left: 35px;
-
-  font-size: 38px;
-
-  opacity: 0.7;
+.tarjeta-accion-etiqueta {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.quick-link-card h3 {
+/* ── CUERPO DE LA TARJETA ─────────────────────────── */
+.tarjeta-accion-cuerpo {
+  margin-bottom: 24px;
+}
+
+.tarjeta-accion-cuerpo h3 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.5px;
+  transition: color 0.3s ease;
+}
+
+.tarjeta-accion-rapida:hover .tarjeta-accion-cuerpo h3 {
+  color: #60a5fa;
+}
+
+.tarjeta-accion-cuerpo p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #94a3b8;
   margin: 0;
+}
 
-  font-size: 27px;
+/* ── PIE CON BOTÓN CIRCULAR ───────────────────────── */
+.tarjeta-accion-pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tarjeta-accion-link-texto {
+  font-size: 14px;
   font-weight: 600;
+  color: #cbd5e1;
+  letter-spacing: 0.2px;
+  transition: color 0.3s ease;
 }
 
-.quick-link-arrow {
-  position: absolute;
-
-  right: 35px;
-  bottom: 25px;
-
-  font-size: 42px;
-  font-weight: 300;
-
-  transition: transform 0.3s ease;
+.tarjeta-accion-rapida:hover .tarjeta-accion-link-texto {
+  color: #ffffff;
 }
 
-.quick-link-card:hover .quick-link-arrow {
-  transform: translateX(8px);
+.tarjeta-accion-flecha-circulo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.tarjeta-accion-rapida:hover .tarjeta-accion-flecha-circulo {
+  background: #2d5bff;
+  border-color: #3b82f6;
+  color: #ffffff;
+  transform: translateX(4px);
+  box-shadow: 0 0 16px rgba(45, 91, 255, 0.4);
+}
 
-/* TABLET */
-
-@media (max-width: 900px) {
-
+/* ── RESPONSIVE ───────────────────────────────────── */
+@media (max-width: 992px) {
   .quick-links-grid {
-    padding: 0 40px;
-  }
-
-  .quick-links--double .quick-links-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 24px;
   }
 
+  .tarjeta-accion-rapida {
+    min-height: 210px;
+    padding: 28px 30px;
+  }
 }
-
-
-/* CELULAR */
 
 @media (max-width: 600px) {
-
   .quick-links {
-    padding: 50px 0;
+    padding: 40px 0 60px;
   }
 
   .quick-links-grid {
-    padding: 0 20px;
-    gap: 20px;
+    padding: 0 16px;
+    gap: 18px;
   }
 
-  .quick-link-card {
-    height: 160px;
-
-    padding: 25px;
+  .tarjeta-accion-rapida {
+    padding: 24px 20px;
+    border-radius: 16px;
   }
 
-  .quick-link-icon {
-    top: 25px;
-    left: 25px;
-
-    font-size: 32px;
-  }
-
-  .quick-link-card h3 {
+  .tarjeta-accion-cuerpo h3 {
     font-size: 22px;
   }
 
-  .quick-link-arrow {
-    right: 25px;
-    bottom: 20px;
-
-    font-size: 35px;
+  .tarjeta-accion-cuerpo p {
+    font-size: 13px;
   }
-
 }

@@ -1,39 +1,40 @@
 /* =====================================================
-   ACCIONESRAPIDAS.JSX — TARJETA DE ACCIÓN RÁPIDA
-   Muestra una tarjeta con acceso directo a la página
-   de "Agendar prueba de manejo".
-   Se usa junto a AccionesRapidasEncuentranos para formar
-   la sección de acciones rápidas en la portada.
+   ACCIONESRAPIDAS.JSX — TARJETA "AGENDAR PRUEBA"
+   Acceso directo y destacado para agendar prueba de manejo.
 ===================================================== */
 
 import { Link } from "react-router-dom";
+import { Calendar, ArrowRight } from "lucide-react";
 import "./AccionesRapidas.css";
 
 function AccionesRapidas() {
   return (
-    /* Sección de enlace rápido — variante de una sola tarjeta */
-    <section className="quick-links quick-links--single">
-      <div className="quick-links-grid">
+    <Link to="/agendar-prueba" className="tarjeta-accion-rapida">
+      {/* Glow de fondo decorativo */}
+      <div className="tarjeta-accion-glow"></div>
 
-        {/* Tarjeta completa como enlace */}
-        <Link to="/agendar-prueba" className="quick-link-card">
-
-          {/* Ícono decorativo (vacío — se estiliza con CSS) */}
-          <div className="quick-link-icon" aria-hidden="true">
-            {/* Icono decorativo */}
-          </div>
-
-          {/* Texto principal de la tarjeta */}
-          <h3>Agendar prueba</h3>
-
-          {/* Flecha decorativa indicando que es un enlace */}
-          <span className="quick-link-arrow" aria-hidden="true">
-            →
-          </span>
-        </Link>
-
+      {/* Cabecera con ícono e insignia */}
+      <div className="tarjeta-accion-cabecera">
+        <div className="tarjeta-accion-icono-caja">
+          <Calendar size={24} className="icono-accion-svg" />
+        </div>
+        <span className="tarjeta-accion-etiqueta">EXPERIENCIA VERTEX</span>
       </div>
-    </section>
+
+      {/* Contenido textual */}
+      <div className="tarjeta-accion-cuerpo">
+        <h3>Agendar prueba</h3>
+        <p>Reserva tu prueba de manejo personalizada y siente la potencia de nuestros modelos.</p>
+      </div>
+
+      {/* Pie con botón de flecha interactivo */}
+      <div className="tarjeta-accion-pie">
+        <span className="tarjeta-accion-link-texto">Reservar ahora</span>
+        <div className="tarjeta-accion-flecha-circulo">
+          <ArrowRight size={20} />
+        </div>
+      </div>
+    </Link>
   );
 }
 

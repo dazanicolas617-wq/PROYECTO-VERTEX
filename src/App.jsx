@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet, useLocation } from "react-router-dom";
 
 // ── COMPONENTES REUTILIZABLES ──────────────────────────
 import BarraNavegacion from "./components/BarraNavegacion";              // Barra de navegación superior
@@ -24,10 +24,45 @@ import Encuentranos from "./pages/encuentranos";
 import "./App.css";
 
 /* =====================================================
+   SECCIÓN DE ACCIONES RÁPIDAS INTELIGENTE
+   - Oculta en: Login, Registro, Recuperar contraseña y Dashboard.
+   - En /encuentranos: Solo muestra "Agendar prueba".
+   - En /agendar-prueba: Solo muestra "Encuéntranos".
+   - En el resto de páginas (Inicio, Motos, Blog, Mi Cuenta): Muestra ambas.
+===================================================== */
+function SeccionAccionesGlobales() {
+  const location = useLocation();
+  const ruta = location.pathname.toLowerCase();
+
+  // Ocultar completamente en pantallas de autenticación y panel admin
+  const ocultarEnAuth =
+    ruta.includes("login") ||
+    ruta.includes("registro") ||
+    ruta.includes("recuperar") ||
+    ruta.includes("dashboard") ||
+    ruta.includes("admin");
+
+  if (ocultarEnAuth) {
+    return null;
+  }
+
+  const esEncuentranos = ruta.includes("encuentranos");
+  const esAgendar = ruta.includes("agendar-prueba");
+
+  return (
+    <section className={`quick-links ${esEncuentranos || esAgendar ? "quick-links--single" : "quick-links--double"}`}>
+      <div className="quick-links-grid">
+        {!esAgendar && <AccionesRapidas />}
+        {!esEncuentranos && <AccionesRapidasEncuentranos />}
+      </div>
+    </section>
+  );
+}
+
+/* =====================================================
    LAYOUT PÚBLICO PERSISTENTE
-   Mantiene la Barra de Navegación y el Pie de Página montados
-   permanentemente. Al navegar, SOLO cambia el contenido interior
-   (Outlet), eliminando todo lag, recarga o parpadeo.
+   Mantiene la Barra de Navegación, los botones de acción rápida
+   y el Pie de Página montados permanentemente.
 ===================================================== */
 function LayoutPublico() {
   return (
@@ -36,6 +71,7 @@ function LayoutPublico() {
       <div className="contenedor-pagina-publica">
         <Outlet />
       </div>
+      <SeccionAccionesGlobales />
       <PieDePagina />
     </>
   );
@@ -50,13 +86,6 @@ function Inicio() {
       <Portada />
       <CarruselMotos />
       <CarruselNoticias />
-
-      <section className="quick-links quick-links--double">
-        <div className="quick-links-grid">
-          <AccionesRapidas />
-          <AccionesRapidasEncuentranos />
-        </div>
-      </section>
     </main>
   );
 }
