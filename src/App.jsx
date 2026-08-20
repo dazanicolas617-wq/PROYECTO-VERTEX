@@ -66,11 +66,7 @@ function Home() {
         {/* Contenedor que alinea las dos tarjetas en fila */}
         <section className="quick-links quick-links--double">
           <div className="quick-links-grid">
-<<<<<<< Updated upstream
-
             {/* Tarjeta: Agendar prueba de manejo */}
-=======
->>>>>>> Stashed changes
             <QuickActions />
 
             {/* Tarjeta: Encuéntranos / Puntos de venta */}
